@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="orion-fav.jpg" type="image/x-icon">
+    <!--=============== BOXICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Orion Music</title>
+
+</head>
+<body>
+    <!--=============== HEADER ===============-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <img src="orion-logo.png" alt="" width="150px" height="30px"><span class="tv">Tunes</span>
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link active-link">
+                            <i class='bx bx-home-alt nav__icon'></i>
+                            <span class="nav__name">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="music.html" class="nav__link">
+                            <i class='bx bx-music nav__icon'></i>
+                            <span class="nav__name">Music</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="artists.html" class="nav__link">
+                            <i class='bx bx-user nav__icon'></i>
+                            <span class="nav__name">Artists</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="videos.html" class="nav__link">
+                            <i class='bx bx-video nav__icon'></i>
+                            <span class="nav__name">Videos</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="news.html" class="nav__link">
+                            <i class='bx bx-news nav__icon'></i>
+                            <span class="nav__name">Blog</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <i class="bx bx-search nav__search-icon"></i>
+        </nav>
+    </header>
+
+    <div class="overlay" id="overlay">
+        <div class="overlay__content">
+            <div class="overlay__input-wrapper">
+                <input type="text" class="overlay__input" id="search-input" placeholder="Search...">
+                <i class="bx bx-search nav__search-icon-i"></i>
+            </div>
+            <div class="rell">
+                <div class="autocomplete-list" id="autocomplete-list"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <main> <!--=============== HOME ===============-->
+        <section class="container section section__height" id="home">
+            <div class="filter">
+                <span class="filter-item active" data-filter="all">All</span>
+                <span class="filter-item" data-filter="artists">
+                    <i class='bx bx-user filter-icon'></i><k class="k">Artists</k>
+                </span>
+                <span class="filter-item" data-filter="music">
+                    <i class='bx bx-music filter-icon'></i><k class="k">Music</k>
+                </span>
+                <span class="filter-item" data-filter="videos">
+                    <i class='bx bx-video filter-icon'></i><k class="k">Vidoes</k>
+                </span>
+                <span class="filter-item" data-filter="albums">
+                    <i class='bx bx-album filter-icon'></i><k class="k">Albums</k>
+                </span>
+            </div>
+            <div class="filter-results">
+                <div class="filter-content all-filter active">
+                    <!-- All content here -->
+                    <div class="item section-music">
+                        <h2 class="section__title">
+                            Artists
+                        </h2>
+
+
+                        <section class="cards">
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Davido.jpeg" alt="Davido">
+                                </div>
+                                <div class="j">
+                                    <div class="name" >
+                                        <h3>Davido</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Wizkid.jpeg" alt="Wizkid">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Wizkid</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Burna Boy ♡ in 2022 _ New music, Boys, African.jpeg" alt="Song 2">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Burna Boy</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Buju ♡.jpeg" alt="BNXN">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>BNXN</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Shallipopi’s Swift Rise_ Taking the Music Industry Internet by Storm.jpeg" alt="Shallipopi">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Shallipopi</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Nigeria Dumebi singer Rema history and biography.jpeg" alt="Rema">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Rema</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Zerry dl.jpeg" alt="Zerry dl">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Zerry dl</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Fireboy DML on Twitter.jpeg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Fireboy DML</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+
+
+
+
+
+                        </section>
+                    </div>
+                    <div class="item section-music">
+                        <h2 class="section__title">
+                            Music
+                        </h2>
+                        <section class="cards">
+
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="tv.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="tv.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                
+                
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="tv.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="tv.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="tv.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                
+                
+                
+
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="tv.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                
+                
+
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="tv.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                
+                            
+                
+
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="tv.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <a href="coming.html" class="ad" style="width: 100%; margin-top: 50px;  display: flex; justify-content: center;">
+                                <img src="send/adv.jpg" alt="" width="100%" max-height="130px">
+                            </a>
+                        </section>
+                    </div>
+                    <div class="item section-videos">
+                        <h2 class="section__title">
+                            Videos
+                        </h2>
+                    </div>
+                    <div class="item section-album">
+                        <h2 class="section__title">
+                            Albums
+                        </h2>
+                    </div>
+                </div>
+               
+                <div class="filter-content artists-filter">
+                    <!-- Artists content here -->
+                    <div class="item section-artists">
+                        <h2 class="section__title">
+                            Artists
+                        </h2>
+                        <section class="cards">
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Davido.jpeg" alt="Davido">
+                                </div>
+                                <div class="j">
+                                    <div class="name" >
+                                        <h3>Davido</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Wizkid.jpeg" alt="Wizkid">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Wizkid</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Burna Boy ♡ in 2022 _ New music, Boys, African.jpeg" alt="Song 2">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Burna Boy</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Buju ♡.jpeg" alt="BNXN">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>BNXN</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Shallipopi’s Swift Rise_ Taking the Music Industry Internet by Storm.jpeg" alt="Shallipopi">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Shallipopi</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Nigeria Dumebi singer Rema history and biography.jpeg" alt="Rema">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Rema</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Zerry dl.jpeg" alt="Zerry dl">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Zerry dl</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Fireboy DML on Twitter.jpeg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Fireboy DML</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Timaya – My Moto Lyrics.jpeg" alt="Timaya">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Timaya</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/download (7).jpeg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Vict0ny</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Zlatan Ibile Signes New Endorsement Deal With Lotto 9ja.jpeg" alt="Zlatan">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Zlatan</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Big Zeee _____.jpeg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Zinoleesky</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Tekno, As A Father, You Are So Wrong For THIS!.jpeg" alt="Tekno">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Tekno</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Tems (1).jpeg" alt="Tems">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Tems</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="./imgs/Tiwa Savage on Instagram_ _Lost files 🥰….jpeg" alt="Tiwa">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Tiwa Savage</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="Asake">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3>Asake</h3>
+                                        <p>Afrobeat</p>
+                                    </div>
+                                
+                                    <div class="i">
+                                        <a href="#">
+                                            <i class='bx bx-chevron-right g'></i>
+                                        </a>
+                                    </div>
+                
+                                </div>
+                            </div>
+
+
+
+
+                        </section>
+                    </div>
+                </div>
+                <div class="filter-content music-filter">
+                    <!-- Music content here -->
+                    <div class="item section-music">
+                        <h2 class="section__title">
+                            Music
+                        </h2>
+                        <section class="cards">
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Do What I want</h3>
+                                        <p id="rev">Kid Cudi</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                
+                
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Do What I want</h3>
+                                        <p id="rev">Kid Cudi</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                
+                
+                
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Do What I want</h3>
+                                        <p id="rev">Kid Cudi</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                
+                
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Do What I want</h3>
+                                        <p id="rev">Kid Cudi</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                
+                
+                
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Do What I want</h3>
+                                        <p id="rev">Kid Cudi</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                
+                
+                
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Do What I want</h3>
+                                        <p id="rev">Kid Cudi</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                
+                
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Do What I want</h3>
+                                        <p id="rev">Kid Cudi</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                
+                
+                
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Do What I want</h3>
+                                        <p id="rev">Kid Cudi</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                
+                
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Do What I want</h3>
+                                        <p id="rev">Kid Cudi</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                
+                
+                            
+                
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Do What I want</h3>
+                                        <p id="rev">Kid Cudi</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card ign">
+                                <div class="imj">
+                                    <img src="orion-fav.jpg" alt="">
+                                </div>
+                                <div class="j">
+                                    <div class="name">
+                                        <h3 id="dev">Righteous</h3>
+                                        <p id="rev">Juice Wrld</p>
+                                    </div>
+                                    <div class="i">
+                                        <a class="toggle-overlay">
+                                            <i class='bx bx-chevron-down g'></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <a href="coming.html" class="ad" style="width: 100%; margin-top: 50px;  display: flex; justify-content: center;">
+                                <img src="send/adv.jpg" alt="" width="100%" max-height="130px">
+                            </a>
+                        </section>
+                    </div>
+                </div>
+                <div class="filter-content video-filter">
+                    <!-- Videos content here -->
+                    <div class="item section-videos">
+                        <h2 class="section__title">
+                            Videos
+                        </h2>
+                    </div>
+                </div>
+                <div class="filter-content album-filter">
+                    <!-- Albums content here -->
+                    <div class="item section-album">
+                        <h2 class="section__title">
+                            Album
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+
+
+
+
+    <!--=============== MAIN JS ===============-->
+
+    <script src="assets/js/src.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
