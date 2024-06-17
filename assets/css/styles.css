@@ -602,12 +602,20 @@ justify-content: center;
   font-size: 2rem;
   margin-bottom: 10px;
 }
-
+.logog{
+  position: absolute;
+  z-index: 1000px;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+}
 .slide-overlay button {
+  width: 140px;
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--text-color);
   color: #000;
   border: none;
   border-radius: 20px;
@@ -616,8 +624,8 @@ justify-content: center;
 }
 
 .slide-overlay button:hover {
-  background-color: #fff;
-  color: #000;
+  background-color: var(--body-color);
+  color: #cdcdcd;
 }
 
 .swiper-pagination-bullet {
