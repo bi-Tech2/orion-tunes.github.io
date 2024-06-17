@@ -7,6 +7,7 @@
     <!--=============== BOXICONS ===============-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Orion Music</title>
 
@@ -70,20 +71,69 @@
 
 
     <main> <!--=============== HOME ===============-->
+  <section class="content">
+    <div class="slider-container">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="w1.jpg" alt="Midnight Moods">
+            <div class="slide-overlay">
+              <h2>Midnight Moods</h2>
+              <button>Listen Now <i class="fa-solid fa-circle-play"></i></button>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="2w.jpg" alt="Party Starters">
+            <div class="slide-overlay">
+              <h2>Party Starters</h2>
+              <button>Listen Now <i class="fa-solid fa-circle-play"></i></button>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="3w.jpg" alt="Relaxing Tones">
+            <div class="slide-overlay">
+              <h2>Relaxing Tones</h2>
+              <button>Listen Now <i class="fa-solid fa-circle-play"></i></button>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="4w.jpg" alt="Smooth Jazz Journey">
+            <div class="slide-overlay">
+              <h2>Smooth Jazz Journey</h2>
+              <button>Listen Now <i class="fa-solid fa-circle-play"></i></button>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="5w.jpg" alt="Uplifting Rhythms">
+            <div class="slide-overlay">
+              <h2>Uplifting Rhythms</h2>
+              <button>Listen Now <i class="fa-solid fa-circle-play"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <section class="container section section__height" id="home">
             <div class="filter">
                 <span class="filter-item active" data-filter="all">All</span>
                 <span class="filter-item" data-filter="artists">
-                    <i class='bx bx-user filter-icon'></i><k class="k">Artists</k>
+                    <i class='bx bx-user filter-icon'></i>
+                    <k class="k">Artists</k>
                 </span>
                 <span class="filter-item" data-filter="music">
-                    <i class='bx bx-music filter-icon'></i><k class="k">Music</k>
+                    <i class='bx bx-music filter-icon'></i>
+                    <k class="k">Music</k>
                 </span>
                 <span class="filter-item" data-filter="videos">
-                    <i class='bx bx-video filter-icon'></i><k class="k">Vidoes</k>
+                    <i class='bx bx-video filter-icon'></i>
+                    <k class="k">Vidoes</k>
                 </span>
                 <span class="filter-item" data-filter="albums">
-                    <i class='bx bx-album filter-icon'></i><k class="k">Albums</k>
+                    <i class='bx bx-album filter-icon'></i>
+                    <k class="k">Albums</k>
                 </span>
             </div>
             <div class="filter-results">
@@ -93,25 +143,25 @@
                         <h2 class="section__title">
                             Artists
                         </h2>
-
-
+    
+    
                         <section class="cards">
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="./imgs/Davido.jpeg" alt="Davido">
                                 </div>
                                 <div class="j">
-                                    <div class="name" >
+                                    <div class="name">
                                         <h3>Davido</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -123,13 +173,13 @@
                                         <h3>Wizkid</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -141,13 +191,13 @@
                                         <h3>Burna Boy</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -159,31 +209,32 @@
                                         <h3>BNXN</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
                                 <div class="imj">
-                                    <img src="./imgs/Shallipopi’s Swift Rise_ Taking the Music Industry Internet by Storm.jpeg" alt="Shallipopi">
+                                    <img src="./imgs/Shallipopi’s Swift Rise_ Taking the Music Industry Internet by Storm.jpeg"
+                                        alt="Shallipopi">
                                 </div>
                                 <div class="j">
                                     <div class="name">
                                         <h3>Shallipopi</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -195,13 +246,13 @@
                                         <h3>Rema</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -213,13 +264,13 @@
                                         <h3>Zerry dl</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -231,20 +282,20 @@
                                         <h3>Fireboy DML</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
-
-
-
-
-
+    
+    
+    
+    
+    
                         </section>
                     </div>
                     <div class="item section-music">
@@ -252,9 +303,9 @@
                             Music
                         </h2>
                         <section class="cards">
-
-
-
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="tv.jpg" alt="">
@@ -269,10 +320,10 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="tv.jpg" alt="">
@@ -287,12 +338,12 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
-                
-                
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="tv.jpg" alt="">
@@ -307,10 +358,10 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="tv.jpg" alt="">
@@ -325,11 +376,11 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-
-
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="tv.jpg" alt="">
@@ -344,16 +395,16 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
-                
-                
-                
-
-
-
+    
+    
+    
+    
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="tv.jpg" alt="">
@@ -368,15 +419,15 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
-                
-                
-
-
-
+    
+    
+    
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="tv.jpg" alt="">
@@ -391,16 +442,16 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
-                
-                            
-                
-
-
-
+    
+    
+    
+    
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="tv.jpg" alt="">
@@ -415,10 +466,11 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                            <a href="coming.html" class="ad" style="width: 100%; margin-top: 50px;  display: flex; justify-content: center;">
+                            <a href="coming.html" class="ad"
+                                style="width: 100%; margin-top: 50px;  display: flex; justify-content: center;">
                                 <img src="send/adv.jpg" alt="" width="100%" max-height="130px">
                             </a>
                         </section>
@@ -434,7 +486,7 @@
                         </h2>
                     </div>
                 </div>
-               
+    
                 <div class="filter-content artists-filter">
                     <!-- Artists content here -->
                     <div class="item section-artists">
@@ -447,17 +499,17 @@
                                     <img src="./imgs/Davido.jpeg" alt="Davido">
                                 </div>
                                 <div class="j">
-                                    <div class="name" >
+                                    <div class="name">
                                         <h3>Davido</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -469,13 +521,13 @@
                                         <h3>Wizkid</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -487,13 +539,13 @@
                                         <h3>Burna Boy</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -505,31 +557,32 @@
                                         <h3>BNXN</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
                                 <div class="imj">
-                                    <img src="./imgs/Shallipopi’s Swift Rise_ Taking the Music Industry Internet by Storm.jpeg" alt="Shallipopi">
+                                    <img src="./imgs/Shallipopi’s Swift Rise_ Taking the Music Industry Internet by Storm.jpeg"
+                                        alt="Shallipopi">
                                 </div>
                                 <div class="j">
                                     <div class="name">
                                         <h3>Shallipopi</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -541,13 +594,13 @@
                                         <h3>Rema</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -559,13 +612,13 @@
                                         <h3>Zerry dl</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -577,13 +630,13 @@
                                         <h3>Fireboy DML</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -595,13 +648,13 @@
                                         <h3>Timaya</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -613,31 +666,32 @@
                                         <h3>Vict0ny</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
                                 <div class="imj">
-                                    <img src="./imgs/Zlatan Ibile Signes New Endorsement Deal With Lotto 9ja.jpeg" alt="Zlatan">
+                                    <img src="./imgs/Zlatan Ibile Signes New Endorsement Deal With Lotto 9ja.jpeg"
+                                        alt="Zlatan">
                                 </div>
                                 <div class="j">
                                     <div class="name">
                                         <h3>Zlatan</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -649,13 +703,13 @@
                                         <h3>Zinoleesky</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -667,13 +721,13 @@
                                         <h3>Tekno</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -685,13 +739,13 @@
                                         <h3>Tems</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -703,13 +757,13 @@
                                         <h3>Tiwa Savage</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
                             <div class="card ign">
@@ -721,19 +775,19 @@
                                         <h3>Asake</h3>
                                         <p>Afrobeat</p>
                                     </div>
-                                
+    
                                     <div class="i">
                                         <a href="#">
                                             <i class='bx bx-chevron-right g'></i>
                                         </a>
                                     </div>
-                
+    
                                 </div>
                             </div>
-
-
-
-
+    
+    
+    
+    
                         </section>
                     </div>
                 </div>
@@ -758,11 +812,11 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-
-
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -777,12 +831,12 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
-                
-                
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -797,11 +851,11 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-
-
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -816,13 +870,13 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
-                
-                
-                
+    
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -837,11 +891,11 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-
-
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -856,12 +910,12 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
-                
-                
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -876,11 +930,11 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-
-
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -895,13 +949,13 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
-                
-                
-                
+    
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -916,11 +970,11 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-
-
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -935,13 +989,13 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
-                
-                
-                
+    
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -956,11 +1010,11 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-
-
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -975,12 +1029,12 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
-                
-                
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -995,11 +1049,11 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-
-
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -1014,13 +1068,13 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
-                
-                
-                
+    
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -1035,11 +1089,11 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-
-
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -1054,12 +1108,12 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
-                
-                
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -1074,11 +1128,11 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-
-
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -1093,13 +1147,13 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                
-                
-                            
-                
+    
+    
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -1114,11 +1168,11 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-
-
+    
+    
                             <div class="card ign">
                                 <div class="imj">
                                     <img src="orion-fav.jpg" alt="">
@@ -1133,10 +1187,11 @@
                                             <i class='bx bx-chevron-down g'></i>
                                         </a>
                                     </div>
-
+    
                                 </div>
                             </div>
-                            <a href="coming.html" class="ad" style="width: 100%; margin-top: 50px;  display: flex; justify-content: center;">
+                            <a href="coming.html" class="ad"
+                                style="width: 100%; margin-top: 50px;  display: flex; justify-content: center;">
                                 <img src="send/adv.jpg" alt="" width="100%" max-height="130px">
                             </a>
                         </section>
@@ -1160,7 +1215,7 @@
                 </div>
             </div>
         </section>
-        
+    
     </main>
 
 
@@ -1168,7 +1223,7 @@
 
 
     <!--=============== MAIN JS ===============-->
-
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="assets/js/src.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
