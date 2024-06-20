@@ -403,6 +403,9 @@ a {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 }
+.item{
+  margin-top: 40px;
+}
 .i {
 
   align-content: center;
@@ -584,7 +587,23 @@ a {
 .g:active {
   transform: scale(0.95);
 }
+@media (max-width: 768px) {
+  .gradient-button {
+    padding: 10px 20px; /* Reduce padding */
+    font-size: 14px; /* Reduce font size */
+    border-radius: 25px; /* Adjust border radius */
+  }
+}
 
+@media (max-width: 480px) {
+  .gradient-button {
+    margin-top: -14px;
+    margin-bottom: 10px;
+    padding: 8px 15px; /* Further reduce padding */
+    font-size: 12px; /* Further reduce font size */
+    border-radius: 20px; /* Adjust border radius for smaller screens */
+  }
+}
 .h{
   width: 100%;
   padding: 10px 10px 40px 10px;
@@ -629,10 +648,7 @@ a {
   position: relative;
   min-width: 100px; /* Minimum width to ensure images are always visible */
 }
-.thead{
-  position: sticky;
-  top: 0;
-}
+
 .image-link .lol {
   width: 120px; /* Made smaller */
   height: 120px; /* Made smaller */
@@ -715,7 +731,7 @@ a {
 }
 thead{
   position: sticky;
-  top: -3px;
+  top: -20px;
   background-color: var(--color);
 }
 
