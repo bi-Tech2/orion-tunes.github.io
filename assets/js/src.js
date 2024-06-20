@@ -117,3 +117,78 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+let currentAudio = null;
+
+function togglePlayPause(button) {
+    const audio = button.nextElementSibling;
+    const icon = button.querySelector('i');
+
+    // Pause the currently playing audio
+    if (currentAudio && currentAudio !== audio) {
+        currentAudio.pause();
+        const currentButton = currentAudio.previousElementSibling;
+        const currentIcon = currentButton.querySelector('i');
+        currentIcon.classList.remove('bx-pause');
+        currentIcon.classList.add('bx-play');
+    }
+
+    // Toggle play/pause
+    if (audio.paused) {
+        audio.play();
+        icon.classList.remove('bx-play');
+        icon.classList.add('bx-pause');
+        currentAudio = audio;
+    } else {
+        audio.pause();
+        icon.classList.remove('bx-pause');
+        icon.classList.add('bx-play');
+        currentAudio = null;
+    }
+}
+
+function notifyDownload(button) {
+    const notification = document.getElementById('notification');
+    notification.innerText = 'Download Pending...';
+    notification.style.backgroundColor = 'yellow';
+    notification.style.display = 'block';
+
+    setTimeout(() => {
+        // Simulate download status update
+        notification.innerText = 'Downloading...';
+        notification.style.backgroundColor = 'green';
+
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 2000);
+    }, 1000);
+}
+
+
+
+
+// Function to add bottom padding to last visible element
+function addBottomPadding() {
+    const container = document.querySelector('.music-table-container');
+    const table = document.querySelector('.music-table');
+    const items = table.querySelectorAll('tbody tr');
+    
+    // Calculate the total height of all items
+    let totalHeight = 0;
+    items.forEach(item => {
+        totalHeight += item.offsetHeight;
+    });
+
+    // Check if content height exceeds container height
+    if (totalHeight > container.clientHeight) {
+        // Add padding to the bottom of the table to make the last item fully visible
+        table.style.paddingBottom = `${container.clientHeight - totalHeight + items[items.length - 1].offsetHeight}px`;
+    } else {
+        // Reset padding if all items fit within container
+        table.style.paddingBottom = '0';
+    }
+}
+
+// Call the function when the window is resized or content changes
+window.addEventListener('resize', addBottomPadding);
+document.addEventListener('DOMContentLoaded', addBottomPadding);

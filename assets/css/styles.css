@@ -354,7 +354,7 @@ a {
 
 .filter-content {
   display: none;
-  padding: 20px;
+  padding: 0;
 }
 
 .filter-content.active {
@@ -373,8 +373,8 @@ a {
 
 .cards {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
+  overflow: auto;
   margin-top: 50px;
   padding-bottom: 40px;
 }
@@ -587,10 +587,10 @@ a {
 
 .h{
   width: 100%;
-  padding: 50px;
+  padding: 10px 10px 40px 10px;
 }
 .he{
-  margin-left: 20px;
+  margin-left: 50px;
   margin-bottom: -20px;
 }
 .tert{
@@ -620,6 +620,7 @@ a {
   text-align: center;
   text-decoration: none;
   align-items: center;
+  justify-content: center;
   text-align: center;
   color: #ccc;
   scroll-snap-align: center;
@@ -628,7 +629,10 @@ a {
   position: relative;
   min-width: 100px; /* Minimum width to ensure images are always visible */
 }
-
+.thead{
+  position: sticky;
+  top: 0;
+}
 .image-link .lol {
   width: 120px; /* Made smaller */
   height: 120px; /* Made smaller */
@@ -637,7 +641,7 @@ a {
   transition: transform 0.3s ease-in-out;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border: 5px solid transparent;
-  animation: heartbeat 3s infinite; /* Slowed down */
+  animation: heartbeat 8s infinite; /* Slowed down */
 }
 
 .image-link:hover .lol {
@@ -663,7 +667,7 @@ a {
   }
   25% {
       transform: scale(1.03); /* Made smaller */
-      border-color: var(--n-color);
+      border-color: var(--color);
   }
   50% {
       transform: scale(1.06); /* Made smaller */
@@ -677,7 +681,7 @@ a {
 
 @media (max-width: 768px) {
   .he{
-    margin-bottom: -20px;
+    margin-left: 20px;
   }
   .image-del{
     margin-bottom: 70px;
@@ -694,12 +698,12 @@ a {
     gap: 0;
   }
   .h{
-    padding: 40px 10px 30px 14px;
+    padding: 40px 0px 10px 0px;
   }
 
   .image-link .lol {
-      width: 80px; /* Made smaller */
-      height: 80px; /* Made smaller */
+      width: 100px; /* Made smaller */
+      height: 100px; /* Made smaller */
   }
 }
 
@@ -709,14 +713,20 @@ a {
   color: var(--text-color);
   margin-bottom: 1rem;
 }
-
+thead{
+  position: sticky;
+  top: -3px;
+  background-color: var(--color);
+}
 
 .pig{
-  margin-top: -130px;
-  margin-bottom: 70px;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 .music-table-container {
-  margin: 20px;
+  max-height: 400px;
+  overflow-y: scroll;
+
   background: linear-gradient(10deg, #062b5c, #062b58, rgb(200, 105, 3),#800080);
   border-radius: 10px;
   padding: 20px;
@@ -768,13 +778,15 @@ a {
 .download-btn:hover {
   color: #ff9800;
 }
-
+.top-music{
+  padding: 0px 50px;
+}
 .notification {
   position: fixed;
   top: 10px;
   right: 10px;
-  background-color: yellow;
-  color: #ffffff;
+  background: linear-gradient(50deg, #006eff, rgb(255, 174, 0),#800080);
+  color: #ffe2ff;
   padding: 10px;
   border-radius: 5px;
   display: none;
@@ -783,12 +795,17 @@ a {
 
 /* Responsive design */
 @media (max-width: 880px) {
+  .top-music{
+    padding: 20px;
+  }
   .pig{
     margin-top: 50px;
     margin-bottom: 150px;
   }
+
   .music-table-container {
       overflow-x: auto;
+      padding: 0;
   }
 
   .music-table-container::-webkit-scrollbar {
@@ -802,8 +819,11 @@ a {
 }
 
 @media (max-width: 768px) {
+  .top-music{
+    padding: 10px;
+  }
   .music-table-container {
-      padding: 20px;
+      padding: 0;
   }
 
   .music-table th, .music-table td {
@@ -821,11 +841,11 @@ a {
 
 @media (max-width: 480px) {
   .music-table-container {
-      padding: 10px;
+      padding: 0;
   }
 
   .music-table th, .music-table td {
-      padding: 5px 8px;
+      padding: 14px;
   }
 
   .play-pause-btn {
@@ -837,6 +857,59 @@ a {
   }
 }
 
+.videos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.video-item {
+  flex: 1 1 calc(25% - 20px); /* For laptop view */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.video-item iframe {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.video-info {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.song-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.artist, .year, .album {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 2px 0;
+}
+
+@media (max-width: 1200px) {
+  .video-item {
+      flex: 1 1 calc(33.333% - 20px); /* For tablet view */
+  }
+}
+
+@media (max-width: 768px) {
+  .video-item {
+      flex: 1 1 100%; /* For mobile view */
+  }
+  
+  .video-item iframe {
+      height: 315px;
+  }
+}
 
 
 
@@ -1014,3 +1087,4 @@ a {
     font-size: 0.8rem;
   }
 }
+
