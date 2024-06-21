@@ -192,3 +192,34 @@ function addBottomPadding() {
 // Call the function when the window is resized or content changes
 window.addEventListener('resize', addBottomPadding);
 document.addEventListener('DOMContentLoaded', addBottomPadding);
+
+
+
+
+// $(document).ready(function(){
+//   $('.music-slider').slick({
+//     slidesToShow: 3,
+//     slidesToScroll: 1,
+//     autoplay: true,
+//     autoplaySpeed: 2000,
+//     arrows: true,
+//     prevArrow: '<button type="button" class="slick-prev">&#8592;</button>',
+//     nextArrow: '<button type="button" class="slick-next">&#8594;</button>',
+//     responsive: [
+//       {
+//         breakpoint: 1024,
+//         settings: {
+//           slidesToShow: 2,
+//           slidesToScroll: 1,
+//         }
+//       },
+//       {
+//         breakpoint: 600,
+//         settings: {
+//           slidesToShow: 1,
+//           slidesToScroll: 1,
+//         }
+//       }
+//     ]
+//   });
+// });

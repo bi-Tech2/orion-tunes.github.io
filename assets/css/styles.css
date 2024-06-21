@@ -578,6 +578,7 @@ a {
 }
 
 .gradient-button:hover,
+.btn:hover,
 .g:hover {
   background-position: right center;
   transform: scale(1.05);
@@ -1065,6 +1066,11 @@ thead{
 /* End basic CSS override */
 
 /* Common styles for all screen sizes */
+.profiles{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
 .profile {
 	display: flex;
 	align-items: center;
@@ -1098,14 +1104,13 @@ thead{
 		border-radius: 14px; /* Slightly reduced border radius */
 		background-image: linear-gradient(
 			135deg,
-			#752e7c,
-			#734a58 20%,
-			#1b2028 30%,
-			#2c333e 100%
+			#39143c,
+			#0e3d7a 20%,
+			rgb(113, 82, 15) 30%,
+		  #5a0c5a 100%
 		);
 	}
 }
-
 .profile-image {
 	border-radius: 50%;
 	overflow: hidden;
@@ -1143,8 +1148,11 @@ thead{
 
 .btn {
 	border: 0;
-	background-color: red;
-	padding: 0;
+	background: linear-gradient(50deg, #006eff, rgb(255, 174, 0),#800080);;
+	padding: 20px 35px;
+  color: #fff;
+  font-size: 1.1rem;
+  border-radius: 20px;
 	height: 20px; /* Slightly reduced height */
 	display: flex;
 	align-items: center;
@@ -1181,7 +1189,9 @@ thead{
 		}
 	}
 }
-
+.art-career{
+  color: #8d8d8d;
+}
 
 .link {
 	text-decoration: none;
@@ -1214,6 +1224,92 @@ thead{
 		margin: 1rem 0; /* Adjusted margin for single card */
 	}
 }
+
+
+/* Styles for music slider */
+.card-slider {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 20px;
+  margin-top: -20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.card-item {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  min-width: 250px;
+  transition: transform 0.3s ease;
+}
+
+.card {
+  height: 300px;
+  width: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+
+.card-header {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between; /* Distribute items evenly */
+  align-items: center; /* Center items vertically */
+}
+
+
+.card-song {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.card-artist {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.card-album {
+  font-size: 14px;
+}
+
+.play-button {
+  background: linear-gradient(50deg, #006eff, rgb(255, 174, 0),#800080);;
+  color: #f8f8f8;
+  border: none;
+  font-size: 1.23rem;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.play-button:hover {
+  transform: scale(1.1);
+}
+
+
+
+
 
 
 
