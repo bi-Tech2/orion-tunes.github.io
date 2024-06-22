@@ -762,14 +762,16 @@ a {
 .ag-courses-item_title {
   margin: 0 0 10px;
   font-weight: bold;
-  text-wrap: wrap;
   font-size: 20px;
   line-height: 2;
   letter-spacing: 1.2;
-  color: #FFF;
+  color: #ebebeb;
   position: relative;
   z-index: 2;
+  white-space: normal; /* Ensures text wraps normally */
+  word-break: break-word; /* Breaks long words if necessary */
 }
+
 
 .ag-courses-item_artist,
 .ag-courses-item_album {
@@ -785,7 +787,7 @@ a {
   color: #ccc;
   position: relative;
   z-index: 2;
-  margin-top: auto; /* Push date box to the bottom */
+  margin-bottom: auto; /* Push date box to the bottom */
 }
 
 .ag-courses-item_date {
