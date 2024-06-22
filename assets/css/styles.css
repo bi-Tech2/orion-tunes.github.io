@@ -884,7 +884,7 @@ thead{
 .music-table {
   width: 100%;
   border-collapse: collapse;
-  color: #fff;
+  color: #939393;
   min-width: 600px;
 }
 
@@ -910,7 +910,7 @@ thead{
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
-  color: #fff;
+  color: #ccc;
 }
 
 .play-pause-btn:hover {
@@ -918,7 +918,7 @@ thead{
 }
 
 .download-btn {
-  color: #fff;
+  color: #ccc;
   font-size: 1.5rem;
   cursor: pointer;
 }
