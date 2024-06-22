@@ -39,6 +39,7 @@
   /*========== z index ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
+  --z-file: 1000;
 }
 
 
@@ -122,7 +123,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: var(--z-fixed);
+  z-index: 70;
   transition: .4s;
 }
 
@@ -1357,7 +1358,7 @@ thead{
   max-width: 250px;
   justify-content: center;
   text-align: right;
-  color: #c7c7c7;
+  color: #818181;
 }
 
 .popup-text a {
@@ -1436,7 +1437,93 @@ thead{
   }
 }
 
+/* Styles for the loading screen */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right bottom, #000000f4, #000);
+  z-index: 9999;  /* Ensure it is above all other elements */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s;  /* Transition for fading out */
+}
 
+/* Keyframes for text animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Hide content initially */
+#content {
+  display: none;
+}
+
+.animation {
+  height: 95px;
+  display: flex;
+  transform: rotate(180deg);
+}
+
+.animation span {
+  width: 38px;
+  margin: 0 2px;
+  border-radius: 6px;
+  animation: loader 2s infinite;
+}
+
+@keyframes loader {
+  0%,
+  100% {
+    height: 15px;
+    background: var(--n-color);
+  }
+
+  25% {
+    height: 95px;
+    background: var(--primary-color-light-u);
+  }
+
+  50% {
+    height: 50px;
+    background: var(--primary-color);
+  }
+
+  75% {
+    height: 95px;
+    background: var(--sidebar-color);
+  }
+}
+
+.animation span:nth-child(1) {
+  animation-delay: .2s;
+}
+
+.animation span:nth-child(2) {
+  animation-delay: .4s;
+}
+
+.animation span:nth-child(3) {
+  animation-delay: .6s;
+}
+
+.animation span:nth-child(4) {
+  animation-delay: .8s;
+}
+
+.animation span:nth-child(5) {
+  animation-delay: 1s;
+}
 
 
 
