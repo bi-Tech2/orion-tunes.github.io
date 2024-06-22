@@ -869,7 +869,7 @@ thead{
   margin-bottom: 50px;
 }
 .music-table-container {
-  max-height: 400px;
+  max-height: 450px;
   overflow-y: scroll;
 
   background: var(--body-color);
@@ -1069,6 +1069,7 @@ thead{
 .profiles{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   padding: 20px;
 }
 .profile {
@@ -1081,16 +1082,16 @@ thead{
 	background-color: #1b2028;
 	border-radius: 14px; /* Slightly reduced border radius */
 	position: relative;
-	border: 3px solid transparent;
+	border: .3px solid transparent;
 	background-clip: padding-box;
 	text-align: center;
 	color: #f1f3f3;
 	background-image: linear-gradient(
 		135deg,
-		rgba(117, 46, 124, 0.35),
-		rgba(115, 74, 88, 0.1) 15%,
-		#1b2028 20%,
-		#1b2028 100%
+		rgba(37, 15, 39, 0.35),
+		rgba(40, 31, 34, 0.1) 15%,
+		#0c0e10 20%,
+		#15181c 100%
 	);
 	&:after {
 		content: "";
@@ -1104,10 +1105,10 @@ thead{
 		border-radius: 14px; /* Slightly reduced border radius */
 		background-image: linear-gradient(
 			135deg,
-			#39143c,
-			#0e3d7a 20%,
-			rgb(113, 82, 15) 30%,
-		  #5a0c5a 100%
+			var(--color),
+			var(--primary-color-light-u) 20%,
+			rgb(6, 6, 25) 30%,
+		  var(--color) 100%
 		);
 	}
 }
@@ -1148,12 +1149,12 @@ thead{
 
 .btn {
 	border: 0;
-	background: linear-gradient(50deg, #006eff, rgb(255, 174, 0),#800080);;
+	background: #0e1726; /* Updated background color */
 	padding: 20px 35px;
-  color: #fff;
-  font-size: 1.1rem;
-  border-radius: 20px;
-	height: 20px; /* Slightly reduced height */
+	color: #dcdcdc;
+	font-size: 1.1rem;
+	border-radius: 20px;
+	height: 18px; /* Adjusted height */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1163,10 +1164,10 @@ thead{
 
 	&--primary {
 		border-radius: 99em;
-		background-color: #3772ff;
-		background-image: linear-gradient(135deg, #5587ff, #3772ff);
+		background-color: #4a90e2; /* Updated background color */
+		background-image: linear-gradient(135deg, #4a90e2, #3570cc);
 		color: #fff;
-		padding: 0 1em; /* Adjusted padding */
+		padding: 0 1em;
 		&:hover,
 		&:focus {
 			background-size: 150%;
@@ -1174,13 +1175,13 @@ thead{
 	}
 
 	&--icon {
-		height: 40px; /* Slightly reduced height */
-		width: 40px; /* Slightly reduced width */
+		height: 36px; /* Adjusted height */
+		width: 36px; /* Adjusted width */
 		border-radius: 50%;
-		border: 3px solid #343945;
+		border: 3px solid #2d3441; /* Updated border color */
 		color: #7d8396;
 		i {
-			font-size: 1.125em; /* Slightly reduced font size */
+			font-size: 1.1em; /* Adjusted font size */
 		}
 
 		&:hover,
@@ -1189,6 +1190,8 @@ thead{
 		}
 	}
 }
+
+
 .art-career{
   color: #8d8d8d;
 }
@@ -1308,7 +1311,130 @@ thead{
 }
 
 
+.popup-overlay {
+  position: fixed;
+  padding: 30px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.949);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 7s linear ease-in-out;
+}
 
+.popup-overlay.show {
+  display: flex;
+  opacity: 1;
+}
+
+.popup-card {
+  border-radius: 20px;
+  background: rgba(14, 14, 14, 0.929);
+  width: 750px;
+  max-width: 90%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.popup-card img {
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.popup-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 250px;
+  justify-content: center;
+  text-align: right;
+  color: #c7c7c7;
+}
+
+.popup-text a {
+  background: linear-gradient(50deg, #006eff, rgb(255, 174, 0), #800080);
+  -webkit-background-clip: text; /* For WebKit-based browsers */
+  -webkit-text-fill-color: transparent; /* For WebKit-based browsers */
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
+}
+
+.close-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #eee;
+  font-size: 24px;
+  background: #090909;
+}
+
+.close-icon:hover {
+  background-color: #0e0e0e;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.fool {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  gap: 2.5rem;
+  padding-right: 50px;
+  justify-content: space-between;
+}
+
+.logologo {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.p {
+  background: linear-gradient(50deg, #006eff, rgb(255, 174, 0), #800080);
+  -webkit-background-clip: text; /* For WebKit-based browsers */
+  -webkit-text-fill-color: transparent; /* For WebKit-based browsers */
+  background-clip: text;
+  color: transparent;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 650px) {
+  .fool {
+    flex-direction: column;
+    padding-right: 0;
+    gap: 1rem;
+    justify-content: center;
+    padding-bottom: 30px;
+    align-items: center; /* Center items horizontally */
+  }
+
+  .popup-card {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .popup-text {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
 
 

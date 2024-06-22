@@ -223,3 +223,26 @@ document.addEventListener('DOMContentLoaded', addBottomPadding);
 //     ]
 //   });
 // });
+document.addEventListener('DOMContentLoaded', function() {
+    // Clear the popupClosed flag when the page is loaded
+    localStorage.removeItem('popupClosed');
+});
+
+document.addEventListener('scroll', function() {
+    var target = document.getElementById('open');
+    var targetPosition = target.getBoundingClientRect().top;
+    var screenPosition = window.innerHeight;
+
+    if (targetPosition < screenPosition && !localStorage.getItem('popupClosed')) {
+        var popupOverlay = document.getElementById('popupOverlay');
+        popupOverlay.classList.add('show');
+        document.body.classList.add('no-scroll');
+    }
+});
+
+document.getElementById('closePopup').addEventListener('click', function() {
+    var popupOverlay = document.getElementById('popupOverlay');
+    popupOverlay.classList.remove('show');
+    document.body.classList.remove('no-scroll');
+    localStorage.setItem('popupClosed', 'true');
+});
