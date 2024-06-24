@@ -1,12 +1,3 @@
-/* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-body{
-  padding: 0;
-  margin: 0;
-}
-.wrapper::selection{
-    user-select: none;
-}
 .wrapper {
   padding: 0;
   position: relative;
@@ -14,9 +5,9 @@ body{
   max-width: 100%;
   background: var(--body-color);
   border-radius: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 20px 10px;
 }
+
 .wrapper .icon {
   position: absolute;
   top: 0;
@@ -25,16 +16,19 @@ body{
   display: flex;
   align-items: center;
 }
+
 .icon:first-child {
   left: 0;
   display: none;
   background: linear-gradient(90deg, #333333 70%, transparent);
 }
+
 .icon:last-child {
   right: 0;
   justify-content: flex-end;
   background: linear-gradient(-90deg, #333333 70%, transparent);
 }
+
 .icon i {
   width: 30px;
   height: 30px;
@@ -44,15 +38,19 @@ body{
   line-height: 30px;
   border-radius: 50%;
 }
+
 .icon i:hover {
   background: #333333;
 }
+
 .icon:first-child i {
   margin-left: 15px;
-} 
+}
+
 .icon:last-child i {
   margin-right: 15px;
-} 
+}
+
 .wrapper .tabs-box {
   display: flex;
   gap: 7px;
@@ -60,33 +58,147 @@ body{
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
+
 .tabs-box.dragging {
   scroll-behavior: auto;
   cursor: grab;
 }
+
 .tabs-box .tab {
   cursor: pointer;
   font-size: .7rem;
   white-space: nowrap;
   background: #000000f4;
-  padding: 8px 12px;
+  padding: 10px 14px;
   border-radius: 30px;
   border: 1px solid #020202;
 }
-.tabs-box .tab:hover{
+
+.tabs-box .tab:hover {
   background: #272729;
   box-shadow: 0px 0px 2px rgb(40, 40, 40);
 }
+
 .tabs-box.dragging .tab {
   user-select: none;
   pointer-events: none;
 }
-.tabs-box .tab.active{
+
+.tabs-box .tab.active {
   color: #151515;
-  background: linear-gradient(50deg, #006eff, rgb(255, 174, 0),#800080);
+  background: linear-gradient(50deg, #006eff, rgb(255, 174, 0), #800080);
 }
+
 .tab,
-.tab a{
+.tab a {
   color: #e6e6e6;
   text-decoration: none;
+}
+
+
+
+
+
+
+section {
+  margin-bottom: 40px;
+  padding: 30px;
+}
+
+section h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+/* Card styles */
+section ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+section ul li {
+  flex: 1 1 calc(50% - 20px);
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+section ul li:hover {
+  background-color: #333333;
+  transform: scale(1.05);
+}
+
+section ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  text-align: right;
+  display: block;
+  font-weight: 700;
+  width: 100%;
+  font-family: cursive;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+section ul li i {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Responsive styles */
+@media (min-width: 600px) {
+  section ul li {
+      flex: 1 1 calc(33.333% - 20px);
+  }
+
+}
+@media (max-width: 600px) {
+  section ul li a {
+    font-size: .9rem;
+  }
+  section{
+    padding: 20px 0;
+  }
+}
+@media (min-width: 900px) {
+  section ul li {
+      flex: 1 1 calc(25% - 20px);
+  }
+}
+
+/* Icons for music, albums, and artists */
+.icon-artist:before {
+  content: '\f500';
+  font-family: 'Boxicons';
+  display: block;
+  margin-bottom: 10px;
+}
+
+.icon-album:before {
+  content: '\f401';
+  font-family: 'Boxicons';
+  display: block;
+  margin-bottom: 10px;
+}
+
+.icon-music:before {
+  content: '\f3b5';
+  font-family: 'Boxicons';
+  display: block;
+  margin-bottom: 10px;
 }

@@ -11,13 +11,11 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="search.css">
-    <title>OrionTunes - Blog</title>
+    <title>OrionTunes - Search</title>
 
 </head>
 
 <body>
-
-
     <!--=============== HEADER ===============-->
     <header class="header" id="header">
         <nav class="nav container">
@@ -27,7 +25,7 @@
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="index.html" class="nav__link  active-link">
+                        <a href="index.html" class="nav__link active-link">
                             <i class='bx bx-home-alt nav__icon'></i>
                             <span class="nav__name">Home</span>
                         </a>
@@ -61,29 +59,116 @@
             <a href="search.html" class="search-link"><i class="bx bx-search nav__search-icon"></i></a>
         </nav>
     </header><br><br><br><br>
-    
+
+    <!--=============== SEARCH SUGGESTIONS ===============-->
+    <div class="wrapper">
+        <div class="icon"><i id="left" class="bx bx-chevron-left"></i></div>
+        <ul class="tabs-box">
+            <!-- Example Search Suggestions -->
+            <li class="tab"><a href="#">Burna Boy (NG)</a></li>
+            <li class="tab"><a href="#">Wizkid (NG)</a></li>
+            <li class="tab"><a href="#">Davido (NG)</a></li>
+            <li class="tab active"><a href="#">Adele (UK)</a></li>
+            <li class="tab"><a href="#">Ed Sheeran (UK)</a></li>
+            <li class="tab"><a href="#">Stormzy (UK)</a></li>
+            <li class="tab"><a href="#">Beyoncé (US)</a></li>
+            <li class="tab"><a href="#">Drake (US)</a></li>
+            <li class="tab"><a href="#">Taylor Swift (US)</a></li>
+            <li class="tab"><a href="#">Black Coffee (SA)</a></li>
+            <li class="tab"><a href="#">Sho Madjozi (SA)</a></li>
+            <li class="tab"><a href="#">Nasty C (SA)</a></li>
+            <li class="tab"><a href="#">Made in Lagos (Wizkid)</a></li>
+            <li class="tab"><a href="#">25 (Adele)</a></li>
+            <li class="tab"><a href="#">Scorpion (Drake)</a></li>
+            <li class="tab"><a href="#">Renaissance (Beyoncé)</a></li>
+            <li class="tab"><a href="#">Divide (Ed Sheeran)</a></li>
+            <li class="tab"><a href="#">African Giant (Burna Boy)</a></li>
+            <li class="tab"><a href="#">Lover (Taylor Swift)</a></li>
+            <li class="tab"><a href="#">Hotline Bling (Drake)</a></li>
+            <li class="tab"><a href="#">Ye (Burna Boy)</a></li>
+            <li class="tab"><a href="#">Shape of You (Ed Sheeran)</a></li>
+            <li class="tab"><a href="#">Jerusalema (Master KG)</a></li>
+            <li class="tab"><a href="#">Hello (Adele)</a></li>
+            <li class="tab"><a href="#">On the Low (Burna Boy)</a></li>
+        </ul>
+        <div class="icon"><i id="right" class="bx bx-chevron-right"></i></div>
+    </div>
 
     <div class="wrapper">
-        <div class="icon"><i id="left" class="fa-solid fa-angle-left"></i></div>
-        <ul class="tabs-box">
-          <li class="tab"><a href="#">Coding</a></li>
-          <li class="tab active"><a href="#">JavaScript</a></li>
-          <li class="tab"><a href="#">Podcasts</a></li>
-          <li class="tab"><a href="#">Databases</a></li>
-          <li class="tab"><a href="#">Web Development</a></li>
-          <li class="tab"><a href="#">Unboxing</a></li>
-          <li class="tab"><a href="#">History</a></li>
-          <li class="tab"><a href="#">Programming</a></li>
-          <li class="tab"><a href="#">Gadgets</a></li>
-          <li class="tab"><a href="#">Algorithms</a></li>
-          <li class="tab"><a href="#">Comedy</a></li>
-          <li class="tab"><a href="#">Gaming</a></li>
-          <li class="tab"><a href="#">Share Market</a></li>
-          <li class="tab"><a href="#">Smartphones</a></li>
-          <li class="tab"><a href="#">Data Structure</a></li>
-        </ul>
-        <div class="icon"><i id="right" class="fa-solid fa-angle-right"></i></div>
-      </div>
+        <!-- 1. Popular Searches -->
+        <section>
+            <h2>Popular Searches</h2>
+            <ul>
+                <li style="background-color: crimson;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px;height: auto;"><a href="#">Burna Boy (NG)</a></li>
+                <li style="background-color: #FFD700;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px;height: auto;"><a href="#">Made in Lagos (Wizkid)</a></li>
+                <li style="background-color: #32CD32;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px;height: auto;"><a href="#">Shape of You (Ed Sheeran)</a></li>
+            </ul>
+        </section>
+    
+        <!-- 2. Recent Searches -->
+        <section>
+            <h2>Recent Searches</h2>
+            <ul>
+                <li style="background-color: #40E0D0;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px;height: auto;"><a href="#">Drake (US)</a></li>
+                <li style="background-color: #800080;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px;height: auto;"><a href="#">25 (Adele)</a></li>
+                <li style="background-color: #008080;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px;height: auto;"><a href="#">Jerusalema (Master KG)</a></li>
+            </ul>
+        </section>
+    
+        <!-- 3. Trending Now -->
+        <section>
+            <h2>Trending Now</h2>
+            <ul>
+                <li style="background-color: #FF5733;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">Davido (NG)</a></li>
+                <li style="background-color: #C70039;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">Scorpion (Drake)</a></li>
+                <li style="background-color: #FF8D1A;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">On the Low (Burna Boy)</a></li>
+            </ul>
+        </section>
+        
+        <!-- 4. Personalized Recommendations -->
+        <section>
+            <h2>Personalized Recommendations</h2>
+            <ul>
+                <li style="background-color: #FF6F61;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">Sho Madjozi (SA)</a></li>
+                <li style="background-color: #D2691E;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">Renaissance (Beyoncé)</a></li>
+                <li style="background-color: #FF4500;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">Hotline Bling (Drake)</a></li>
+            </ul>
+        </section>
+        
+        <!-- 5. New Releases -->
+        <section>
+            <h2>New Releases</h2>
+            <ul>
+                <li style="background-color: #E67300;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">Ed Sheeran (UK)</a></li>
+                <li style="background-color: #A52A2A;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">African Giant (Burna Boy)</a></li>
+                <li style="background-color: #CD5C5C;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">Hello (Adele)</a></li>
+            </ul>
+        </section>
+        
+        <!-- 6. Top Charts -->
+        <section>
+            <h2>Top Charts</h2>
+            <ul>
+                <li style="background-color: #8B0000;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">Taylor Swift (US)</a></li>
+                <li style="background-color: #FF6347;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">Divide (Ed Sheeran)</a></li>
+                <li style="background-color: #B22222;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">Ye (Burna Boy)</a></li>
+            </ul>
+        </section>
+        
+        <!-- 7. Curated Playlists -->
+        <section>
+            <h2>Curated Playlists</h2>
+            <ul>
+                <li style="background-color: #FF4500;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">Chill Vibes</a></li>
+                <li style="background-color: #DC143C;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">Workout Mix</a></li>
+                <li style="background-color: #B22222;"><img src="orion-fav-modified (1).png" alt="" style="position: absolute; top: 5px; left: 5px; width: 30px; height: auto;"><a href="#">Party Anthems</a></li>
+            </ul>
+        </section>
+        
+    </div>
+    
+    
+    
 
 
 
