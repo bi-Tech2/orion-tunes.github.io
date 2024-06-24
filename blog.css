@@ -112,7 +112,7 @@ body {
 
 .feature-title {
     font-weight: 600;
-    color: #ececec;
+    color: #cbcbcb;
     letter-spacing: -0.02em;
     line-height: 32px;
     font-style: normal;
@@ -193,8 +193,9 @@ small a:hover {
 
 /* Styling for the headline */
 .font-weight-bold {
+    font-size: 1.2rem;
     font-weight: bold;
-    color: var(--text-color);
+    color: var(--n-color);
     margin-top: 20px;
     margin-bottom: 10px;
 }
@@ -429,6 +430,9 @@ padding: 1px;
 .linki,
 .pag{
 word-break: break-all;
+}
+.bg-dark{
+    padding: 10px;
 }
 
 }
