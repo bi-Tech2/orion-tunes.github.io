@@ -1,11 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Loading Screen
-    setTimeout(function() {
+    setTimeout(function () {
         var loadingScreen = document.getElementById('loading-screen');
         loadingScreen.style.opacity = 0;
 
         // Wait for the transition to end before setting display to none
-        setTimeout(function() {
+        setTimeout(function () {
             loadingScreen.style.display = 'none';
             document.getElementById('content').style.display = 'block';  // Show the content
         }, 500); // Match this to the transition duration
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             return sort_asc ? (first_row < second_row ? 1 : -1) : (first_row < second_row ? -1 : 1);
         })
-        .map(sorted_row => document.querySelector('tbody').appendChild(sorted_row));
+            .map(sorted_row => document.querySelector('tbody').appendChild(sorted_row));
     }
 
     // 3. Converting HTML table to PDF
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <main class="table" id="customers_table">${customers_table.innerHTML}</main>`;
 
         const new_window = window.open();
-         new_window.document.write(html_code);
+        new_window.document.write(html_code);
 
         setTimeout(() => {
             new_window.print();

@@ -40,11 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
       const data = [
           { img: 'artist1.jpg', name: 'Artist 1', year: 2023, link: 'music.html', type: 'artist' },
           { img: 'song1.jpg', name: 'Song 1', year: 2022, link: '#', type: 'music' },
-          { img: 'video1.jpg', name: 'Video 1', year: 2021, link: '#', type: 'video' },
           { img: 'album1.jpg', name: 'Album 1', year: 2023, link: '#', type: 'album' },
           { img: 'orion-logo.png', name: 'Davido', year: 2023, link: 'music.html', type: 'artist' },
           { img: 'song1.jpg', name: 'Song 1', year: 2022, link: '#', type: 'music' },
-          { img: 'video1.jpg', name: 'Video 1', year: 2021, link: '#', type: 'video' },
           { img: 'album1.jpg', name: 'Album 1', year: 2023, link: '#', type: 'album' },
       ];
 
@@ -246,3 +244,5 @@ document.getElementById('closePopup').addEventListener('click', function() {
     document.body.classList.remove('no-scroll');
     localStorage.setItem('popupClosed', 'true');
 });
+
+

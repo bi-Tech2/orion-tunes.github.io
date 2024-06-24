@@ -55,9 +55,9 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="videos.html" class="nav__link">
-                            <i class='bx bx-video nav__icon'></i>
-                            <span class="nav__name">Videos</span>
+                        <a href="albums.html" class="nav__link">
+                            <i class='bx bx-album nav__icon'></i>
+                            <span class="nav__name">Albums</span>
                         </a>
                     </li>
                     <li class="nav__item">
@@ -68,21 +68,9 @@
                     </li>
                 </ul>
             </div>
-            <i class="bx bx-search nav__search-icon"></i>
+            <a href="search.html" class="search-link"><i class="bx bx-search nav__search-icon"></i></a>
         </nav>
     </header>
-
-    <div class="overlay" id="overlay">
-        <div class="overlay__content">
-            <div class="overlay__input-wrapper">
-                <input type="text" class="overlay__input" id="search-input" placeholder="Search...">
-                <i class="bx bx-search nav__search-icon-i"></i>
-            </div>
-            <div class="rell">
-                <div class="autocomplete-list" id="autocomplete-list"></div>
-            </div>
-        </div>
-    </div>
 
 
     <main> <!--=============== HOME ===============-->
@@ -142,10 +130,6 @@
                 <span class="filter-item" data-filter="music">
                     <i class='bx bx-music filter-icon'></i>
                     <k class="k">Music</k>
-                </span>
-                <span class="filter-item" data-filter="videos">
-                    <i class='bx bx-video filter-icon'></i>
-                    <k class="k">Videos</k>
                 </span>
                 <span class="filter-item" data-filter="albums">
                     <i class='bx bx-album filter-icon'></i>
@@ -282,6 +266,7 @@
                                   </div>
                                   <button class="play-button"><i class="bx bx-play"></i></button>
                                 </div>
+                              <div class="up"><img src="embed_icon_new.png" alt=""></div>
                               </div>
                             </div>
                             <div class="card-item">
@@ -293,6 +278,8 @@
                                   </div>
                                   <button class="play-button"><i class="bx bx-play"></i></button>
                                 </div>
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+
                               </div>
                             </div>
                             <div class="card-item">
@@ -304,6 +291,7 @@
                                   </div>
                                   <button class="play-button"><i class="bx bx-play"></i></button>
                                 </div>
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
                               </div>
                             </div>
                             <div class="card-item">
@@ -349,10 +337,6 @@
                         </div>
                     </div>
                     
-                    
-                    <div class="item section-videos">
-                        <h2 class="section__title">Videos</h2>
-                    </div>
                     <div class="item section-albums">
                         <h2 class="section__title">Albums</h2>
                         <div class="h" style="margin-top: -30px;">
@@ -605,12 +589,6 @@
                                 </div>
                               </div>
                           </div>
-                    </div>
-                </div>
-                <div class="filter-content videos-filter">
-                    <!-- Videos content here -->
-                    <div class="item section-videos">
-                        <h2 class="section__title">Popular Videos</h2>
                     </div>
                 </div>
                 <div class="filter-content albums-filter">
@@ -924,13 +902,13 @@
                                     <button class="play-pause-btn" onclick="togglePlayPause(this)">
                                         <i class="bx bx-play"></i>
                                     </button>
-                                    <audio src="Summer-Walker-To-Summer-From-Cole-Audio-Hug-Ft-J-Cole-(JustNaija.com).mp3"></audio>
+                                    <audio src="Summer-Walker-To-Summer-From-Cole-Audio-Hug-Ft-J-Cole-(OrionTunes).mp3"></audio>
                                 </td>
                                 <td>Summer Walker</td>
                                 <td>J Cole</td>
                                 <td>2023</td>
                                 <td>Loading...</td>
-                                <td><a href="Summer-Walker-To-Summer-From-Cole-Audio-Hug-Ft-J-Cole-(JustNaija.com).mp3"
+                                <td><a href="Summer-Walker-To-Summer-From-Cole-Audio-Hug-Ft-J-Cole-(OrionTunes).mp3"
                                         download="Summer-Walker-To-Summer-From-Cole-Audio-Hug-Ft-J-Cole-(Oriontunes).mp3" class="download-btn"
                                         onclick="notifyDownload(this)"><i class="bx bx-download"></i></a></td>
                             </tr>
@@ -949,7 +927,7 @@
             <div class="ag-format-container">
                 <div class="ag-courses_box">
                     <div class="ag-courses_item">
-                        <a href="#" class="ag-courses-item_link">
+                        <a href="insight.html" class="ag-courses-item_link">
                             <div class="ag-courses-item_bg"></div>
                             <div class="ag-courses-item_title">
                                 The Evolution of Hip-Hop: From the Streets to the Mainstream
@@ -964,7 +942,7 @@
                     </div>
 
                     <div class="ag-courses_item">
-                        <a href="#" class="ag-courses-item_link">
+                        <a href="insight.html" class="ag-courses-item_link">
                             <div class="ag-courses-item_bg"></div>
                             <div class="ag-courses-item_title">
                                 Top 10 Albums of 2024 You Shouldn't Miss
@@ -979,7 +957,7 @@
                     </div>
 
                     <div class="ag-courses_item">
-                        <a href="#" class="ag-courses-item_link">
+                        <a href="insight.html" class="ag-courses-item_link">
                             <div class="ag-courses-item_bg"></div>
                             <div class="ag-courses-item_title">
                                 The Impact of Streaming Services on the Music Industry
@@ -994,7 +972,7 @@
                     </div>
 
                     <div class="ag-courses_item">
-                        <a href="#" class="ag-courses-item_link">
+                        <a href="insight.html" class="ag-courses-item_link">
                             <div class="ag-courses-item_bg"></div>
                             <div class="ag-courses-item_title">
                                 Upcoming Music Festivals: What to Look Forward To
@@ -1009,7 +987,7 @@
                     </div>
 
                     <div class="ag-courses_item">
-                        <a href="#" class="ag-courses-item_link">
+                        <a href="insight.html" class="ag-courses-item_link">
                             <div class="ag-courses-item_bg"></div>
                             <div class="ag-courses-item_title">
                                 How Social Media is Changing Music Promotion
@@ -1023,7 +1001,7 @@
                         </a>
                     </div>
                     <div class="ag-courses_item">
-                        <a href="#" class="ag-courses-item_link">
+                        <a href="insight.html" class="ag-courses-item_link">
                             <div class="ag-courses-item_bg"></div>
                             <div class="ag-courses-item_title">
                                 Classic Rock Albums That Defined the Genre
@@ -1038,7 +1016,7 @@
                     </div>
 
                     <div class="ag-courses_item">
-                        <a href="#" class="ag-courses-item_link">
+                        <a href="insight.html" class="ag-courses-item_link">
                             <div class="ag-courses-item_bg"></div>
                             <div class="ag-courses-item_title">
                                 The Role of Women in Shaping Modern Music
@@ -1053,7 +1031,7 @@
                     </div>
 
                     <div class="ag-courses_item">
-                        <a href="#" class="ag-courses-item_link">
+                        <a href="insight.html" class="ag-courses-item_link">
                             <div class="ag-courses-item_bg"></div>
                             <div class="ag-courses-item_title">
                                 Exploring the World of Jazz: Must-Know Artists and Albums
@@ -1068,7 +1046,7 @@
                     </div>
 
                     <div class="ag-courses_item">
-                        <a href="#" class="ag-courses-item_link">
+                        <a href="insight.html" class="ag-courses-item_link">
                             <div class="ag-courses-item_bg"></div>
                             <div class="ag-courses-item_title">
                                 How Technology is Revolutionizing Music Production
@@ -1083,7 +1061,7 @@
                     </div>
 
                     <div class="ag-courses_item">
-                        <a href="#" class="ag-courses-item_link">
+                        <a href="insight.html" class="ag-courses-item_link">
                             <div class="ag-courses-item_bg"></div>
                             <div class="ag-courses-item_title">
                                 Breaking Down the Best Music Videos of All Time
@@ -1099,7 +1077,7 @@
 
 
                     <div class="ag-courses_item">
-                        <a href="#" class="ag-courses-item_link">
+                        <a href="insight.html" class="ag-courses-item_link">
                             <div class="ag-courses-item_bg"></div>
                             <div class="ag-courses-item_title">
                                 The Revival of Vinyl: Why Analog Music is Making a Comeback
@@ -1115,6 +1093,9 @@
 
                 </div>
             </div>
+            <div class="wi" style="display: flex; justify-content: center; margin-top: 30px; width: 100%;">
+                <a href="news.html" class="gradient-button">More News</a>
+            </div>
         </div>
 
 
@@ -1124,7 +1105,108 @@
 
     </main>
 
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-cta ">
+                <div class="gig" >
+                    <div class="genz">
+                        <div class="single-cta">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="footer-widget-heading">
+                                <h3>Find us</h3>
+                                <span style="color: #7f7f7f;">Oshodi-isolo, Lagos, Nigeria</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="genz">
+                        <div class="single-cta">
+                            <div class="single-cta">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="footer-widget-heading">
+                                    <h3>Call us</h3>
+                                <a href="tel:+2349130993464" class="link" style="color: #7f7f7f;">+234 913 099 3464</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="genz">
+                        <div class="single-cta">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="footer-widget-heading">
+                                <h3>Mail us</h3>
+                                <a href="mailto:jodicksonjoshua@gmail.com" class="link" style="color: #7f7f7f;">jodicksonjoshua@gmail.com</a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-content ">
+                <div class="gen">
+                    <div class="">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="index.html" style="text-align: center; align-items: center; display: flex; width: 100%;">
+                                    <img src="orion-logo.png" class="img-fluid" width="120" height="auto" alt="logo">
 
+                                </a>
+                                <p style="margin-top: 15px; max-width: 320px; white-space-collapse: collapse; color: #8c8c8c;">OrionTunes - Your ultimate destination for discovering, streaming, and sharing music.</p>
+                            </div>
+                            <div class="footer-text">
+                                <!-- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, doloribus esse rem necessitatibus eius exercitationem! -->
+                            </div>
+                            <div class="footer-social-icon " style="margin-top: -20px;">
+                                <div class="footer-widget-heading" style="margin-bottom: -10px;">
+                                    <h3>Follow us</h3>
+                                </div>
+                                <a href="https://x.com/Dickson53194258" class="oj"><i class='bx bxl-twitter'  style="color: white;"></i></a>
+                                <a href="https://www.instagram.com/bi_tech2.0/" class="oj"><i class='bx bxl-instagram'  style="color: white;"></i></a>
+                                <a href="https://github.com/bi-Tech2" class="oj"><i class='bx bxl-snapchat'  style="color: white;"></i></a>
+                                <a href="https://web.snapchat.com/389ca514-e490-5b04-857a-35fc5c40f155" class="oj"><i class='bx bxl-github'  style="color: white;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spirit">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Partnership Links</h3>
+                            </div>
+                            <ul >
+                                <li><a href="download.html" class="link">Download Music</a></li>
+                                <li><a href="about.html" class="link">About OrionTunes</a></li>
+                                <li><a href="news.html" class="link">OrionTunes Blog</a></li>
+                                <li><a href="music.html" class="link">OrionTunes Music</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ghost" >
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Subscribe</h3>
+                            </div>
+                            <div class="footer-text mb-25">
+                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                            </div>
+                            <div class="subscribe-form">
+                                <form onsubmit="sendEmail(event)">
+                                    <input type="email" name="email" placeholder="Email Address" required>
+                                    <button type="submit"><i class='bx bxl-telegram'></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+                    <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                        <div class="copyright-text">
+                            <p>OrionTunes &copy; 2024, By <a href="https://www.instagram.com/bi_tech2.0/" class="link">BiTech</a></p>
+                        </div>
+                    </div>
+        </div>
+    </footer>
 
     <!--=============== MAIN JS ===============-->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

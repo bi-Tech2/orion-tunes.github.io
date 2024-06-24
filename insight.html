@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="orion-fav.jpg" type="image/x-icon">
+    <!--=============== BOXICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="blog.css">
+    <title>OrionTune - Blog</title>
+</head>
+
+<body style="background-color: var(--body-color);">
+    <!--=============== HEADER ===============-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <img src="orion-logo.png" alt="OrionTune Logo" width="150px" height="30px"><span class="tv">Tune</span>
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link ">
+                            <i class='bx bx-home-alt nav__icon'></i>
+                            <span class="nav__name">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="music.html" class="nav__link">
+                            <i class='bx bx-music nav__icon'></i>
+                            <span class="nav__name">Music</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="artists.html" class="nav__link">
+                            <i class='bx bx-user nav__icon'></i>
+                            <span class="nav__name">Artists</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="albums.html" class="nav__link">
+                            <i class='bx bx-album nav__icon'></i>
+                            <span class="nav__name">Albums</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="news.html" class="nav__link active-link">
+                            <i class='bx bx-news nav__icon'></i>
+                            <span class="nav__name">Blog</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <a href="search.html" class="search-link"><i class="bx bx-search nav__search-icon"></i></a>
+        </nav>
+    </header>
+
+
+    <div class="bg-secondary">
+        <div class="container">
+            <div class="row">
+                <div class="column left" style="background-image:url(2w-overlay.jpg);"></div>
+                <div class="column right">
+                    <div>
+                        <small>
+                            <a href="music.html" class="text-white">Music</a>, <a href="music.html" class="text-white">Industry</a>
+                        </small>
+                    </div>
+                    <h1 class="font-weight-bold">Exploring the Evolution of Music Genres</h1>
+                    <div class="author-details">
+                        <div class="author-info" style="display: flex; justify-content: space-between;">
+                            <img src="orion-fav-modified (1).png" />
+                            <small>
+                                <a href="about.html" class="text-white">OrionTunes</a>
+                                <span>June 28</span>
+                            </small>
+                        </div>
+                    </div>
+                    <!-- Headline -->
+                    <p class="feature-title">Music Insights</p>
+                    <p class="feature-description">Get the latest insights on music trends, genres, and the industry from our expert bloggers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="containero">
+            <div class="text-secondary">
+                <p>The music industry has undergone a significant transformation over the decades. From the advent of classical compositions to the rise of digital streaming, the way we consume and appreciate music has changed dramatically. This article delves into the history and evolution of various music genres, highlighting key moments and influential artists.</p>
+    
+                <h3 class="font-weight-bold">#1. The Birth of Classical Music</h3>
+                <p>Classical music, known for its rich orchestration and complex structures, laid the foundation for many modern genres. Originating in the medieval period, it has evolved through the Renaissance, Baroque, Classical, and Romantic eras. Composers like Bach, Beethoven, and Mozart have left an indelible mark on the world of music.</p>
+    
+                <blockquote class="text-primary">"Music can change the world because it can change people." - Bono</blockquote>
+    
+                <p>The evolution of music did not stop with classical compositions. The 20th century saw the emergence of jazz, rock and roll, and eventually, pop music. Each genre brought with it new styles, rhythms, and cultural impacts, reflecting the changing times and societal shifts.</p>
+    
+                <h3 class="font-weight-bold">#2. The Rise of Digital Music</h3>
+                <p>The digital age has revolutionized the music industry. The advent of MP3s, streaming services, and social media platforms has made music more accessible than ever before. Artists can now reach global audiences with the click of a button, and fans can discover new music from the comfort of their homes.</p>
+    
+                <div>
+                    <small>
+                        <a href="#" class="text-primary">#music</a>, <a href="#" class="text-primary">#genres</a>, <a href="#" class="text-primary">#industry</a>, <a href="#" class="text-primary">#trends</a>, <a href="#" class="text-primary">#digital</a>
+                    </small>
+                </div>
+    
+            </div>
+        </div>
+        
+    </div>
+        <!-- Comment Section Start-->
+
+        
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('comment-form');
+    const resultsContainer = document.getElementById('results');
+    const pageId = document.querySelector('.main-containerr').getAttribute('data-page-id');
+    const localStorageKey = `commentsData_${pageId}`;
+
+    loadComments();
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const file = formData.get('user-img');
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const website = formData.get('website');
+        const comment = formData.get('comment');
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const userImg = e.target.result;
+            const data = { userImg, name, email, website, comment };
+            saveComment(data);
+            addCommentToDOM(data);
+            form.reset();
+        };
+        reader.readAsDataURL(file);
+    });
+
+    function saveComment(data) {
+        let comments = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+        comments.push(data);
+        localStorage.setItem(localStorageKey, JSON.stringify(comments));
+    }
+
+    function loadComments() {
+        const comments = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+        comments.forEach(addCommentToDOM);
+    }
+
+    function addCommentToDOM(data) {
+        const commentItem = document.createElement('div');
+        commentItem.className = 'comment-item';
+        commentItem.innerHTML = `
+            <img src="${data.userImg}" alt="${data.name}'s image" class="imgg">
+            <div class="comment-content">
+                <strong>${data.name}</strong><br> (<a href="mailto:${data.email}" class="maili">${data.email}</a>)<br><br>
+                ${data.website ? `<a href="${data.website}" target="_blank" class="linki">${data.website}</a><br>` : ''}
+                <p class="pag">${data.comment}</p>
+            </div>
+            <span class="delete-btn">Delete</span>
+        `;
+        resultsContainer.appendChild(commentItem);
+
+        commentItem.querySelector('.delete-btn').addEventListener('click', function () {
+            deleteComment(data, commentItem);
+        });
+    }
+
+    function deleteComment(data, element) {
+        let comments = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+        comments = comments.filter(comment => comment.comment !== data.comment || comment.email !== data.email);
+        localStorage.setItem(localStorageKey, JSON.stringify(comments));
+        element.remove();
+    }
+});
+
+    </script>
+        
+    
+        <div class="bg-dark">
+            <div class="main-containerr">
+                <div class="form-container">
+                    <form id="comment-form">
+                        <div class="form-row">
+                            <label for="file-upload" class="custom-file-upload">
+                                Upload Image <i class='bx bx-image-add' style="font-size: 1.1rem; margin-bottom: -15px;"></i>
+                            </label>
+                            <input class="input" id="file-upload" type="file" name="user-img" accept="image/*" required>
+                            <input class="input fer" type="text" name="name" placeholder="Name" required>
+                        </div>
+                        <div class="form-row">
+                            <input class="input" type="email" name="email" placeholder="Email" required>
+                            <input class="input" type="url" name="website" placeholder="Website">
+                        </div>
+                        <textarea class="textarea" name="comment" placeholder="Comment" required></textarea><br>
+                        <button type="submit" class="nag">Submit</button>
+                    </form>
+                </div> 
+                <div id="results" class="results-container">
+                    <h2 class="text-white" style="margin-bottom: 50px;margin-top: 20px; margin-left: 25px;">Comment Section</h2>
+    
+                </div>
+            </div>
+        </div>
+        <!-- Comment Section end-->
+
+
+
+        <footer class="footer-section">
+            <div class="container">
+                <div class="footer-cta ">
+                    <div class="gig" >
+                        <div class="genz">
+                            <div class="single-cta">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="footer-widget-heading">
+                                    <h3>Find us</h3>
+                                    <span style="color: #7f7f7f;">Oshodi-isolo, Lagos, Nigeria</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="genz">
+                            <div class="single-cta">
+                                <div class="single-cta">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div class="footer-widget-heading">
+                                        <h3>Call us</h3>
+                                    <a href="tel:+2349130993464" class="link" style="color: #7f7f7f;">+234 913 099 3464</a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="genz">
+                            <div class="single-cta">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="footer-widget-heading">
+                                    <h3>Mail us</h3>
+                                    <a href="mailto:jodicksonjoshua@gmail.com" class="link" style="color: #7f7f7f;">jodicksonjoshua@gmail.com</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-content ">
+                    <div class="gen">
+                        <div class="">
+                            <div class="footer-widget">
+                                <div class="footer-logo">
+                                    <a href="index.html" style="text-align: center; align-items: center; display: flex; width: 100%;">
+                                        <img src="orion-logo.png" class="img-fluid" width="120" height="auto" alt="logo">
+    
+                                    </a>
+                                    <p style="margin-top: 15px; max-width: 320px; white-space-collapse: collapse; color: #8c8c8c;">OrionTunes - Your ultimate destination for discovering, streaming, and sharing music.</p>
+                                </div>
+                                <div class="footer-text">
+                                    <!-- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, doloribus esse rem necessitatibus eius exercitationem! -->
+                                </div>
+                                <div class="footer-social-icon " style="margin-top: -20px;">
+                                    <div class="footer-widget-heading" style="margin-bottom: -10px;">
+                                        <h3>Follow us</h3>
+                                    </div>
+                                    <a href="https://x.com/Dickson53194258" class="oj"><i class='bx bxl-twitter'  style="color: white;"></i></a>
+                                    <a href="https://www.instagram.com/bi_tech2.0/" class="oj"><i class='bx bxl-instagram'  style="color: white;"></i></a>
+                                    <a href="https://github.com/bi-Tech2" class="oj"><i class='bx bxl-snapchat'  style="color: white;"></i></a>
+                                    <a href="https://web.snapchat.com/389ca514-e490-5b04-857a-35fc5c40f155" class="oj"><i class='bx bxl-github'  style="color: white;"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spirit">
+                            <div class="footer-widget">
+                                <div class="footer-widget-heading">
+                                    <h3>Partnership Links</h3>
+                                </div>
+                                <ul >
+                                    <li><a href="download.html" class="link">Download Music</a></li>
+                                    <li><a href="about.html" class="link">About OrionTunes</a></li>
+                                    <li><a href="news.html" class="link">OrionTunes Blog</a></li>
+                                    <li><a href="music.html" class="link">OrionTunes Music</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ghost" >
+                            <div class="footer-widget">
+                                <div class="footer-widget-heading">
+                                    <h3>Subscribe</h3>
+                                </div>
+                                <div class="footer-text mb-25">
+                                    <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                                </div>
+                                <div class="subscribe-form">
+                                    <form onsubmit="sendEmail(event)">
+                                        <input type="email" name="email" placeholder="Email Address" required>
+                                        <button type="submit"><i class='bx bxl-telegram'></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-area">
+                        <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                            <div class="copyright-text">
+                                <p>OrionTunes &copy; 2024, By <a href="https://www.instagram.com/bi_tech2.0/" class="link">BiTech</a></p>
+                            </div>
+                        </div>
+            </div>
+        </footer>
+</body>
+</html>
