@@ -19,65 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   });
 
-  // Search functionality
-  const searchIcon = document.querySelector('.nav__search-icon');
-  const overlay = document.getElementById('overlay');
-  const searchInput = document.getElementById('search-input');
-  const autocompleteList = document.getElementById('autocomplete-list');
-
-  if (searchIcon && overlay && searchInput && autocompleteList) {
-      searchIcon.addEventListener('click', () => {
-          overlay.classList.toggle('active');
-          searchInput.focus();
-      });
-
-      overlay.addEventListener('click', (e) => {
-          if (e.target === overlay) {
-              overlay.classList.remove('active');
-          }
-      });
-
-      const data = [
-          { img: 'artist1.jpg', name: 'Artist 1', year: 2023, link: 'music.html', type: 'artist' },
-          { img: 'song1.jpg', name: 'Song 1', year: 2022, link: '#', type: 'music' },
-          { img: 'album1.jpg', name: 'Album 1', year: 2023, link: '#', type: 'album' },
-          { img: 'orion-logo.png', name: 'Davido', year: 2023, link: 'music.html', type: 'artist' },
-          { img: 'song1.jpg', name: 'Song 1', year: 2022, link: '#', type: 'music' },
-          { img: 'album1.jpg', name: 'Album 1', year: 2023, link: '#', type: 'album' },
-      ];
-
-      searchInput.addEventListener('input', function() {
-          const searchTerm = this.value.toLowerCase();
-          autocompleteList.innerHTML = '<div class="loading">Loading...</div>'; // Show loading message
-          if (searchTerm) {
-              setTimeout(() => { // Simulate loading delay
-                  autocompleteList.innerHTML = ''; // Clear loading message
-                  const filteredData = data.filter(item => item.name.toLowerCase().includes(searchTerm));
-                  if (filteredData.length > 0) {
-                      filteredData.forEach(item => {
-                          const listItem = document.createElement('div');
-                          listItem.classList.add('autocomplete-item');
-                          listItem.innerHTML = `
-                              <img src="${item.img}" alt="${item.name}">
-                              <div>
-                                  <span>${item.name}</span>
-                                  <span class="year">${item.year}</span>
-                              </div>
-                          `;
-                          listItem.addEventListener('click', () => {
-                              window.location.href = item.link;
-                          });
-                          autocompleteList.appendChild(listItem);
-                      });
-                  } else {
-                      autocompleteList.innerHTML = '<div class="no-results">No results found</div>';
-                  }
-              }, 500); // Adjust the delay as needed
-          } else {
-              autocompleteList.innerHTML = '';
-          }
-      });
-  }
 
   // Swiper initialization
   const swiperContainer = document.querySelector('.swiper-container');

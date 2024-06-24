@@ -171,6 +171,9 @@ section ul li i {
   section ul li a {
     font-size: .9rem;
   }
+  .fild{
+    display: none;
+  }
   section{
     padding: 20px 0;
   }
@@ -202,3 +205,93 @@ section ul li i {
   display: block;
   margin-bottom: 10px;
 }
+
+
+
+
+.search-modal {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Adjust as needed */
+  background-color: var(--body-color); /* Optional: Add a background color */
+  padding: 20px;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+}
+
+#search-input {
+  outline: none;
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  box-sizing: border-box;
+  border: 1px solid var(--primary-color);
+  background-color: var(--body-color);
+  border-radius: 5px;
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+#search-input:focus {
+  border: 1px solid var(--primary-color-light);
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 25px;
+  color: var(--text-color);
+}
+
+
+
+
+.autocomplete-list {
+  position: absolute;
+  z-index: 1000;
+  background-color: transparent;
+  backdrop-filter: blur(30px);
+  border: 1px solid var(--body-color);
+  border-top: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 90%; /* Adjust width as needed */
+  max-width: calc(100% - 2px); /* Ensure max-width matches search input */
+  left: 50%; /* Position the autocomplete list relative to the center */
+  transform: translateX(-50%); /* Center the autocomplete list */
+  display: none; /* Initially hide the autocomplete list */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.autocomplete-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.autocomplete-list li:hover {
+  background-color: var(--primary-color-light);
+}
+
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+@keyframes spin {
+  to {
+      transform: rotate(360deg);
+  }
+}
+
