@@ -856,6 +856,9 @@ a {
   .ag-courses-item_date-box {
     font-size: 14px;
   }
+  .word{
+    padding-top: 40px;
+  }
 }
 
 
@@ -1996,6 +1999,24 @@ thead{
 }
 
 
+
+.lag {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+  height: 15px;
+  width: 20px;
+  border-radius: 0;
+  margin-top: -15px;
+}
+
+.flag {
+  width: 100%; /* Set even smaller width */
+  height: auto; /* Maintain aspect ratio */
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 0;
+}
 
 
 
