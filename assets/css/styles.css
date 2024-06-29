@@ -297,7 +297,20 @@ a {
 .autocomplete-item:last-child {
   border-bottom: none;
 }
-
+.filtered{
+  height: auto;
+  margin-top: 25px;
+  margin-bottom: 35px;
+  width: auto;
+}
+.filter-item-ed{
+  color: #fff;
+  background: linear-gradient(50deg, #006eff, rgb(255, 174, 0),#800080);
+  height: 100%;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
 .autocomplete-item img {
   width: 50px;
   height: 50px;
