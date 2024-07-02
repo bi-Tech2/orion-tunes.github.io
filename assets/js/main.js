@@ -49,39 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('scroll', scrollHeader);
 
-    // Overlay and Marquee Controls
-    const toggleOverlayButtons = document.querySelectorAll('.toggle-overlay');
-    const playButtons = document.querySelectorAll('.play-btn');
-    const closeButtons = document.querySelectorAll('.close-btn');
-    const marquees = document.querySelectorAll('marquee');
-
-    toggleOverlayButtons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            const fullLay = button.closest('.j').querySelector('.full-lay');
-            fullLay.style.display = fullLay.style.display === 'none' || !fullLay.style.display ? 'flex' : 'none';
-        });
-    });
-
-    playButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const icon = button.querySelector('i');
-            const marquee = button.closest('.j').querySelector('marquee');
-            if (icon.classList.contains('bx-play')) {
-                icon.classList.replace('bx-play', 'bx-pause');
-                marquee.start();
-            } else {
-                icon.classList.replace('bx-pause', 'bx-play');
-                marquee.stop();
-            }
-        });
-    });
-
-    closeButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const fullLay = button.closest('.full-lay');
-            fullLay.style.display = 'none';
-        });
-    });
 
     // Carousel Swiping
     const carousel = document.getElementById('imageCarousel');
@@ -114,28 +81,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Table Features
-    const search = document.querySelector('.input-group input'),
-        table_rows = document.querySelectorAll('tbody tr'),
+    const table_rows = document.querySelectorAll('tbody tr'),
         table_headings = document.querySelectorAll('thead th');
 
-    // 1. Searching for specific data of HTML table
-    search.addEventListener('input', searchTable);
-
-    function searchTable() {
-        table_rows.forEach((row, i) => {
-            let table_data = row.textContent.toLowerCase(),
-                search_data = search.value.toLowerCase();
-
-            row.classList.toggle('hide', table_data.indexOf(search_data) < 0);
-            row.style.setProperty('--delay', i / 25 + 's');
-        })
-
-        document.querySelectorAll('tbody tr:not(.hide)').forEach((visible_row, i) => {
-            visible_row.style.backgroundColor = (i % 2 == 0) ? 'transparent' : '#0000000b';
-        });
-    }
-
-    // 2. Sorting | Ordering data of HTML table
+    // 1. Sorting | Ordering data of HTML table
     table_headings.forEach((head, i) => {
         let sort_asc = true;
         head.onclick = () => {
@@ -164,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .map(sorted_row => document.querySelector('tbody').appendChild(sorted_row));
     }
 
-    // 3. Converting HTML table to PDF
+    // 2. Converting HTML table to PDF
     const pdf_btn = document.querySelector('#toPDF');
     const customers_table = document.querySelector('#customers_table');
 
@@ -187,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
         toPDF(customers_table);
     }
 
-    // 4. Converting HTML table to JSON
+    // 3. Converting HTML table to JSON
     const json_btn = document.querySelector('#toJSON');
 
     const toJSON = function (table) {
@@ -225,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
         downloadFile(json, 'json')
     }
 
-    // 5. Converting HTML table to CSV File
+    // 4. Converting HTML table to CSV File
     const csv_btn = document.querySelector('#toCSV');
 
     const toCSV = function (table) {
@@ -253,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
         downloadFile(csv, 'csv', 'customer orders');
     }
 
-    // 6. Converting HTML table to EXCEL File
+    // 5. Converting HTML table to EXCEL File
     const excel_btn = document.querySelector('#toEXCEL');
 
     const toExcel = function (table) {
@@ -296,6 +245,3 @@ document.addEventListener('DOMContentLoaded', function () {
         a.remove();
     }
 });
-
-
-

@@ -595,7 +595,8 @@ a {
 
 .gradient-button:hover,
 .btn:hover,
-.g:hover {
+.g:hover,
+.download-button:hover {
   background-position: right center;
   transform: scale(1.05);
 }
@@ -2035,4 +2036,15 @@ thead{
 
 
 
-
+.download-button{
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: 10px;
+  color: #1b1b1b;
+  background: linear-gradient(50deg, #006eff, rgb(255, 174, 0),#800080);
+  padding: 10px;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+}

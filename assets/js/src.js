@@ -1,57 +1,57 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Filter functionality
-  const filterItems = document.querySelectorAll('.filter-item');
-  const filterContents = document.querySelectorAll('.filter-content');
+    // Filter functionality
+    const filterItems = document.querySelectorAll('.filter-item');
+    const filterContents = document.querySelectorAll('.filter-content');
 
-  filterItems.forEach(item => {
-      item.addEventListener('click', function () {
-          // Remove active class from all items and contents
-          filterItems.forEach(i => i.classList.remove('active'));
-          filterContents.forEach(c => c.classList.remove('active'));
+    filterItems.forEach(item => {
+        item.addEventListener('click', function () {
+            // Remove active class from all items and contents
+            filterItems.forEach(i => i.classList.remove('active'));
+            filterContents.forEach(c => c.classList.remove('active'));
 
-          // Add active class to the clicked item and corresponding content
-          item.classList.add('active');
-          const filter = item.getAttribute('data-filter');
-          const filterContent = document.querySelector(`.${filter}-filter`);
-          if (filterContent) {
-              filterContent.classList.add('active');
-          }
-      });
-  });
+            // Add active class to the clicked item and corresponding content
+            item.classList.add('active');
+            const filter = item.getAttribute('data-filter');
+            const filterContent = document.querySelector(`.${filter}-filter`);
+            if (filterContent) {
+                filterContent.classList.add('active');
+            }
+        });
+    });
 
 
-  // Swiper initialization
-  const swiperContainer = document.querySelector('.swiper-container');
-  if (swiperContainer) {
-      const swiper = new Swiper(swiperContainer, {
-          slidesPerView: 'auto',
-          centeredSlides: true,
-          spaceBetween: 30,
-          loop: true,
-          pagination: {
-              el: '.swiper-pagination',
-              clickable: true,
-          },
-          autoplay: {
-              delay: 3000,
-              disableOnInteraction: false,
-          },
-          breakpoints: {
-              640: {
-                  slidesPerView: 1,
-                  spaceBetween: 20,
-              },
-              768: {
-                  slidesPerView: 2,
-                  spaceBetween: 30,
-              },
-              1024: {
-                  slidesPerView: 3,
-                  spaceBetween: 40,
-              },
-          },
-      });
-  }
+    // Swiper initialization
+    const swiperContainer = document.querySelector('.swiper-container');
+    if (swiperContainer) {
+        const swiper = new Swiper(swiperContainer, {
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+            },
+        });
+    }
 });
 
 
@@ -111,7 +111,7 @@ function addBottomPadding() {
     const container = document.querySelector('.music-table-container');
     const table = document.querySelector('.music-table');
     const items = table.querySelectorAll('tbody tr');
-    
+
     // Calculate the total height of all items
     let totalHeight = 0;
     items.forEach(item => {
@@ -162,12 +162,12 @@ document.addEventListener('DOMContentLoaded', addBottomPadding);
 //     ]
 //   });
 // });
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Clear the popupClosed flag when the page is loaded
     localStorage.removeItem('popupClosed');
 });
 
-document.addEventListener('scroll', function() {
+document.addEventListener('scroll', function () {
     var target = document.getElementById('open');
     var targetPosition = target.getBoundingClientRect().top;
     var screenPosition = window.innerHeight;
@@ -179,11 +179,25 @@ document.addEventListener('scroll', function() {
     }
 });
 
-document.getElementById('closePopup').addEventListener('click', function() {
+document.getElementById('closePopup').addEventListener('click', function () {
     var popupOverlay = document.getElementById('popupOverlay');
     popupOverlay.classList.remove('show');
     document.body.classList.remove('no-scroll');
     localStorage.setItem('popupClosed', 'true');
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.listen');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const url = button.getAttribute('data-url');
+            window.location.href = url;
+        });
+    });
+});
+
+
+
+
 
 
