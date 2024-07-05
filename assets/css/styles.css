@@ -41,7 +41,9 @@
   --z-fixed: 100;
   --z-file: 1000;
 }
-
+html::selection{
+  user-select: none;
+}
 
 
 /*=============== BASE ===============*/
@@ -1281,7 +1283,6 @@ thead{
   border-radius: 10px;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
   transition: transform 0.3s ease;
 }
 
