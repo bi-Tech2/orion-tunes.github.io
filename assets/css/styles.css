@@ -1791,11 +1791,11 @@ thead{
   text-align: center;
 }
 
-.single-cta i {
+/* .single-cta i {
   color: #ff5e14;
   font-size: 30px;
   margin-top: 8px;
-}
+} */
 
 .cta-text h4 {
   color: var(--text-color);
@@ -1899,6 +1899,7 @@ thead{
   border: 1px solid var(--sidebar-color);
   color: var(--text-color);
   border-radius: 10px;
+  margin-top: 21px;
 }
 
 .subscribe-form input:focus {
@@ -2048,4 +2049,19 @@ thead{
   border: 0;
   cursor: pointer;
   outline: none;
+}
+/* Universal selector to apply the style to all elements */
+* {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera, and other modern browsers */
+}
+
+/* If you want to apply it only to specific parts, use a class instead */
+.no-select {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera, and other modern browsers */
 }
