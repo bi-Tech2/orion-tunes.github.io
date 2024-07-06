@@ -8,7 +8,6 @@
     <!--=============== BOXICONS ===============-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="blog.css">
     <title>OrionTunes - About</title>
@@ -62,7 +61,7 @@
     <div class="bg-secondary">
         <div class="container">
             <div class="row">
-                <div class="column pd-left" style="background-image:url(orion-fav.jpg);"><img src="ovt.jpg" alt=""></div>
+                <div class="column pd-left" style="background-image:url(orion-fav.jpg); align-items: center;justify-content: center;width: 100%;display: flex;"><img src="ovt.jpg" alt=""></div>
                 <div class="column right">
                     <div>
                         <small>
@@ -80,8 +79,8 @@
                         </div>
                     </div>
                     <!-- Headline -->
-                    <p class="feature-title">Discover, Stream, and Share Music</p>
-                    <p class="feature-description">OrionTunes is your ultimate destination for discovering, streaming, and sharing music. Explore the latest hits, classic tracks, and hidden gems all in one place.</p>
+                    <p class="feature-title">Download, Stream, and Share Music</p>
+                    <p class="feature-description">OrionTunes is your ultimate destination for downloading, streaming, and sharing music. Explore the latest hits, classic tracks, and hidden gems all in one place.</p>
                 </div>
             </div>
         </div>
@@ -104,7 +103,7 @@
     
                 <div>
                     <small>
-                        <a href="#" class="text-primary">#music</a>, <a href="#" class="text-primary">#streaming</a>, <a href="#" class="text-primary">#discover</a>, <a href="#" class="text-primary">#artists</a>, <a href="#" class="text-primary">#albums</a>
+                        <a href="music.html" class="text-primary">#music</a>, <a href="player.html" class="text-primary">#streaming</a>, <a href="download.html" class="text-primary">#download</a>, <a href="artists.html" class="text-primary">#artists</a>, <a href="albums.html" class="text-primary">#albums</a>
                     </small>
                 </div>
     
@@ -112,6 +111,107 @@
         </div>
         
     </div>
+
+
+        <!-- Comment Section Start-->
+
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('comment-form');
+        const resultsContainer = document.getElementById('results');
+        const pageId = document.querySelector('.main-containerr').getAttribute('data-page-id');
+        const localStorageKey = `commentsData_${pageId}`;
+    
+        loadComments();
+    
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const file = formData.get('user-img');
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const website = formData.get('website');
+            const comment = formData.get('comment');
+    
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const userImg = e.target.result;
+                const data = { userImg, name, email, website, comment };
+                saveComment(data);
+                addCommentToDOM(data);
+                form.reset();
+            };
+            reader.readAsDataURL(file);
+        });
+    
+        function saveComment(data) {
+            let comments = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+            comments.push(data);
+            localStorage.setItem(localStorageKey, JSON.stringify(comments));
+        }
+    
+        function loadComments() {
+            const comments = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+            comments.forEach(addCommentToDOM);
+        }
+    
+        function addCommentToDOM(data) {
+            const commentItem = document.createElement('div');
+            commentItem.className = 'comment-item';
+            commentItem.innerHTML = `
+                <img src="${data.userImg}" alt="${data.name}'s image" class="imgg">
+                <div class="comment-content">
+                    <strong>${data.name}</strong><br> (<a href="mailto:${data.email}" class="maili">${data.email}</a>)<br><br>
+                    ${data.website ? `<a href="${data.website}" target="_blank" class="linki">${data.website}</a><br>` : ''}
+                    <p class="pag">${data.comment}</p>
+                </div>
+                <span class="delete-btn">Delete</span>
+            `;
+            resultsContainer.appendChild(commentItem);
+    
+            commentItem.querySelector('.delete-btn').addEventListener('click', function () {
+                deleteComment(data, commentItem);
+            });
+        }
+    
+        function deleteComment(data, element) {
+            let comments = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+            comments = comments.filter(comment => comment.comment !== data.comment || comment.email !== data.email);
+            localStorage.setItem(localStorageKey, JSON.stringify(comments));
+            element.remove();
+        }
+    });
+    
+        </script>
+            
+        
+            <div class="bg-dark">
+                <div class="main-containerr">
+                    <div class="form-container">
+                        <form id="comment-form">
+                            <div class="form-row">
+                                <label for="file-upload" class="custom-file-upload">
+                                    Upload Image <i class='bx bx-image-add' style="font-size: 1.1rem; margin-bottom: -15px;"></i>
+                                </label>
+                                <input class="input" id="file-upload" type="file" name="user-img" accept="image/*" required>
+                                <input class="input fer" type="text" name="name" placeholder="Name" required>
+                            </div>
+                            <div class="form-row">
+                                <input class="input" type="email" name="email" placeholder="Email" required>
+                                <input class="input" type="url" name="website" placeholder="Website">
+                            </div>
+                            <textarea class="textarea" name="comment" placeholder="Comment" required></textarea><br>
+                            <button type="submit" class="nag">Submit</button>
+                        </form>
+                    </div> 
+                    <div id="results" class="results-container">
+                        <h2 class="text-white" style="margin-bottom: 50px;margin-top: 20px; margin-left: 25px;">Comment Section</h2>
+        
+                    </div>
+                </div>
+            </div>
+            <!-- Comment Section end-->
 
     <footer class="footer-section">
         <div class="container">
@@ -199,7 +299,6 @@
                             <div class="subscribe-form">
                                 <form action="https://formspree.io/f/xvgppbqr" method="POST">
                                     <label>
-                                        Your email:
                                         <input type="email" name="email" placeholder="Email Address" required>
                                     </label>
                                     <button type="submit" style="margin-top: 22px; max-height: 45px;"><i class='bx bxl-telegram'></i></button>

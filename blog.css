@@ -506,3 +506,18 @@ margin-right: 20px;
         height: auto;
     }
 }
+/* Universal selector to apply the style to all elements */
+* {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera, and other modern browsers */
+}
+
+/* If you want to apply it only to specific parts, use a class instead */
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera, and other modern browsers */
+}
