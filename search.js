@@ -76,6 +76,9 @@ const autocompleteOptions = [
     { name: "Davido", type: "artist", url: "davido.html" },
     { name: "Rema", type: "artist", url: "rema.html" },
     { name: "Asake", type: "artist", url: "asake.html" },
+    { name: "Jack Harlow", type: "artist", url: "jack.html" },
+    { name: "Pop Smoke", type: "artist", url: "popsmoke.html" },
+    { name: "Wizkid", type: "artist", url: "wizkid.html" },
 
 
 
@@ -95,7 +98,9 @@ const autocompleteOptions = [
 
 
     { name: "Party Starter", type: "recommended", url: "listen2.html" },
-    { name: "Option 5", type: "recommended", url: "option5.html" }
+    { name: "How to download", type: "recommended", url: "download.html" },
+    { name: "Music Player", type: "recommended", url: "player.html" },
+    { name: "Afrobeat", type: "recommended", url: "afro.html" }
 ];
 
 // Function to filter autocomplete options based on input value
