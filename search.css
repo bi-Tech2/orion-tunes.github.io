@@ -276,6 +276,11 @@ section ul li i {
 .autocomplete-list li:hover {
   background-color: var(--primary-color-light);
 }
+#autocomplete-list .type {
+  font-weight: bold;
+  color: #666;
+  margin-left: 10px;
+}
 
 
 .spinner {
@@ -306,3 +311,18 @@ section ul li i {
 
 
 
+/* Universal selector to apply the style to all elements */
+* {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera, and other modern browsers */
+}
+
+/* If you want to apply it only to specific parts, use a class instead */
+.no-select {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera, and other modern browsers */
+}

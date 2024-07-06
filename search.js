@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
     tabsBox.addEventListener('scroll', () => handleIcons(tabsBox.scrollLeft));
 });
 
-
 // Function to check if the search input is empty
 function isSearchInputEmpty() {
     const searchInput = document.getElementById('search-input');
@@ -69,25 +68,40 @@ document.getElementById('search-input').addEventListener('focus', function() {
     });
 });
 
-
-
-
 const searchInput = document.getElementById('search-input');
 const autocompleteList = document.getElementById('autocomplete-list');
 
-// List of autocomplete options (you can fetch this dynamically)
+// List of autocomplete options with corresponding types and URLs
 const autocompleteOptions = [
-    "Option 1",
-    "Option 2",
-    "Option 3",
-    "Option 4",
-    "Option 5"
+    { name: "Davido", type: "artist", url: "davido.html" },
+    { name: "Rema", type: "artist", url: "rema.html" },
+    { name: "Asake", type: "artist", url: "asake.html" },
+
+
+
+    { name: "For You - Davido ft Teni", type: "music", url: "for-you.html" },
+    { name: "Option 4", type: "music", url: "option4.html" },
+
+
+
+    { name: "Work Of Art", type: "album", url: "workofart.html" },
+    { name: "Option 5", type: "album", url: "option5.html" },
+
+
+
+    { name: "Insight", type: "blog", url: "news.html" },
+    { name: "How Music Changed The World", type: "blog", url: "news.html" },
+
+
+
+    { name: "Party Starter", type: "recommended", url: "listen2.html" },
+    { name: "Option 5", type: "recommended", url: "option5.html" }
 ];
 
 // Function to filter autocomplete options based on input value
 function filterOptions(inputValue) {
     return autocompleteOptions.filter(option =>
-        option.toLowerCase().includes(inputValue.toLowerCase())
+        option.name.toLowerCase().includes(inputValue.toLowerCase())
     );
 }
 
@@ -103,10 +117,13 @@ function displayOptions(options) {
         autocompleteList.innerHTML = '';
         options.forEach(option => {
             const li = document.createElement('li');
-            li.textContent = option;
+            li.textContent = option.name;
+            const span = document.createElement('span');
+            span.textContent = `(${option.type})`;
+            span.className = 'type';
+            li.appendChild(span);
             li.addEventListener('click', function() {
-                searchInput.value = option;
-                autocompleteList.style.display = 'none';
+                window.location.href = option.url;
             });
             autocompleteList.appendChild(li);
         });
@@ -141,5 +158,3 @@ document.addEventListener('click', function(event) {
         autocompleteList.style.display = 'none';
     }
 });
-
-
