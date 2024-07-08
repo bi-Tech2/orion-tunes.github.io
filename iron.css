@@ -70,7 +70,7 @@ input[type="submit"] {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #312a2b;
+    background: rgb(12, 12, 12);
     z-index: 999;
 }
 
