@@ -13,3 +13,349 @@
     -ms-user-select: none;     /* Internet Explorer/Edge */
     user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera, and other modern browsers */
 }
+* {
+	margin: 0;
+	padding: 0;
+	font-family: cursive;
+}
+
+body {
+	min-height: 100dvh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgb(12, 12, 12);
+}
+
+.main {
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #18191a;
+	border-radius: 8px;
+	box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+		inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+		5px 5px 15px rgba(0, 0, 0, 0.3),
+		-5px -5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.main button {
+	padding: 10px 12px;
+	margin: 0 10px;
+}
+
+.main #logo {
+	position: absolute;
+	top: 10px;
+	left: 30px;
+	font-size: 25px;
+	color: #ccc;
+}
+
+.main #logo i {
+	margin-right: 15px;
+}
+
+/* left & right part */
+.left {
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+/* song image */
+.left img {
+	height: 300px;
+	width: 80%;
+	border-radius: 15px;
+	object-fit: cover;
+	box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+		inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+		5px 5px 15px rgba(0, 0, 0, 0.3),
+		-5px -5px 15px rgba(255, 255, 255, 0.1);
+	padding: 5px;
+}
+
+/* both range slider part */
+input[type="range"] {
+	-webkit-appearance: none;
+	width: 50%;
+	outline: none;
+	height: 10px;
+	margin: 0 15px;
+	overflow: hidden;
+	border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.855);
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	height: 15px;
+	width: 15px;
+    border-radius: 50%;
+	background: linear-gradient(45deg, #18191a, #090909);
+	cursor: pointer;
+	box-shadow: -405px 0 0 400px #18191a;
+}
+
+.right input[type="range"] {
+	width: 40%;
+}
+
+/* volume part */
+.left .volume {
+	margin-top: 25px;
+	width: 80%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ebebeb;
+}
+
+.volume input[type="range"] {
+	flex: 1;
+}
+
+.left .volume p {
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.left .volume i {
+	cursor: pointer;
+	padding: 8px 12px;
+	background: linear-gradient(45deg, #ff0785, #ff5200);
+}
+
+.left .volume i:hover {
+	background: linear-gradient(45deg, #d8036e, #c64003);
+}
+
+.volume #volume_show {
+	padding: 5px 12px;
+	margin: 0 5px 0 0;
+	background: linear-gradient(45deg, #ff0785, #ff5200);
+}
+
+/* right part */
+.right {
+	width: 50%;
+	padding: 10px 0;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.right .middle {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.right .middle button {
+	border: none;
+	height: 70px;
+	width: 70px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	outline: none;
+	transition: 0.5s;
+	background: linear-gradient(45deg, #ff0785, #ff5200);
+	box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+		inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+		5px 5px 15px rgba(0, 0, 0, 0.3),
+		-5px -5px 10px rgba(255, 255, 255, 0.1);
+}
+
+.song_detail {
+	position: relative;
+	width: 80%;
+	overflow: hidden;
+	margin-bottom: 6.5em;
+}
+
+.song_detail #title {
+	text-transform: capitalize;
+	color: #ccc;
+	font-size: 35px;
+}
+
+.song_detail #artist {
+	text-transform: capitalize;
+	color: #ccc;
+	font-size: 18px;
+	margin-top: 5px;
+}
+
+.right .duration {
+	margin-top: 3em;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80%;
+}
+
+.duration input[type="range"] {
+	flex: 1;
+}
+
+.right #auto {
+	font-size: 15px;
+	text-align: center;
+	cursor: pointer;
+	border: none;
+	padding: 5px 7px;
+	color: #ccc;
+	background: linear-gradient(45deg, #ff0783a1, #ff5100c1);
+	outline: none;
+	border-radius: 10px;
+	box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+		inset -2px -2px 5px rgba(255, 255, 255, 0.1),
+		5px 5px 15px rgba(0, 0, 0, 0.3),
+		-5px -5px 15px rgba(255, 255, 255, 0.1);
+}
+
+#play {
+	background: linear-gradient(45deg, #ff0785, #ff5200);
+}
+
+.right button:hover {
+	background: linear-gradient(45deg, #c10864, #c64103);
+}
+
+.right i:before {
+	color: #ccc;
+	font-size: 20px;
+}
+
+.show_song_no {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 30px;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px 12px;
+	color: #ccc;
+	border-radius: 5px;
+	background: linear-gradient(45deg, #ff07839a, #ff5100b4);
+	box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+		inset -2px -2px 5px rgba(255, 255, 255, 0.1),
+		5px 5px 15px rgba(0, 0, 0, 0.3),
+		-5px -5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.show_song_no p:nth-child(2) {
+	margin: 0 5px;
+}
+
+/*responsive*/
+@media (max-width: 700px) {
+	.main {
+		flex-direction: column;
+		height: 100vh; /* Corrected vh unit */
+		width: 100%;
+		align-items: center; /* Center align items horizontally */
+	}
+
+	.right {
+		margin-top: 10px;
+		width: 90%;
+	}
+
+	.right .duration {
+		width: 95%;
+	}
+
+	.left {
+		margin-top: 5em;
+		width: 90%;
+	}
+
+	.left img {
+		min-width: 100%;
+		height: 180px;
+	}
+
+	.main #logo {
+		align-self: center; /* Center align the logo vertically */
+	}
+
+	.song_detail {
+		position: absolute;
+		top: 57px;
+		left: 10%;
+		font-size: .5rem;
+		width: 80%;
+		height: 70px;
+	}
+
+	.song_detail #title {
+		font-size: 1.8em;
+	}
+}
+
+@media (max-width: 500px) {
+	.main {
+		flex-direction: column;
+		height: 100vh; /* Corrected vh unit */
+		width: 100%;
+		align-items: center; /* Center align items horizontally */
+	}
+
+	.right {
+		margin-top: 20px;
+		width: 90%;
+	}
+
+	.left {
+		margin-top: 5em;
+		width: 90%;
+	}
+
+	.left img {
+		min-width: 95%;
+		height: 180px;
+	}
+
+	.main #logo {
+		align-self: center; 
+		/* Center align the logo vertically */
+	}
+
+	.song_detail {
+		position: absolute;
+		top: 50px;
+		font-size: 0.7rem;
+		left: 10%;
+		width: 80%;
+		height: 70px;
+	}
+
+	.song_detail #title {
+		font-size: 1.5em;
+	}
+
+	.song_detail #artist {
+		font-size: 0.8em;
+	}
+
+	.right .middle button {
+		height: 62px;
+		width: 62px;
+	}
+}

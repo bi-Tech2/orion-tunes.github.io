@@ -1,36 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+	<title>music player</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Music</title>
-    <style>
-        .btnnn {
-            background-color: #4CAF50; /* Green */
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 12px;
-        }
-    </style>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="player.css">
+    <title>Oriontunes - Player</title>
+    <link rel="shortcut icon" href="orion-fav-modified.png" type="image/x-icon">
 </head>
+
 <body>
 
-<a id="downloadLink" href="Murder on my mind - YWN melly.mp3" download style="display: none;"></a>
-<button class="btnnn" onclick="downloadMusic()">Download Music</button>
+  <div class="main">
+  	<p id="logo"><a href="index.html" class="nav__logo" style="text-decoration: none;font-size: 0.8rem;">
+        <img src="orion-logo.png" alt="OrionTune Logo" width="80px" height="auto"><span class="tv" style="text-decoration: none; color: antiquewhite; font-size: 0.8rem;">Tune</span>
+    </a></p>
+    
+        <!-- show_song_number -->
+        <div class="show_song_no">
+          <p id="present">1</p>
+          <p>/</p>
+          <p id="total">5</p>
+        </div>
 
-<script>
-    function downloadMusic() {
-        const link = document.getElementById('downloadLink');
-        link.click();
-    }
-</script>
+
+    <!--- left part --->
+     <div class="left">
+
+      <!--- song img --->
+      <img id="track_image">
+         <div class="volume">
+            <p id="volume_show">90</p>
+            <i class="fa fa-volume-up" aria-hidden="true" onclick="mute_sound()" id="volume_icon"></i>
+            <input type="range" min="0" max="100" value="90" onchange="volume_change()" id="volume">  
+         </div>
+
+     </div>
+ 
+     <!--- right part --->
+  	 <div class="right">
+       <!--- song title & artist name --->
+       <div class="song_detail">
+           <p id="title">title.mp3</p>
+           <p id="artist">Artist name</p>
+       </div>
+
+      <!--- middle part --->
+  	 	<div class="middle">
+  	       <button onclick="previous_song()" id="pre"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+      	   <button onclick="justplay()" id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
+  	       <button onclick="next_song()" id="next"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+  	   </div>
+
+       <!--- song duration part --->
+        <div class="duration">
+           <input type="range" min="0" max="100" value="0" id="duration_slider" onchange="change_duration()">
+           <button id="auto" onclick="autoplay_switch()">Auto &nbsp;<i class="fa fa-circle-o-notch" aria-hidden="true"></i></button>
+        </div>
+           
+  	</div>
+
+
+  </div>
+
+<script src="player.js"></script>
 
 </body>
 </html>
