@@ -34,7 +34,151 @@
             <i class="fa fa-volume-up" aria-hidden="true" onclick="mute_sound()" id="volume_icon"></i>
             <input type="range" min="0" max="100" value="90" onchange="volume_change()" id="volume">  
          </div>
+<style>
+    /* Style the track */
+#volume {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: rgba(16, 16, 16, 0.899);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
 
+/* WebKit browsers */
+#volume::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 10px;
+    background: rgba(16, 16, 16, 0.899);
+    border-radius: 5px;
+}
+
+#volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #ff0785, #ff5200);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -5px; /* Centers the thumb on the track */
+}
+
+/* Mozilla Firefox */
+#volume::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    background: rgba(16, 16, 16, 0.899);
+    border-radius: 5px;
+}
+
+#volume::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #ff0785, #ff5200);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Microsoft Edge and IE */
+#volume::-ms-track {
+    width: 100%;
+    height: 10px;
+    background: rgba(16, 16, 16, 0.899);
+    border-radius: 5px;
+    border: none; /* Removes the default border in Edge */
+}
+
+#volume::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #ff0785, #ff5200);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#volume::-ms-fill-lower {
+    background: rgba(16, 16, 16, 0.899);
+}
+
+#volume::-ms-fill-upper {
+    background: rgba(16, 16, 16, 0.899);
+}
+/* Style the track */
+#duration_slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: rgba(16, 16, 16, 0.899);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* WebKit browsers */
+#duration_slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 10px;
+    background: rgba(16, 16, 16, 0.899);
+    border-radius: 5px;
+}
+
+#duration_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #ff0785, #ff5200);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -5px; /* Centers the thumb on the track */
+}
+
+/* Mozilla Firefox */
+#duration_slider::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    background: rgba(16, 16, 16, 0.899);
+    border-radius: 5px;
+}
+
+#duration_slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #ff0785, #ff5200);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Microsoft Edge and IE */
+#duration_slider::-ms-track {
+    width: 100%;
+    height: 10px;
+    background: rgba(16, 16, 16, 0.899);
+    border-radius: 5px;
+    border: none; /* Removes the default border in Edge */
+}
+
+#duration_slider::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #ff0785, #ff5200);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#duration_slider::-ms-fill-lower {
+    background: rgba(16, 16, 16, 0.899);
+}
+
+#duration_slider::-ms-fill-upper {
+    background: rgba(16, 16, 16, 0.899);
+}
+
+</style>
      </div>
  
      <!--- right part --->
@@ -60,7 +204,9 @@
            
   	</div>
 
-
+   <div class="homeyall">
+    <a href="index.html" class="gohome" style="text-decoration: none;">Home</a>
+   </div>
   </div>
 
 <script src="player.js"></script>
