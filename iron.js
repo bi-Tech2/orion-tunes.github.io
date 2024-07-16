@@ -37,7 +37,7 @@ window.onload = function () {
     var preloader = document.querySelector('.preloader');
     setTimeout(function () {
         preloader.style.display = 'none';
-    }, 300);
+    }, 5000);
 
     const playPauseBtn = document.getElementById('playPauseBtn');
     const nextTrackBtn = document.getElementById('nextTrackBtn');

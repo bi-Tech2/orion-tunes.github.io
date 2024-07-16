@@ -3,20 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2323318809524914" crossorigin="anonymous"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="orion-fav.jpg" type="image/x-icon">
     <!--=============== BOXICONS ===============-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/src.js"></script>
     <link rel="stylesheet" href="blog.css">
-    <title>OrionTune - Blog</title>
+    <title>OrionTune - Pain Paints Paintings</title>
 </head>
 
-<body>
+<body style="background-color: var(--body-color);">
     <!--=============== HEADER ===============-->
     <header class="header" id="header">
         <nav class="nav container">
@@ -26,7 +26,7 @@
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="index.html" class="nav__link ">
+                        <a href="index.html" class="nav__link  active-link">
                             <i class='bx bx-home-alt nav__icon'></i>
                             <span class="nav__name">Home</span>
                         </a>
@@ -46,11 +46,11 @@
                     <li class="nav__item">
                         <a href="dowload.html" class="nav__link">
                             <i class='bx bx-download nav__icon'></i>
-                            <span class="nav__name">Dowload</span>
+                            <span class="nav__name">Download</span>
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="news.html" class="nav__link active-link">
+                        <a href="news.html" class="nav__link">
                             <i class='bx bx-news nav__icon'></i>
                             <span class="nav__name">Blog</span>
                         </a>
@@ -59,50 +59,138 @@
             </div>
             <a href="search.html" class="search-link"><i class="bx bx-search nav__search-icon"></i></a>
         </nav>
-    </header><br><br><br><br><br>
-
-    <div class="main-container">
-        <p class="main-title">Explore Our Blog<br>Discover the World of Music</p>
-    
-        <div class="cards-grid">
-            <a href="insight.html"><div class="feature-card">
-                <div class="card-content green-gradient">
-                    <i class='bx bx-headphone' style="font-size: 60px; color: #54E8A9;"></i>
-                    <p class="feature-title">Music Insights</p>
-                    <p class="feature-description">Get the latest insights on music trends, genres, and the industry from our expert bloggers.</p>
-                </div>
+    </header>
+<!--=============== MAIN CONTENT ===============-->
+<div class="bg-secondary" style="margin-top: 40px;">
+    <div class="container">
+        <div class="row">
+            <div class="column left" style="background-image:url('alb6.png');">
             </div>
-            </a>
-    
-            <a href="insight.html"><div class="feature-card">
-                <div class="card-content white-gradient">
-                    <i class='bx bx-globe' style="font-size: 60px; color: #2E3042;"></i>
-                    <p class="feature-title">Global Music Scene</p>
-                    <p class="feature-description">Stay updated with the global music scene, covering diverse international artists.</p>
+            <div class="column right">
+                <div>
+                    <small>
+                        <a href="music.html" class="text-white">Music</a>, <a href="hiphop.html"
+                            class="text-white">Hip-Hop</a>
+                    </small>
                 </div>
+                <h1 class="font-weight-bold">Fighting Demons</h1>
+                <p class="feature-description">Explore the latest album "Fighting Demons" by Juice Wrld, featuring his distinctive style and lyrical prowess.</p>
             </div>
-            </a>
-    
-            <a href="insight.html"><div class="feature-card">
-                <div class="card-content yellow-gradient">
-                    <i class='bx bx-bulb' style="font-size: 60px; color: #FFD700;"></i>
-                    <p class="feature-title">Innovative Sounds</p>
-                    <p class="feature-description">Discover innovative sounds and creative music projects that are reshaping the industry.</p>
-                </div>
-            </div>
-            </a>
-    
-            <a href="insight.html"><div class="feature-card">
-                <div class="card-content blue-gradient">
-                    <i class='bx bx-book-open' style="font-size: 60px; color: #2E86C1;"></i>
-                    <p class="feature-title">In-Depth Reviews</p>
-                    <p class="feature-description">Read comprehensive reviews of albums, songs, and artists, providing detailed analysis.</p>
-                </div>
-            </div>
-            </a>
         </div>
     </div>
+</div>
 
+
+
+
+<div class="section pig">
+    <h2 class="section__title he" style="margin-bottom: 50px;">23 Music</h2>
+    <section class="top-music">
+        <div class="music-table-container">
+            <table class="music-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Play</th>
+                        <th>Title</th>
+                        <th>Artist</th>
+                        <th>Year</th>
+                        <th>Album</th>
+                        <th>Save</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <button class="play-pause-btn" onclick="togglePlayPause(this)">
+                                <i class="bx bx-play"></i>
+                            </button>
+                            <audio src="Juice-WRLD-Bad-Energy-(JustNaija.com).mp3"></audio>
+                        </td>
+                        <td>Bad Energy</td>
+                        <td>Juice Wrld</td>
+                        <td>2023</td>
+                        <td>Fighting Demons</td>
+                        <td><a href="Juice-WRLD-Bad-Energy-(JustNaija.com).mp3" download="Juice-WRLD-Bad-Energy"
+                                class="download-btn" onclick="notifyDownload(this)"><i
+                                    class="bx bx-download"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <button class="play-pause-btn" onclick="togglePlayPause(this)">
+                                <i class="bx bx-play"></i>
+                            </button>
+                            <audio src="Juice-WRLD-Legends-(JustNaija.com).mp3"></audio>
+                        </td>
+                        <td>Legends</td>
+                        <td>Juice Wrld</td>
+                        <td>2023</td>
+                        <td>Fighting Demons</td>
+                        <td><a href="Juice-WRLD-Legends-(JustNaija.com).mp3" download="Juice-WRLD-Legends"
+                                class="download-btn" onclick="notifyDownload(this)"><i
+                                    class="bx bx-download"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <button class="play-pause-btn" onclick="togglePlayPause(this)">
+                                <i class="bx bx-play"></i>
+                            </button>
+                            <audio src="Juice-WRLD-Titanic-(JustNaija.com).mp3"></audio>
+                        </td>
+                        <td>Titanic</td>
+                        <td>Juice Wrld</td>
+                        <td>2023</td>
+                        <td>Fighting Demons</td>
+                        <td><a href="Juice-WRLD-Titanic-(JustNaija.com).mp3" download="Juice-WRLD-Titanic"
+                                class="download-btn" onclick="notifyDownload(this)"><i
+                                    class="bx bx-download"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <button class="play-pause-btn" onclick="togglePlayPause(this)">
+                                <i class="bx bx-play"></i>
+                            </button>
+                            <audio src="Juice_WRLD_-_picture_perfect_Music_Video_Prod.YoungTaylor_star_struck_Remix256k.mp3"></audio>
+                        </td>
+                        <td>Picture Perfect</td>
+                        <td>Juice Wrld</td>
+                        <td>2023</td>
+                        <td>Fighting Demons</td>
+                        <td><a href="Juice_WRLD_-_picture_perfect_Music_Video_Prod.YoungTaylor_star_struck_Remix256k.mp3" download="Juice_WRLD_-_picture_perfect"
+                                class="download-btn" onclick="notifyDownload(this)"><i
+                                    class="bx bx-download"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            <button class="play-pause-btn" onclick="togglePlayPause(this)">
+                                <i class="bx bx-play"></i>
+                            </button>
+                            <audio src="Juice_WRLD_-_Robbery_VistaNaija.Com.mp3"></audio>
+                        </td>
+                        <td>Robbery</td>
+                        <td>Juice Wrld</td>
+                        <td>2023</td>
+                        <td>Fighting Demons</td>
+                        <td><a href="Juice_WRLD_-_Robbery_VistaNaija.Com.mp3" download="Juice_WRLD_-_Robbery"
+                                class="download-btn" onclick="notifyDownload(this)"><i
+                                    class="bx bx-download"></i></a></td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+        <div id="notification" class="notification"></div>
+    </section>
+</div>
+
+
+
+    <!--=============== FOOTER ===============-->
     <footer class="footer-section">
         <div class="container">
             <div class="footer-cta ">
@@ -205,4 +293,5 @@
         </div>
     </footer>
 </body>
+
 </html>
