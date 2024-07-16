@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2323318809524914" crossorigin="anonymous"></script>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="orion-fav.jpg" type="image/x-icon">
     <!--=============== BOXICONS ===============-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/src.js"></script>
     <link rel="stylesheet" href="blog.css">
-    <title>OrionTunes - About</title>
+    <title>OrionTune - Pain Paints Paintings</title>
 </head>
 
 <body style="background-color: var(--body-color);">
@@ -20,12 +21,12 @@
     <header class="header" id="header">
         <nav class="nav container">
             <a href="index.html" class="nav__logo">
-                <img src="orion-logo.png" alt="OrionTunes Logo" width="150px" height="30px"><span class="tv">Tunes</span>
+                <img src="orion-logo.png" alt="OrionTune Logo" width="150px" height="30px"><span class="tv">Tune</span>
             </a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="index.html" class="nav__link active-link">
+                        <a href="index.html" class="nav__link  active-link">
                             <i class='bx bx-home-alt nav__icon'></i>
                             <span class="nav__name">Home</span>
                         </a>
@@ -45,7 +46,7 @@
                     <li class="nav__item">
                         <a href="dowload.html" class="nav__link">
                             <i class='bx bx-download nav__icon'></i>
-                            <span class="nav__name">Dowload</span>
+                            <span class="nav__name">Download</span>
                         </a>
                     </li>
                     <li class="nav__item">
@@ -59,169 +60,78 @@
             <a href="search.html" class="search-link"><i class="bx bx-search nav__search-icon"></i></a>
         </nav>
     </header>
-
-    <div class="bg-secondary">
-        <div class="container">
-            <div class="row">
-                <div class="column pd-left" style="background-image:url(orion-fav.jpg); align-items: center;justify-content: center;width: 100%;display: flex;"><img src="ovt.jpg" alt=""></div>
-                <div class="column right">
-                    <div>
-                        <small>
-                            <a href="index.html" class="text-white">Orion</a><a href="index.html" class="text-white">Tunes</a>
-                        </small>
-                    </div>
-                    <h1 class="font-weight-bold">About OrionTunes</h1>
-                    <div class="author-details">
-                        <div class="author-info" style="display: flex; justify-content: space-between;">
-                            <img src="orion-fav-modified (1).png" />
-                            <small>
-                                <a href="about.html" class="text-white">OrionTunes</a>
-                                <span>June 28</span>
-                            </small>
-                        </div>
-                    </div>
-                    <!-- Headline -->
-                    <p class="feature-title">Download, Stream, and Share Music</p>
-                    <p class="feature-description">OrionTunes is your ultimate destination for downloading, streaming, and sharing music. Explore the latest hits, classic tracks, and hidden gems all in one place.</p>
-                </div>
+<!--=============== MAIN CONTENT ===============-->
+<div class="bg-secondary" style="margin-top: 40px;">
+    <div class="container">
+        <div class="row">
+            <div class="column left" style="background-image:url('alb5.jpg');">
             </div>
-        </div>
-    </div>
-    
-    <div class="content">
-        <div class="containero">
-            <div class="text-secondary">
-                <p>Welcome to OrionTunes, a music platform designed to bring you the best music experience. Whether you're looking for the latest releases, classic albums, or emerging artists, OrionTunes has it all.</p>
-    
-                <h3 class="font-weight-bold" style="color: #ffffffc4;">#1. Download New Music</h3>
-                <p>Stay ahead of the curve by discovering new music on OrionTunes. Our platform features curated playlists, trending tracks, and personalized recommendations to help you find your next favorite song.</p>
-    
-                <blockquote class="text-primary">"Music is the universal language of mankind." - Henry Wadsworth Longfellow</blockquote>
-    
-                <p>With OrionTunes, you'll never miss out on the latest music trends. Our constantly updated library ensures you have access to the newest hits and timeless classics, all at your fingertips.</p>
-    
-                <h3 class="font-weight-bold" style="color: #ffffffc4;">#2. Stream Anytime, Anywhere</h3>
-                <p>Enjoy seamless music streaming with OrionTunes. Our user-friendly interface and high-quality audio make it easy to listen to your favorite tracks, whether you're at home or on the go.</p>
-    
+            <div class="column right">
                 <div>
                     <small>
-                        <a href="music.html" class="text-primary">#music</a>, <a href="player.html" class="text-primary">#streaming</a>, <a href="download.html" class="text-primary">#download</a>, <a href="artists.html" class="text-primary">#artists</a>, <a href="albums.html" class="text-primary">#albums</a>
+                        <a href="music.html" class="text-white">Music</a>, <a href="hiphop.html"
+                            class="text-white">Hip-Hop</a>
                     </small>
                 </div>
-    
+                <h1 class="font-weight-bold">23</h1>
+                <p class="feature-description">Explore the latest album "23" by Central Cee, featuring his distinctive style and lyrical prowess.</p>
             </div>
         </div>
-        
     </div>
+</div>
 
 
-        <!-- Comment Section Start-->
 
-        
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-        const form = document.getElementById('comment-form');
-        const resultsContainer = document.getElementById('results');
-        const pageId = document.querySelector('.main-containerr').getAttribute('data-page-id');
-        const localStorageKey = `commentsData_${pageId}`;
-    
-        loadComments();
-    
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            const formData = new FormData(form);
-            const file = formData.get('user-img');
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const website = formData.get('website');
-            const comment = formData.get('comment');
-    
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const userImg = e.target.result;
-                const data = { userImg, name, email, website, comment };
-                saveComment(data);
-                addCommentToDOM(data);
-                form.reset();
-            };
-            reader.readAsDataURL(file);
-        });
-    
-        function saveComment(data) {
-            let comments = JSON.parse(localStorage.getItem(localStorageKey)) || [];
-            comments.push(data);
-            localStorage.setItem(localStorageKey, JSON.stringify(comments));
-        }
-    
-        function loadComments() {
-            const comments = JSON.parse(localStorage.getItem(localStorageKey)) || [];
-            comments.forEach(addCommentToDOM);
-        }
-    
-        function addCommentToDOM(data) {
-            const commentItem = document.createElement('div');
-            commentItem.className = 'comment-item';
-            commentItem.innerHTML = `
-                <img src="${data.userImg}" alt="${data.name}'s image" class="imgg">
-                <div class="comment-content">
-                    <strong>${data.name}</strong><br> (<a href="mailto:${data.email}" class="maili">${data.email}</a>)<br><br>
-                    ${data.website ? `<a href="${data.website}" target="_blank" class="linki">${data.website}</a><br>` : ''}
-                    <p class="pag">${data.comment}</p>
-                </div>
-                <span class="delete-btn">Delete</span>
-            `;
-            resultsContainer.appendChild(commentItem);
-    
-            commentItem.querySelector('.delete-btn').addEventListener('click', function () {
-                deleteComment(data, commentItem);
-            });
-        }
-    
-        function deleteComment(data, element) {
-            let comments = JSON.parse(localStorage.getItem(localStorageKey)) || [];
-            comments = comments.filter(comment => comment.comment !== data.comment || comment.email !== data.email);
-            localStorage.setItem(localStorageKey, JSON.stringify(comments));
-            element.remove();
-        }
-    });
-    
-        </script>
-            
-        
-            <div class="bg-dark">
-                <div class="main-containerr">
-                    <div class="form-container">
-                        <form id="comment-form">
-                            <div class="form-row">
-                                <label for="file-upload" class="custom-file-upload">
-                                    Upload Image <i class='bx bx-image-add' style="font-size: 1.1rem; margin-bottom: -15px;"></i>
-                                </label>
-                                <input class="input" id="file-upload" type="file" name="user-img" accept="image/*" required>
-                                <input class="input fer" type="text" name="name" placeholder="Name" required>
-                            </div>
-                            <div class="form-row">
-                                <input class="input" type="email" name="email" placeholder="Email" required>
-                                <input class="input" type="url" name="website" placeholder="Website">
-                            </div>
-                            <textarea class="textarea" name="comment" placeholder="Comment" required></textarea><br>
-                            <button type="submit" class="nag">Submit</button>
-                        </form>
-                    </div> 
-                    <div id="results" class="results-container">
-                        <h2 class="text-white" style="margin-bottom: 50px;margin-top: 20px; margin-left: 25px;">Comment Section</h2>
-        
-                    </div>
-                </div>
-            </div>
-            <!-- Comment Section end-->
+<div class="section pig">
+    <h2 class="section__title he" style="margin-bottom: 50px;">23 Music</h2>
+    <section class="top-music">
+        <div class="music-table-container">
+            <table class="music-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Play</th>
+                        <th>Title</th>
+                        <th>Artist</th>
+                        <th>Year</th>
+                        <th>Album</th>
+                        <th>Save</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <button class="play-pause-btn" onclick="togglePlayPause(this)">
+                                <i class="bx bx-play"></i>
+                            </button>
+                            <audio src="Central Cee x Meek Mill - Stupid Love [Music Video](MP3_128K).mp3"></audio>
+                        </td>
+                        <td>Stupid Love</td>
+                        <td>Central Cee</td>
+                        <td>2023</td>
+                        <td>23</td>
+                        <td><a href="Central Cee x Meek Mill - Stupid Love [Music Video](MP3_128K).mp3" download="Central-Cee-stupid"
+                                class="download-btn" onclick="notifyDownload(this)"><i
+                                    class="bx bx-download"></i></a></td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+        <div id="notification" class="notification"></div>
+    </section>
+</div>
 
+
+
+    <!--=============== FOOTER ===============-->
     <footer class="footer-section">
         <div class="container">
             <div class="footer-cta ">
                 <div class="gig" >
                     <div class="genz">
                         <div class="single-cta">
-                            <i class="fas fa-map-marker-alt"></i>
                             <div class="footer--heading">
                                 <h3 style="margin-bottom: 20px;">Find us</h3>
                                 <span style="color: #7f7f7f;">Oshodi-isolo, Lagos, Nigeria</span>
@@ -231,8 +141,7 @@
                     <div class="genz">
                         <div class="single-cta">
                             <div class="single-cta">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div class="footer--heading">
+                                    <div class="footer--heading">
                                     <h3 style="margin-bottom: 20px;">Call us</h3>
                                 <a href="tel:+2349130993464" class="link" style="color: #7f7f7f;">+234 913 099 3464</a>
                             </div>
@@ -241,7 +150,6 @@
                     </div>
                     <div class="genz">
                         <div class="single-cta">
-                            <i class="fas fa-map-marker-alt"></i>
                             <div class="footer--heading">
                                 <h3 style="margin-bottom: 20px;">Mail us</h3>
                                 <a href="mailto:jodicksonjoshua@gmail.com" class="link" style="color: #7f7f7f;">jodicksonjoshua@gmail.com</a>
@@ -320,4 +228,5 @@
         </div>
     </footer>
 </body>
+
 </html>
