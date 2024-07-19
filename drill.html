@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2323318809524914" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="orion-fav.jpg" type="image/x-icon">
+    <!--=============== BOXICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="blog.css">
+    <title>OrionTune - Drill</title>
+</head>
+
+<body style="background-color: var(--body-color);">
+    <!--=============== HEADER ===============-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <img src="orion-logo.png" alt="OrionTune Logo" width="150px" height="30px"><span class="tv">Tune</span>
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link  active-link">
+                            <i class='bx bx-home-alt nav__icon'></i>
+                            <span class="nav__name">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="music.html" class="nav__link">
+                            <i class='bx bx-music nav__icon'></i>
+                            <span class="nav__name">Music</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="artists.html" class="nav__link">
+                            <i class='bx bx-user nav__icon'></i>
+                            <span class="nav__name">Artists</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="download.html" class="nav__link">
+                            <i class='bx bx-download nav__icon'></i>
+                            <span class="nav__name">Download</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="news.html" class="nav__link">
+                            <i class='bx bx-news nav__icon'></i>
+                            <span class="nav__name">Blog</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <a href="search.html" class="search-link"><i class="bx bx-search nav__search-icon"></i></a>
+        </nav>
+    </header>
+<!--=============== MAIN CONTENT ===============-->
+<div class="bg-secondary" style="margin-top: 40px;">
+    <div class="container">
+        <div class="row">
+            <div class="column left" style="background-image:url('holydrill.jpg');">
+            </div>
+            <div class="column right">
+                <div>
+                    <small>
+                        <a href="music.html" class="text-white">Music</a>, <a href="drill.html" class="text-white">Drill</a>
+                    </small>
+                </div>
+                <h1 class="font-weight-bold">Drill</h1>
+                <p class="feature-description">Your ultimate playlist to get the party started with the hottest Drill tracks, videos, and images.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="containero">
+        <div class="text-secondary">
+            <p>From hard-hitting beats to powerful lyrics, explore our selection of Drill music that will keep you vibing all night long.</p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let currentAudio = null;
+
+        // Function to handle play/pause
+        function togglePlayPause(button) {
+            const audioUrl = button.getAttribute('data-audio-url');
+            if (!audioUrl) return; // No audio URL found, exit the function
+
+            // Check if there's already an audio element associated with the button
+            let audio = button.nextElementSibling;
+            if (!audio || audio.tagName.toLowerCase() !== 'audio') {
+                // Create a new audio element if not present
+                audio = new Audio(audioUrl);
+                button.insertAdjacentElement('afterend', audio);
+            }
+
+            const icon = button.querySelector('i');
+
+            // Pause the currently playing audio
+            if (currentAudio && currentAudio !== audio) {
+                currentAudio.pause();
+                const currentButton = currentAudio.previousElementSibling;
+                const currentIcon = currentButton.querySelector('i');
+                currentIcon.classList.remove('bx-pause');
+                currentIcon.classList.add('bx-play');
+            }
+
+            // Toggle play/pause
+            if (audio.paused) {
+                audio.play();
+                icon.classList.remove('bx-play');
+                icon.classList.add('bx-pause');
+                currentAudio = audio;
+            } else {
+                audio.pause();
+                icon.classList.remove('bx-pause');
+                icon.classList.add('bx-play');
+                currentAudio = null;
+            }
+        }
+
+        // Add event listeners to play buttons
+        const playButtons = document.querySelectorAll('.play-button');
+        playButtons.forEach(button => {
+            button.addEventListener('click', () => togglePlayPause(button));
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Music Download Functionality
+        function downloadMusic(url, filename) {
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        const downloadButtons = document.querySelectorAll('.download-button');
+        downloadButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent the default anchor behavior
+                const url = button.getAttribute('data-url');
+                const filename = button.getAttribute('data-filename');
+                downloadMusic(url, filename);
+            });
+        });
+    });
+</script>
+
+<div class="item section-music" id="open" style="margin-top: -140px; padding: 30px;">
+    <h2 class="section__title">Drill Songs</h2>
+    <div class="card-slider">
+        <div class="card-item">
+            <div class="card" style="background-image: url('play.jpg');">
+                <div class="card-header">
+                    <div class="card-info">
+                        <p class="card-song">Loading</p>
+                        <p class="card-artist">Central Cee</p>
+                    </div>
+                    <button class="play-button" data-audio-url="Central_Cee_-_Loading.mp3"><i class="bx bx-play"></i></button>
+                </div>
+                <button class="download-button" data-url="Central_Cee_-_Loading.mp3" data-filename="Central_Cee_-_Loading.mp3"><i class="bx bx-download"></i></button>
+                <div class="do"><img src="icon_vip.svg" alt=""></div>
+            </div>
+        </div>
+        <div class="card-item">
+            <div class="card" style="background-image: url('play.jpg');">
+                <div class="card-header">
+                    <div class="card-info">
+                        <p class="card-song">Stupid Love</p>
+                        <p class="card-artist">Central Cee ft Mekk Mill</p>
+                    </div>
+                    <button class="play-button" data-audio-url="Central Cee x Meek Mill - Stupid Love [Music Video](MP3_128K).mp3"><i class="bx bx-play"></i></button>
+                </div>
+                <button class="download-button" data-url="Central Cee x Meek Mill - Stupid Love [Music Video](MP3_128K).mp3" data-filename="Central Cee x Meek Mill - Stupid Love [Music Video](MP3_128K).mp3"><i class="bx bx-download"></i></button>
+                <div class="up"><img src="embed_icon_new.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="item section-music" id="open" style="margin-top: -30px; padding: 20px;">
+    <h2 class="section__title">Drill Artists</h2>
+    <div class="card-slider yet">
+        <style>
+            .card-item {
+                width: 200px;
+                height: auto;
+            }
+    
+            .card-item img {
+                width: 100%;
+                object-fit: cover;
+                height: 100%;
+                border-radius: 20px;
+            }
+        </style>
+        <div class="card-item">
+            <img src="Central cee.jpeg" alt="Party Image 6">
+        </div>
+        <div class="card-item">
+            <img src="pop1.jpeg" alt="Party Image 4">
+        </div>
+        <div class="card-item">
+            <img src="Central cee.jpg" alt="Party Image 7">
+        </div>
+        <div class="card-item">
+            <img src="pop4.jpeg" alt="Party Image 1">
+        </div>
+        <div class="card-item">
+            <img src="imgs/Travis Scott.jpeg" alt="Party Image 2">
+        </div>
+        <div class="card-item">
+            <img src="imgs/Lil Durk.jpeg" alt="Party Image 3">
+        </div>
+        
+        <div class="card-item">
+            <img src="imgs/Lil Baby Drops Two New Records “Right On” & “In A Minute”.jpeg" alt="Party Image 5">
+        </div>
+        
+    </div>
+    
+</div>
+
+<style>
+    .tb {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .tbn {
+        width: 45%;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .tbn iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .tbn {
+            width: 100%;
+            height: auto;
+        }
+    }
+</style>
+<div class="item section-music" id="open" style="margin-top: -30px; padding: 20px; width: 100%;">
+    <h2 class="section__title">Drill Videos</h2>
+    <div class="tb">
+
+        <div class="tbn">
+            <iframe src="https://www.youtube.com/embed/ZQgwarjuA2Y?si=6gsdQnkWTW7ndQhM" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="tbn">
+            <iframe src="https://www.youtube.com/embed/_XtZ-ONmHZw" title="The Lil Durk Interview" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    </div>
+
+
+    <!--=============== FOOTER ===============-->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-cta ">
+                <div class="gig" >
+                    <div class="genz">
+                        <div class="single-cta">
+                            <div class="footer--heading">
+                                <h3 style="margin-bottom: 20px;">Find us</h3>
+                                <span style="color: #7f7f7f;">Oshodi-isolo, Lagos, Nigeria</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="genz">
+                        <div class="single-cta">
+                            <div class="single-cta">
+                                    <div class="footer--heading">
+                                    <h3 style="margin-bottom: 20px;">Call us</h3>
+                                <a href="tel:+2349130993464" class="link" style="color: #7f7f7f;">+234 913 099 3464</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="genz">
+                        <div class="single-cta">
+                            <div class="footer--heading">
+                                <h3 style="margin-bottom: 20px;">Mail us</h3>
+                                <a href="mailto:jodicksonjoshua@gmail.com" class="link" style="color: #7f7f7f;">jodicksonjoshua@gmail.com</a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-content ">
+                <div class="gen">
+                    <div class="">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="index.html" style="text-align: center; align-items: center; display: flex; width: 100%;">
+                                    <img src="orion-logo.png" class="img-fluid" width="120" height="auto" alt="logo">
+
+                                </a>
+                                <p style="margin-top: 15px; max-width: 320px; white-space-collapse: collapse; color: #8c8c8c;">OrionTunes - Your ultimate destination for discovering, streaming, and sharing music.</p>
+                            </div>
+                            <div class="footer-text">
+                                <!-- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, doloribus esse rem necessitatibus eius exercitationem! -->
+                            </div>
+                            <div class="footer-social-icon " style="margin-top: 10px;">
+                                <div class="footer-widget-heading" style="margin-bottom: -10px;">
+                                    <h3>Follow us</h3>
+                                </div>
+                                <a href="https://x.com/Dickson53194258" class="oj"><i class='bx bxl-twitter'  style="color: white;"></i></a>
+                                <a href="https://www.instagram.com/bi_tech2.0/" class="oj"><i class='bx bxl-instagram'  style="color: white;"></i></a>
+                                <a href="https://github.com/bi-Tech2" class="oj"><i class='bx bxl-snapchat'  style="color: white;"></i></a>
+                                <a href="https://web.snapchat.com/389ca514-e490-5b04-857a-35fc5c40f155" class="oj"><i class='bx bxl-github'  style="color: white;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spirit">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Useful Links</h3>
+                            </div>
+                            <ul >
+                                <li><a href="download.html" class="link">Download Music</a></li>
+                                <li><a href="about.html" class="link">About OrionTunes</a></li>
+                                <li><a href="news.html" class="link">OrionTunes Blog</a></li>
+                                <li><a href="music.html" class="link">OrionTunes Music</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ghost" >
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Subscribe</h3>
+                            </div>
+                            <div class="footer-text mb-25">
+                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                            </div>
+                            <div class="subscribe-form">
+                                <form action="https://formspree.io/f/xvgppbqr" method="POST">
+                                    <label>
+                                        <input type="email" name="email" placeholder="Email Address" required>
+                                    </label>
+                                    <button type="submit" style="margin-top: 22px; max-height: 45px;"><i class='bx bxl-telegram'></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+                    <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                        <div class="copyright-text">
+                            <p>OrionTunes &copy; 2024, By <a href="https://www.instagram.com/bi_tech2.0/" class="link">BiTech</a></p>
+                        </div>
+                    </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2323318809524914"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="orion-fav-modified.png" type="image/x-icon">
+    <!--=============== BOXICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="iron.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>OrionTunes - Download Sction</title>
+
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+            var preloader = document.querySelector('.preloader');
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 5000);
+        };
+
+    </script>
+    <div class="preloader" id="preloader">
+        <div id="loader"></div>
+    </div>
+
+
+
+    <!--=============== HEADER ===============-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <img src="orion-logo.png" alt="" width="150px" height="30px"><span class="tv">Tunes</span>
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">
+                            <i class='bx bx-home-alt nav__icon'></i>
+                            <span class="nav__name">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="music.html" class="nav__link">
+                            <i class='bx bx-music nav__icon'></i>
+                            <span class="nav__name">Music</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="artists.html" class="nav__link">
+                            <i class='bx bx-user nav__icon'></i>
+                            <span class="nav__name">Artists</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="download.html" class="nav__link active-link">
+                            <i class='bx bx-download nav__icon'></i>
+                            <span class="nav__name">Download</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="news.html" class="nav__link">
+                            <i class='bx bx-news nav__icon'></i>
+                            <span class="nav__name">Blog</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <a href="search.html" class="search-link"><i class="bx bx-search nav__search-icon"></i></a>
+        </nav>
+    </header>
+
+
+    <main> <!--=============== HOME ===============-->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                let currentAudio = null;
+
+                // Function to handle play/pause
+                function togglePlayPause(button) {
+                    const audioUrl = button.getAttribute('data-audio-url');
+                    if (!audioUrl) return; // No audio URL found, exit the function
+
+                    // Check if there's already an audio element associated with the button
+                    let audio = button.nextElementSibling;
+                    if (!audio || audio.tagName.toLowerCase() !== 'audio') {
+                        // Create a new audio element if not present
+                        audio = new Audio(audioUrl);
+                        button.insertAdjacentElement('afterend', audio);
+                    }
+
+                    const icon = button.querySelector('i');
+
+                    // Pause the currently playing audio
+                    if (currentAudio && currentAudio !== audio) {
+                        currentAudio.pause();
+                        const currentButton = currentAudio.previousElementSibling;
+                        const currentIcon = currentButton.querySelector('i');
+                        currentIcon.classList.remove('bx-pause');
+                        currentIcon.classList.add('bx-play');
+                    }
+
+                    // Toggle play/pause
+                    if (audio.paused) {
+                        audio.play();
+                        icon.classList.remove('bx-play');
+                        icon.classList.add('bx-pause');
+                        currentAudio = audio;
+                    } else {
+                        audio.pause();
+                        icon.classList.remove('bx-pause');
+                        icon.classList.add('bx-play');
+                        currentAudio = null;
+                    }
+                }
+
+                // Add event listeners to play buttons
+                const playButtons = document.querySelectorAll('.play-button');
+                playButtons.forEach(button => {
+                    button.addEventListener('click', () => togglePlayPause(button));
+                });
+            });
+
+
+            document.addEventListener('DOMContentLoaded', function () {
+                // Music Download Functionality
+                function downloadMusic(url, filename) {
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = filename;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+
+                const downloadButtons = document.querySelectorAll('.download-button');
+                downloadButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault(); // Prevent the default anchor behavior
+                        const url = button.getAttribute('data-url');
+                        const filename = button.getAttribute('data-filename');
+                        downloadMusic(url, filename);
+                    });
+                });
+            });
+
+        </script>
+
+
+        <div class="popup-overlay" id="popupOverlay">
+            <i class='bx bx-x close-icon' id="closePopup"></i>
+            <div class="popup-card">
+                <div class="fool">
+                    <div class="loop">
+                        <img src="4w-fotor-20240621114847.jpg" alt="Image">
+                    </div>
+                    <div class="popup-text">
+                        <div class="logologo">
+                            <p class="p">OrionTunes</p>
+                        </div>
+                        <p class="clode">Explore OrionTunes' extensive features or jump to our player section for immediate access. Click <a href="index.html">here</a> to return to the homepage or visit our <a href="player.html">player section</a>.</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="item section-music" id="open">
+            <style>
+                .card-slido {
+                    padding: 30px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 100%;
+                    justify-content: space-evenly;
+                }
+                .header-text {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 100px; /* Adjust as needed */
+}
+
+.header-text h2 {
+    display: inline-block;
+    position: relative;
+    font-size: 28px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.header-text h2::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(50deg, #006eff, rgb(255, 174, 0),#800080);
+    transform: translateX(-50%);
+}
+
+            </style>
+<div class="header-text">
+    <h2>Explore Our Download Haven</h2>
+</div>
+
+            <div class="card-slido">
+                <div class="card-item">
+                    <div class="card" style="background-image: url('play.jpg')">
+                        <div class="card-header">
+                            <div class="card-info">
+                                <p class="card-song">Tyler Herro</p>
+                                <p class="card-artist">Jack Harlow</p>
+                            </div>
+                            <button class="play-button" data-audio-url="Jack_Harlow_-_Tyler_Herro.mp3"><i
+                                    class="bx bx-play"></i></button>
+                        </div> <button class="download-button" data-url="Jack_Harlow_-_Tyler_Herro.mp3"
+                            data-filename="Tyler_Herro_-_Jack_Harlow_.mp3"><i class="bx bx-download"></i></button>
+
+                        <div class="do"><img src="icon_vip.svg" alt=""></div>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <div class="card" style="background-image: url('play.jpg');">
+                        <div class="card-header">
+                            <div class="card-info">
+                                <p class="card-song">What's poppin</p>
+                                <p class="card-artist">Jack Harlow</p>
+                            </div>
+                            <button class="play-button" data-audio-url="Jack_Harlow_-_What_s_Poppin.mp3"><i
+                                    class="bx bx-play"></i></button>
+                        </div> <button class="download-button" data-url="Jack_Harlow_-_What_s_Poppin.mp3"
+                            data-filename="What_s_PoppinJack_-_Harlow_.mp3"><i class="bx bx-download"></i></button>
+
+                    </div>
+                </div>
+                    <div class="card-item">
+                        <div class="card"
+                            style="background-image: url('imgs/Juice\ WRLD\ -\ Goodbye\ &\ Good\ Riddance\ \(LP\)\ \(Explicit\)\ -\ Vinyl\ -\ Walmart_com.jpeg');">
+                            <div class="card-header">
+                                <div class="card-info">
+                                    <p class="card-song">Legends</p>
+                                    <p class="card-artist">Juice Wrld</p>
+                                </div>
+                                <button class="play-button" data-audio-url="Juice-WRLD-Legends-(JustNaija.com).mp3"><i
+                                        class="bx bx-play"></i></button>
+                            </div> <button class="download-button" data-url="Juice-WRLD-Legends-(JustNaija.com).mp3"
+                                data-filename="Legends-Juice Wrld-(OrionTunes).mp3"><i
+                                    class="bx bx-download"></i></button>
+
+                            <div class="up"><img src="embed_icon_new.png" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="card-item">
+                        <div class="card"
+                            style="background-image: url('imgs/Juice\ WRLD\ -\ Goodbye\ &\ Good\ Riddance\ \(LP\)\ \(Explicit\)\ -\ Vinyl\ -\ Walmart_com.jpeg');">
+                            <div class="card-header">
+                                <div class="card-info">
+                                    <p class="card-song">Home</p>
+                                    <p class="card-artist">Juice Wrld ft XXX Tentacion</p>
+                                </div>
+                                <button class="play-button" data-audio-url="Juice - wrld - home - ft - XXX.mp3"><i
+                                        class="bx bx-play"></i></button>
+                            </div> <button class="download-button" data-url="Juice - wrld - home - ft - XXX.mp3"
+                                data-filename="home - ft - Juice - wrld - XXX.mp3"><i
+                                    class="bx bx-download"></i></button>
+
+                            <div class="do"><img src="icon_vip.svg" alt=""></div>
+                        </div>
+                    </div>
+
+                    <div class="card-item">
+                        <div class="card" style="background-image: url('play.jpg');">
+                            <div class="card-header">
+                                <div class="card-info">
+                                    <p class="card-song">Picture Perfect</p>
+                                    <p class="card-artist">Juice Wrld</p>
+                                </div>
+                                <button class="play-button"
+                                    data-audio-url="audio/Juice_WRLD_-_picture_perfect(OrionTunes).mp3"><i
+                                        class="bx bx-play"></i></button>
+                            </div> <button class="download-button"
+                                data-url="audio/Juice_WRLD_-_picture_perfect(OrionTunes).mp3"
+                                data-filename="picture_perfect/Juice_WRLD_(OrionTunes).mp3"><i
+                                    class="bx bx-download"></i></button>
+
+                        </div>
+                    </div>
+                    <div class="card-item" id="open">
+                        <div class="card" style="background-image: url('play.jpg');">
+                            <div class="card-header">
+                                <div class="card-info">
+                                    <p class="card-song">Robbery</p>
+                                    <p class="card-artist">Juice Wrld</p>
+                                </div>
+                                <button class="play-button" data-audio-url="Juice_WRLD_-_Robbery_VistaNaija.Com.mp3"><i
+                                        class="bx bx-play"></i></button>
+                            </div> <button class="download-button" data-url="Juice_WRLD_-_Robbery_VistaNaija.Com.mp3"
+                                data-filename="Robbery_Juice_WRLD_-OrionTunes.Com.mp3"><i
+                                    class="bx bx-download"></i></button>
+
+                        </div>
+                    </div>
+                    <div class="card-item">
+                        <div class="card" style="background-image: url('play.jpg');">
+                            <div class="card-header">
+                                <div class="card-info">
+                                    <p class="card-song">Cursed Heart</p>
+                                    <p class="card-artist">Juice Wrld</p>
+                                </div>
+                                <button class="play-button"
+                                    data-audio-url="audio/Juice-WRLD-Cursed-Heart-(OrionTunes).mp3"><i
+                                        class="bx bx-play"></i></button>
+                            </div> <button class="download-button"
+                                data-url="audio/Juice-WRLD-Cursed-Heart-(OrionTunes).mp3"
+                                data-filename="Cursed-Heart-Juice-WRLD--(OrionTunes).mp3"><i
+                                    class="bx bx-download"></i></button>
+
+                            <div class="do"><img src="icon_vip.svg" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="card-item">
+                        <div class="card" style="background-image: url('play.jpg');">
+                            <div class="card-header">
+                                <div class="card-info">
+                                    <p class="card-song">Without Me</p>
+                                    <p class="card-artist">Juice Wrld ft Halsey</p>
+                                </div>
+                                <button class="play-button" data-audio-url="Halsey_Ft_Juice_WRLD_-_Without_Me.mp3"><i
+                                        class="bx bx-play"></i></button>
+                            </div>
+                            <button class="download-button" data-url="Halsey_Ft_Juice_WRLD_-_Without_Me.mp3"
+                                data-filename="Without_MeHalsey_Ft_Juice_WRLD_-.mp3"><i
+                                    class="bx bx-download"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-item">
+                        <div class="card" style="background-image: url('play.jpg')">
+                            <div class="card-header">
+                                <div class="card-info">
+                                    <p class="card-song">Dior</p>
+                                    <p class="card-artist">Pop Smoke</p>
+                                </div>
+                                <button class="play-button" data-audio-url="Pop_Smoke_Dior_Bonus.mp3"><i
+                                        class="bx bx-play"></i></button>
+                            </div> <button class="download-button" data-url="Pop_Smoke_Dior_Bonus.mp3"
+                                data-filename="Dior_Pop_Smoke.mp3"><i class="bx bx-download"></i></button>
+
+                            <div class="do"><img src="icon_vip.svg" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="card-item">
+                        <div class="card" style="background-image: url('play.jpg');">
+                            <div class="card-header">
+                                <div class="card-info">
+                                    <p class="card-song">War</p>
+                                    <p class="card-artist">Pop Smoke ft Lil Tjay</p>
+                                </div>
+                                <button class="play-button"
+                                    data-audio-url="Pop Smoke - War ft. Lil Tjay (Official Audio)-1.mp3"><i
+                                        class="bx bx-play"></i></button>
+                            </div> <button class="download-button"
+                                data-url="Pop Smoke - War ft. Lil Tjay (Official Audio)-1.mp3"
+                                data-filename="War-_Pop Smoke-ft-lil_Tjay.mp3"><i class="bx bx-download"></i></button>
+
+                        </div>
+                    </div>
+                    <div class="card-item">
+                        <div class="card" style="background-image: url('play.jpg');">
+                            <div class="card-header">
+                                <div class="card-info">
+                                    <p class="card-song">Something Special</p>
+                                    <p class="card-artist">Pop Smoke</p>
+                                </div>
+                                <button class="play-button"
+                                    data-audio-url="Pop Smoke - Something Special (Audio).mp3"><i
+                                        class="bx bx-play"></i></button>
+                            </div> <button class="download-button" data-url="Pop Smoke - Something Special (Audio).mp3"
+                                data-filename="Something_-_Special\Pop Smoke_-(OrionTunes\).mp3"><i
+                                    class="bx bx-download"></i></button>
+
+                            <div class="do"><img src="icon_vip.svg" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="card-item">
+                        <div class="card" style="background-image: url('play.jpg');">
+                            <div class="card-header">
+                                <div class="card-info">
+                                    <p class="card-song">Hello</p>
+                                    <p class="card-artist">Pop Smoke</p>
+                                </div>
+                                <button class="play-button"
+                                    data-audio-url="Pop_Smoke_feat_A_Boogie_Wit_da_Hoodie_Hello.mp3"><i
+                                        class="bx bx-play"></i></button>
+                            </div> <button class="download-button"
+                                data-url="Pop_Smoke_feat_A_Boogie_Wit_da_Hoodie_Hello.mp3"
+                                data-filename="Hello-_Pop Smoke.mp3"><i class="bx bx-download"></i></button>
+
+                        </div>
+                    </div>
+                        <div class="card-item">
+                            <div class="card"
+                                style="background-image: url('Rema-Rave-And-Roses-Ultra-Album-Artwork1.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">DND</p>
+                                        <p class="card-artist">Rema</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Rema-DND-(Oriontunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Rema-DND-(Oriontunes).mp3"
+                                    data-filename="Rema-DND-(Oriontunes).mp3"><i class="bx bx-download"></i></button>
+
+                                <div class="up"><img src="embed_icon_new.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Rema-RAVAGE-EPArtwork1.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Charm</p>
+                                        <p class="card-artist">Rema</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Rema_-_Charms_(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Rema_-_Charms_(OrionTunes).mp3"
+                                    data-filename="Rema_-_Charms_(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Rema-Calm-Down-Mp3-Download.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Calm Down</p>
+                                        <p class="card-artist">Rema</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="audio/Rema-Calm-Down-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="audio/Rema-Calm-Down-(OrionTunes).mp3"
+                                    data-filename="Rema-Calm-Down-(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Rema-Ginger-Me-Artwork.jpeg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Ginger Me</p>
+                                        <p class="card-artist">Rema</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="audio/Rema-Ginger-Me.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="audio/Rema-Ginger-Me.mp3"
+                                    data-filename="Rema-Ginger-Me.mp3"><i class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Wizkid-Ayo-Cover.webp');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Ojuelegba</p>
+                                        <p class="card-artist">Wizkid</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="wizkid_-_ojuelegba.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="wizkid_-_ojuelegba.mp3"
+                                    data-filename="ojuelegba\wizkid_-(OrionTunes\).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg')">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Never</p>
+                                        <p class="card-artist">XXX Tentacion</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="XXXTENTACION-NEVER.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="XXXTENTACION-NEVER.mp3"
+                                    data-filename="NEVER-XXXTENTACION-OrionTunes.mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <style>
+                                            .card-song {
+                                                text-overflow: ellipsis;
+                                            }
+                                        </style>
+                                        <p class="card-song">Everybody Dies in Their Nightmares</p>
+                                        <p class="card-artist">XXX Tentacion</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="audio/XXXTENTACION - Everybody Dies In Their Nightmares (OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="audio/XXXTENTACION - Everybody Dies In Their Nightmares (OrionTunes).mp3"
+                                    data-filename="Everybody Dies In Their Nightmares XXXTENTACION - (OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Look at me</p>
+                                        <p class="card-artist">XXX Tentacion</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="audio/XXXTENTACION - Look At Me! (OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="audio/XXXTENTACION - Look At Me! (OrionTunes).mp3"
+                                    data-filename="Look At Me! XXXTENTACION - (OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Moonlight</p>
+                                        <p class="card-artist">XXX Tentacion</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="XXXTENTACION-MOONLIGHT.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="XXXTENTACION-MOONLIGHT.mp3"
+                                    data-filename="MOONLIGHT-XXXTENTACION-OrionTunes.mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Sad</p>
+                                        <p class="card-artist">XXX Tentacion</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="XXXTENTACION_-_Sad_Naijaremix.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="XXXTENTACION_-_Sad_Naijaremix.mp3"
+                                    data-filename="Sad_XXXTENTACION_-OrionTunes.mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card"
+                                style="background-image: url('Wizkid-Made-In-Lagos-Album-Artwork-1.webp');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Essence</p>
+                                        <p class="card-artist">Wizkid</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Wizkid-ft-Tems_-_Essence.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Wizkid-ft-Tems_-_Essence.mp3"
+                                    data-filename="Essence_-_Wizkid-ft-Tems_.mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+
+                        <div class="card-item">
+                            <div class="card"
+                                style="background-image: url('Wizkid-Made-In-Lagos-Album-Artwork-1.webp');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Come Closer</p>
+                                        <p class="card-artist">Wizkid ft Drake</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="wizkid-ft-drake_-_come-closer.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="wizkid-ft-drake_-_come-closer.mp3"
+                                    data-filename="come-closer_-_wizkid-ft-drake.mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Rema-Soundgasm-Artwork.jpeg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Soundgasm</p>
+                                        <p class="card-artist">Rema</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="audio/Rema-Soundgasm-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="audio/Rema-Soundgasm-(OrionTunes).mp3"
+                                    data-filename="Rema-Soundgasm-(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Rema-Woman-art.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Woman</p>
+                                        <p class="card-artist">Rema</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="audio/Rema-Woman.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div>
+                                <button class="download-button" data-url="audio/Rema-Woman.mp3"
+                                    data-filename="Rema-Woman(oriontunes).mp3"><i class="bx bx-download"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Mood Swing</p>
+                                        <p class="card-artist">Pop Smoke</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="POP SMOKE - MOOD SWINGS ft. Lil Tjay (Official Video).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="POP SMOKE - MOOD SWINGS ft. Lil Tjay (Official Video).mp3"
+                                    data-filename="Mood-Swing-_Pop Smoke.mp3"><i class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Armed and Dangerous</p>
+                                        <p class="card-artist">Pop Smoke</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Jmd-POP SMOKE - ARMED AND DANGEROUS Official Lyric Video.m4a"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="Jmd-POP SMOKE - ARMED AND DANGEROUS Official Lyric Video.m4a"
+                                    data-filename="Armed-and-Dangerous-_Pop Smoke.mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">City Boys</p>
+                                        <p class="card-artist">Burna Boy</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Burna_Boy_-_City_Boys.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Burna_Boy_-_City_Boys.mp3"
+                                    data-filename="Burna_Boy_-_City_Boys(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Burnaboy-–-Love-Damini-Ep.webp');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Common Person</p>
+                                        <p class="card-artist">Burna Boy</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Common_Person_-_Burna-Boy(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="Common_Person_-_Burna-Boy(OrionTunes).mp3"
+                                    data-filename="Common_Person_-_Burna-Boy(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Davido-Timeless-AlbumArtwork1.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">For The Road</p>
+                                        <p class="card-artist">Davido</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Davido-For-The-Road-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Davido-For-The-Road-(OrionTunes).mp3"
+                                    data-filename="For-The-Road-Davido-(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="up"><img src="embed_icon_new.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Davido-Timeless-AlbumArtwork1.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">No Competition</p>
+                                        <p class="card-artist">Davido ft Asake</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Davido-Ft-Asake-No-Competition-New-Song-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="Davido-Ft-Asake-No-Competition-New-Song-(OrionTunes).mp3"
+                                    data-filename="No-Competition-Davido-Ft-Asake-(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Davido-FIA-Artwork-.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">FIA</p>
+                                        <p class="card-artist">Davido</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Davido-FIA-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Davido-FIA-(OrionTunes).mp3"
+                                    data-filename="FIA-Davido-(OrionTunes).mp3"><i class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Davido-Timeless-AlbumArtwork1.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Kante</p>
+                                        <p class="card-artist">Davido ft Fave</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Davido-Ft-Fave-Kante-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Davido-Ft-Fave-Kante-(OrionTunes).mp3"
+                                    data-filename="Kante-Davido-Ft-Fave-(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Larry-Gaaga-Ft-Davido-Doe-Artwork.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Doe</p>
+                                        <p class="card-artist">Davido ft Larry Gaga</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Larry-Gaaga-Ft-Davido-Doe-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="Larry-Gaaga-Ft-Davido-Doe-(OrionTunes).mp3"
+                                    data-filename="Doe-Larry-Gaaga-Ft-Davido(OrionTunes)"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Davido-Ft-The-Samples-Stand-Strong.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Stand Strong</p>
+                                        <p class="card-artist">Davido</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Davido-Ft-The-Samples-Stand-Strong-New-Song-(Oriontunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div>
+                                <button class="download-button"
+                                    data-url="Davido-Ft-The-Samples-Stand-Strong-New-Song-(Oriontunes).mp3"
+                                    data-filename="Stand-Strong-Davido-Ft-The-Samples-(Oriontunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Davido-Timeless-AlbumArtwork1.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">For The Road</p>
+                                        <p class="card-artist">Davido</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Davido-For-The-Road-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Davido-For-The-Road-(OrionTunes).mp3"
+                                    data-filename="For-The-Road-Davido-(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="up"><img src="embed_icon_new.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Davido-Timeless-AlbumArtwork1.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">No Competition</p>
+                                        <p class="card-artist">Davido ft Asake</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Davido-Ft-Asake-No-Competition-New-Song-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="Davido-Ft-Asake-No-Competition-New-Song-(OrionTunes).mp3"
+                                    data-filename="No-Competition-Davido-Ft-Asake-(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Davido-FIA-Artwork-.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">FIA</p>
+                                        <p class="card-artist">Davido</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Davido-FIA-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Davido-FIA-(OrionTunes).mp3"
+                                    data-filename="FIA-Davido-(OrionTunes).mp3"><i class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Davido-Timeless-AlbumArtwork1.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Kante</p>
+                                        <p class="card-artist">Davido ft Fave</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Davido-Ft-Fave-Kante-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Davido-Ft-Fave-Kante-(OrionTunes).mp3"
+                                    data-filename="Kante-Davido-Ft-Fave-(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Larry-Gaaga-Ft-Davido-Doe-Artwork.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Doe</p>
+                                        <p class="card-artist">Davido ft Larry Gaga</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Larry-Gaaga-Ft-Davido-Doe-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="Larry-Gaaga-Ft-Davido-Doe-(OrionTunes).mp3"
+                                    data-filename="Doe-Larry-Gaaga-Ft-Davido(OrionTunes)"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Davido-Ft-The-Samples-Stand-Strong.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Stand Strong</p>
+                                        <p class="card-artist">Davido</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Davido-Ft-The-Samples-Stand-Strong-New-Song-(Oriontunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div>
+                                <button class="download-button"
+                                    data-url="Davido-Ft-The-Samples-Stand-Strong-New-Song-(Oriontunes).mp3"
+                                    data-filename="Stand-Strong-Davido-Ft-The-Samples-(Oriontunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Last Last</p>
+                                        <p class="card-artist">Burna Boy</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Burna Boy - Last Last(OrionTunes).COM.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="Burna Boy - Last Last(OrionTunes).COM.mp3"
+                                    data-filename="Last Last - Burna Boy - (OrionTunes).COM.mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+
+                        <div class="card-item">
+                            <div class="card"
+                                style="background-image: url('Asake-Wave-ft-Central-Cee-1024x1024.webp');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Wave</p>
+                                        <p class="card-artist">Asake ft Central Cee</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Asake_Ft_Central_Cee_-_Wave (1).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Asake_Ft_Central_Cee_-_Wave (1).mp3"
+                                    data-filename="Wave_-_Asake_Ft_Central_Cee_(1).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="up"><img src="embed_icon_new.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('alb3.png');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Remember</p>
+                                        <p class="card-artist">Asake</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Remember-Asake(OrionTunes) (2).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Remember-Asake(OrionTunes) (2).mp3"
+                                    data-filename="Remember-Asake(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="up"><img src="embed_icon_new.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('8367_Asake-Lonely-At-The-Top.webp');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Lonely At The Top</p>
+                                        <p class="card-artist">Asake</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Lonely-At-The-Top-Asake(Oriontunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="Lonely-At-The-Top-Asake\(Oriontunes\).mp3"
+                                    data-filename="Lonely-At-The-Top-Asake\(Oriontunes\).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('alb3.png');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">2:30</p>
+                                        <p class="card-artist">Asake</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="2 30 - Asake(oriontunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="2 30 - Asake(oriontunes).mp3"
+                                    data-filename="2:30 - Asake(oriontunes).mp3"><i class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('Asake-–-Mr-Money-With-The-Vibe-EP.webp');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Ototo</p>
+                                        <p class="card-artist">Asake</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Asake_-_Ototo.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Asake_-_Ototo.mp3"
+                                    data-filename="Ototo_-_Asake(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('alb3.png');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Basquiat</p>
+                                        <p class="card-artist">Asake</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Asake_-_Basquiat.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Asake_-_Basquiat.mp3"
+                                    data-filename="Asake_-_Basquiat(OrionTunes)"><i class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg')">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Sinner</p>
+                                        <p class="card-artist">Adekunle Gold</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Sinner_Adekunle_Gold_OrionTunes.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Sinner_Adekunle_Gold_OrionTunes.mp3"
+                                    data-filename="Sinner_Adekunle_Gold_OrionTunes.mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Something Different</p>
+                                        <p class="card-artist">Adekunle Gold</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Something_Different_Adekunle_Gold_OrionTunes.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="Something_Different_Adekunle_Gold_OrionTunes.mp3"
+                                    data-filename="Something_Different_Adekunle_Gold_OrionTunes.mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg')">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Backdoor</p>
+                                        <p class="card-artist">Lil Durk</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Backdoor_Lil_Durk_OrionTunes.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Backdoor_Lil_Durk_OrionTunes.mp3"
+                                    data-filename="Backdoor_Lil_Durk_OrionTunes.mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Dow what I want</p>
+                                        <p class="card-artist">Kid Cudi</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Kid_Cudi_-_Do_What_I_Want.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Kid_Cudi_-_Do_What_I_Want.mp3"
+                                    data-filename="Do_What_I_Want_Kid_Cudi_-.mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="up"><img src="embed_icon_new.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Mrs. Me</p>
+                                        <p class="card-artist">Nasty C</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Nasty_C_-_Mrs_Me.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Nasty_C_-_Mrs_Me.mp3"
+                                    data-filename="Nasty_C_-_Mrs_Me.mp3"><i class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Project Dreams</p>
+                                        <p class="card-artist">Roddy Ricch</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Roddy-Ricch-Project-Dream.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="Roddy-Ricch-Project-Dream.mp3"
+                                    data-filename="Roddy-Ricch-Project-Dream.mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="up"><img src="embed_icon_new.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">To Summer Walker</p>
+                                        <p class="card-artist">J Cole</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Summer-Walker-To-Summer-From-Cole-Audio-Hug-Ft-J-Cole-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="Summer-Walker-To-Summer-From-Cole-Audio-Hug-Ft-J-Cole-(OrionTunes).mp3"
+                                    data-filename="Summer-Walker-To-Summer-From-Cole-Audio-Hug-Ft-J-Cole-(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Look At Me</p>
+                                        <p class="card-artist">XXX Tentacion</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="XXXTENTACION - Look At Me! (Audio).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button" data-url="XXXTENTACION - Look At Me! (Audio).mp3"
+                                    data-filename="XXXTENTACION - Look At Me! (Audio).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="up"><img src="embed_icon_new.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Loading</p>
+                                        <p class="card-artist">Central Cee</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="Central_Cee_-_Loading.mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div>
+                                <button class="download-button" data-url="Central_Cee_-_Loading.mp3"
+                                    data-filename="Central_Cee_-_Loading.mp3"><i class="bx bx-download"></i></button>
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Stupid Love</p>
+                                        <p class="card-artist">Central Cee ft Mekk Mill</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="Central Cee x Meek Mill - Stupid Love [Music Video](MP3_128K).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div>
+                                <button class="download-button"
+                                    data-url="Central Cee x Meek Mill - Stupid Love [Music Video](MP3_128K).mp3"
+                                    data-filename="Central Cee x Meek Mill - Stupid Love [Music Video](MP3_128K).mp3"><i
+                                        class="bx bx-download"></i></button>
+                                <div class="up"><img src="embed_icon_new.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">SUicidal</p>
+                                        <p class="card-artist">YWN Melly</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="audio/Suicidal - YWN melly(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="audio/Suicidal - YWN melly(OrionTunes).mp3"
+                                    data-filename="SUICIDAL_YWN-Melly(OrionTNES).mp3"><i class="bx bx-download"
+                                        onclick="notifyDownload(this)"></i></button>
+
+                                <div class="up"><img src="embed_icon_new.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Lovely</p>
+                                        <p class="card-artist">Billie Eilish</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="audio/Billie_Eilish_Khalid_-_lovely_(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="audio/Billie_Eilish_Khalid_-_lovely_(OrionTunes).mp3"
+                                    data-filename="Lovely_Billie-Eilish(OrionTunes).mp3"><i class="bx bx-download"
+                                        onclick="notifyDownload(this)"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Already Dead</p>
+                                        <p class="card-artist">Juice Wrld</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="audio/Juice_WRLD_-_Already_Dead_(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="audio/Juice_WRLD_-_Already_Dead_(OrionTunes).mp3"
+                                    data-filename="Juice_WRLD_-_Already_Dead_(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                                <div class="do"><img src="icon_vip.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Cursed Heart</p>
+                                        <p class="card-artist">Juice Wrld</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="audio/Juice-WRLD-Cursed-Heart-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="audio/Juice-WRLD-Cursed-Heart-(OrionTunes).mp3"
+                                    data-filename="Cursed-Heart-Juice-WRLD-(OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Look At Me</p>
+                                        <p class="card-artist">XXX Tentacion</p>
+                                    </div>
+                                    <button class="play-button"
+                                        data-audio-url="audio/XXXTENTACION - Look At Me! (OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div> <button class="download-button"
+                                    data-url="audio/XXXTENTACION - Look At Me! (OrionTunes).mp3"
+                                    data-filename="Look At Me! XXXTENTACION - (OrionTunes).mp3"><i
+                                        class="bx bx-download"></i></button>
+
+                            </div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card" style="background-image: url('play.jpg');">
+                                <div class="card-header">
+                                    <div class="card-info">
+                                        <p class="card-song">Lonely</p>
+                                        <p class="card-artist">Akon</p>
+                                    </div>
+                                    <button class="play-button" data-audio-url="audio/Akon-Lonely-(OrionTunes).mp3"><i
+                                            class="bx bx-play"></i></button>
+                                </div>
+                                <button class="download-button" data-url="audio/Akon-Lonely-(OrionTunes).mp3"
+                                    data-filename="Lonely-Akon-(OrionTunes).mp3"><i class="bx bx-download"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-cta ">
+                <div class="gig">
+                    <div class="genz">
+                        <div class="single-cta">
+                            <div class="footer--heading">
+                                <h3 style="margin-bottom: 20px;">Find us</h3>
+                                <span style="color: #7f7f7f;">Oshodi-isolo, Lagos, Nigeria</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="genz">
+                        <div class="single-cta">
+                            <div class="single-cta">
+                                <div class="footer--heading">
+                                    <h3 style="margin-bottom: 20px;">Call us</h3>
+                                    <a href="tel:+2349130993464" class="link" style="color: #7f7f7f;">+234 913 099
+                                        3464</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="genz">
+                        <div class="single-cta">
+                            <div class="footer--heading">
+                                <h3 style="margin-bottom: 20px;">Mail us</h3>
+                                <a href="mailto:jodicksonjoshua@gmail.com" class="link"
+                                    style="color: #7f7f7f;">jodicksonjoshua@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content ">
+            <div class="gen">
+                <div class="">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <a href="index.html"
+                                style="text-align: center; align-items: center; display: flex; width: 100%;">
+                                <img src="orion-logo.png" class="img-fluid" width="120" height="auto" alt="logo">
+
+                            </a>
+                            <p
+                                style="margin-top: 15px; max-width: 320px; white-space-collapse: collapse; color: #8c8c8c;">
+                                OrionTunes - Your ultimate destination for discovering, streaming, and sharing music.
+                            </p>
+                        </div>
+                        <div class="footer-text">
+                            <!-- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, doloribus esse rem necessitatibus eius exercitationem! -->
+                        </div>
+                        <div class="footer-social-icon " style="margin-top: 10px;">
+                            <div class="footer-widget-heading" style="margin-bottom: -10px;">
+                                <h3>Follow us</h3>
+                            </div>
+                            <a href="https://x.com/Dickson53194258" class="oj"><i class='bx bxl-twitter'
+                                    style="color: white;"></i></a>
+                            <a href="https://www.instagram.com/bi_tech2.0/" class="oj"><i class='bx bxl-instagram'
+                                    style="color: white;"></i></a>
+                            <a href="https://github.com/bi-Tech2" class="oj"><i class='bx bxl-snapchat'
+                                    style="color: white;"></i></a>
+                            <a href="https://web.snapchat.com/389ca514-e490-5b04-857a-35fc5c40f155" class="oj"><i
+                                    class='bx bxl-github' style="color: white;"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="spirit">
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Useful Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="download.html" class="link">Download Music</a></li>
+                            <li><a href="about.html" class="link">About OrionTunes</a></li>
+                            <li><a href="news.html" class="link">OrionTunes Blog</a></li>
+                            <li><a href="music.html" class="link">OrionTunes Music</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="ghost">
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Subscribe</h3>
+                        </div>
+                        <div class="footer-text mb-25">
+                            <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                        </div>
+                        <div class="subscribe-form">
+                            <form action="https://formspree.io/f/xvgppbqr" method="POST">
+                                <label>
+                                    <input type="email" name="email" placeholder="Email Address" required>
+                                </label>
+                                <button type="submit" style="margin-top: 22px; max-height: 45px;"><i
+                                        class='bx bxl-telegram'></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="copyright-area">
+            <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                <div class="copyright-text">
+                    <p>OrionTunes &copy; 2024, By <a href="https://www.instagram.com/bi_tech2.0/"
+                            class="link">BiTech</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/src.js"></script>
+</body>
+
+</html>
