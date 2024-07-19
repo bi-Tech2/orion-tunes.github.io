@@ -12,11 +12,25 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="iron.css">
     <link rel="stylesheet" href="blog.css">
+    
     <title>OrionTune - Blog</title>
 </head>
 
 <body>
+    <script>
+        window.onload = function () {
+            var preloader = document.querySelector('.preloader');
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 5000);
+        };
+
+    </script>
+        <div class="preloader" id="preloader">
+            <div id="loader"></div>
+        </div>
     <!--=============== HEADER ===============-->
     <header class="header" id="header">
         <nav class="nav container">
@@ -44,9 +58,9 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="dowload.html" class="nav__link">
+                        <a href="download.html" class="nav__link">
                             <i class='bx bx-download nav__icon'></i>
-                            <span class="nav__name">Dowload</span>
+                            <span class="nav__name">Download</span>
                         </a>
                     </li>
                     <li class="nav__item">
