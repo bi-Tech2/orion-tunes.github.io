@@ -300,6 +300,21 @@ a {
         .active-link{
             color: #3d3d3d;
         }
+        html::selection{
+  user-select: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar { width: 4.1px; }
+
+::-webkit-scrollbar-track { background-color: var(--color) }
+
+::-webkit-scrollbar-thumb { background-color: var(--body-color) }
+
+::-webkit-scrollbar-thumb:hover { background-color: var(--sidebar-color) }
+
         /*-- loader  --*/
 .preloader.fade {
     opacity: 0;
@@ -433,7 +448,7 @@ a {
                     </li>
                 </ul>
             </div>
-            <a href="search.html" class="search-link"><i class="bx bx-search nav__search-icon"></i></a>
+            <a href="search.html" class="search-link" style="color: #ccc;"><i class="bx bx-search nav__search-icon"></i></a>
         </nav>
     </header>
 
