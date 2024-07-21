@@ -10,7 +10,8 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Orion Music</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2323318809524914" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2323318809524914"
+        crossorigin="anonymous"></script>
 
 </head>
 
@@ -185,398 +186,830 @@ html {
         </nav>
     </header>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.getElementById('toggleFormButton');
+    const formContainer = document.getElementById('formContainer');
+    const overlay = document.getElementById('overlay');
+    const artistForm = document.getElementById('artistForm');
+    const artistsContainer = document.getElementById('artistsContainer');
+
+    toggleButton.addEventListener('click', () => {
+        if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+            formContainer.style.display = 'block';
+            overlay.style.display = 'block';
+            toggleButton.innerHTML = '<i class="bx bx-user-x"></i>';
+        } else {
+            formContainer.style.display = 'none';
+            overlay.style.display = 'none';
+            toggleButton.innerHTML = '<i class="bx bx-user-plus"></i>';
+        }
+    });
+
+    // Convert a file to a base64 string
+    function getBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
+
+    // Load artists from localStorage
+    async function loadArtists() {
+        const artists = JSON.parse(localStorage.getItem('artists')) || [];
+        for (const artist of artists) {
+            const newArtistHTML = `
+                <a href="${artist.artistLink}" class="image-link">
+                    <div class="lol">
+                        <img src="${artist.artistImage}" alt="${artist.artistName}">
+                    </div>
+                    <div class="tert">${artist.artistName}
+                        <div class="lag">
+                            <img src="${artist.countryImage}" alt="" class="flag">
+                        </div>
+                    </div>
+                </a>
+            `;
+            const section = document.getElementById(`section-${artist.artistSection}`);
+            if (section) {
+                section.querySelector('.image-del').innerHTML += newArtistHTML;
+            }
+        }
+    }
+
+    loadArtists();
+
+    // Handle form submission
+    artistForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        // Collect form data
+        const artistName = document.getElementById('artistName').value;
+        const artistLink = document.getElementById('artistLink').value;
+        const artistImage = document.getElementById('artistImage').files[0];
+        const countryImage = document.getElementById('countryImage').files[0];
+        const artistSection = document.getElementById('artistSection').value;
+
+        // Validate form fields
+        if (!artistName || !artistLink || !artistImage || !countryImage || !artistSection) {
+            alert('Please fill out all fields.');
+            return;
+        }
+
+        // Convert images to base64
+        const artistImageBase64 = await getBase64(artistImage);
+        const countryImageBase64 = await getBase64(countryImage);
+
+        // Create new artist entry HTML
+        const newArtistHTML = `
+            <a href="${artistLink}" class="image-link">
+                <div class="lol">
+                    <img src="${artistImageBase64}" alt="${artistName}">
+                </div>
+                <div class="tert">${artistName}
+                    <div class="lag">
+                        <img src="${countryImageBase64}" alt="" class="flag">
+                    </div>
+                </div>
+            </a>
+        `;
+
+        // Insert new artist into the correct section
+        const section = document.getElementById(`section-${artistSection}`);
+        if (section) {
+            section.querySelector('.image-del').innerHTML += newArtistHTML;
+        } else {
+            alert('Selected section does not exist.');
+        }
+
+        // Save artist to localStorage
+        const artists = JSON.parse(localStorage.getItem('artists')) || [];
+        artists.push({
+            artistName,
+            artistLink,
+            artistImage: artistImageBase64,
+            countryImage: countryImageBase64,
+            artistSection
+        });
+        localStorage.setItem('artists', JSON.stringify(artists));
+
+        // Clear form fields
+        this.reset();
+
+        // Hide the form and overlay after submission
+        formContainer.style.display = 'none';
+        overlay.style.display = 'none';
+        toggleButton.innerHTML = '<i class="bx bx-user-plus"></i>';
+    });
+});
+
+    </script>
+
+
+
+
+<style>
+    .filtered {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#formContainer {
+    display: none;
+}
+
+.form-toggle-button {
+    padding: 10px 12px;
+    font-size: 16px;
+    z-index: 1001;
+    background: linear-gradient(50deg, #006eff, rgb(255, 174, 0),#800080);
+    cursor: pointer;
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+
+.filter-item-ed {
+    flex: 0 1 auto;
+    margin-right: 20px;
+    width: max-content;
+}
+
+.add-artist-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Ensure the popup is above the overlay */
+    background: var(--body-color);
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+}
+
+.form-container {
+    max-width: 400px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 15px;
+    border: 1px solid #000000;
+    background-color: var(--body-color);
+    border-radius: 8px;
+}
+
+.form-toggle-button {
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-input,
+.form-select,
+.form-button {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #0e0e0e;
+    background: var(--body-color);
+    color: var(--text-color);
+    border-radius: 4px;
+}
+
+.form-button {
+    background: linear-gradient(50deg, #006eff, rgb(255, 174, 0),#800080);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.form-button:hover {
+    background: linear-gradient(50deg, #0658c4, rgb(214, 148, 6),#690369);
+}
+
+/* Overlay styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.398); /* Semi-transparent dark background */
+    z-index: 1000; /* Ensure the overlay is above other content but below the popup */
+    display: none; /* Initially hidden */
+}
+
+/* Additional styling for the image form elements */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+/* Style the form group container */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Style the label for file inputs */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333; /* Darker color for better readability */
+}
+
+/* Style the file input elements */
+.form-group input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    color: var(--text-color);
+    border: 1px solid #0e0e0e;
+    border-radius: 4px;
+    background-color: var(--body-color);
+    cursor: pointer; /* Pointer cursor for file input */
+}
+
+/* Add focus styles to the file input */
+.form-group input[type="file"]:focus {
+    border-color: #1f1f1f;
+    outline: none; /* Remove default outline */
+}
+
+/* Customize the appearance of file input with a better background */
+.form-group input[type="file"]::file-selector-button {
+    background: linear-gradient(50deg, #0658c4, rgb(214, 148, 6),#690369);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Hover effect for file input button */
+.form-group input[type="file"]::file-selector-button:hover {
+    background-color: #0056b3;
+}
+
+/* Placeholder for file input (some browsers may not support this) */
+.form-group input[type="file"]::placeholder {
+    color: #999;
+}
+
+</style>
+
+
+
+
+<div class="overlay" id="overlay"></div>
 
     <main class="word">
-         <!--=============== HOME ===============-->
+        <!--=============== HOME ===============-->
         <section class="container section section__height" id="home">
-            <div class="filtered">
+            <div class="filtered" style="display: flex; justify-content: space-between;">
                 <span class="filter-item-ed active" data-filter="all">A - Z</span>
+                <button id="toggleFormButton" class="form-toggle-button"><i class='bx bxs-user-plus'></i></button>
             </div>
             
+            <div id="formContainer" class="form-container add-artist-popup">
+                <h2 style="margin-bottom: 20px;">Add Artist</h2>
+                <form id="artistForm" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="text" id="artistName" name="artistName" class="form-input" placeholder="Artist Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="artistLink" name="artistLink" class="form-input" placeholder="eg: davido.html" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="artistImage">Artist Image:</label>
+                        <input type="file" id="artistImage" name="artistImage" class="form-input" accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="countryImage">Country Image:</label>
+                        <input type="file" id="countryImage" name="countryImage" class="form-input" accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="artistSection" name="artistSection" class="form-select" required>
+                            <option value="">Select A - Z</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+                            <option value="F">F</option>
+                            <option value="G">G</option>
+                            <option value="H">H</option>
+                            <option value="I">I</option>
+                            <option value="J">J</option>
+                            <option value="K">K</option>
+                            <option value="L">L</option>
+                            <option value="M">M</option>
+                            <option value="N">N</option>
+                            <option value="O">O</option>
+                            <option value="P">P</option>
+                            <option value="Q">Q</option>
+                            <option value="R">R</option>
+                            <option value="S">S</option>
+                            <option value="T">T</option>
+                            <option value="U">U</option>
+                            <option value="V">V</option>
+                            <option value="W">W</option>
+                            <option value="X">X</option>
+                            <option value="Y">Y</option>
+                            <option value="Z">Z</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="form-button">Add Artist</button>
+                </form>
+            </div>
+            
+            
+
             <div class="filter-results">
                 <div class="filter-content all-filter active">
-                    <!-- A - Z content here -->
-                    <div class="item section-artists">
+                    <!-- Section A -->
+                    <div class="item section-artists" id="section-A">
                         <h2 class="section__title">A</h2>
                         <div class="h" style="margin-top: -30px;">
                             <div class="image-del">
                                 <a href="adele.html" class="image-link">
                                     <div class="lol">
-                                        <img src="These Are The Most Hilarious & Relatable Reactions to Adele’s Comeback Single.jpg" alt="Adele">
+                                        <img src="These Are The Most Hilarious & Relatable Reactions to Adele’s Comeback Single.jpg"
+                                            alt="Adele">
                                     </div>
-                                    <div class="tert">Adele <div class="lag"> <img src="Flag_of_the_United_Kingdom.svg.webp" alt="" class="flag"></div></div>
+                                    <div class="tert">Adele <div class="lag"> <img
+                                                src="Flag_of_the_United_Kingdom.svg.webp" alt="" class="flag"></div>
+                                    </div>
                                 </a>
                                 <a href="adekunle.html" class="image-link">
                                     <div class="lol">
-                                        <img src="https___birnode_com_adekunle-gold-it-is-what-it-is_.jpg" alt="Adekunle Gold">
+                                        <img src="https___birnode_com_adekunle-gold-it-is-what-it-is_.jpg"
+                                            alt="Adekunle Gold">
                                     </div>
-                                    <div class="tert">Adekunle Gold <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
+                                    <div class="tert">Adekunle Gold <div class="lag"> <img src="Flag_of_Nigeria.svg"
+                                                alt="" class="flag"></div>
+                                    </div>
                                 </a>
                                 <a href="aka.html" class="image-link">
                                     <div class="lol">
                                         <img src="aka.jpeg" alt="AKA">
                                     </div>
-                                    <div class="tert">AKA <div class="lag"> <img src="Flag-South-Africa.webp" alt="" class="flag"></div></div>
+                                    <div class="tert">AKA <div class="lag"> <img src="Flag-South-Africa.webp" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
                                 <a href="asake.html" class="image-link">
                                     <div class="lol">
                                         <img src="Asake – Terminator (Official Video).jpg" alt="Asake">
                                     </div>
-                                    <div class="tert">Asake  <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
+                                    <div class="tert">Asake <div class="lag"> <img src="Flag_of_Nigeria.svg" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
                                 <a href="asap.html" class="image-link">
                                     <div class="lol">
                                         <img src="ASAP ROCKY.jpg" alt="A$ap Rocky">
                                     </div>
-                                    <div class="tert">A$ap Rocky <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
+                                    <div class="tert">A$ap Rocky <div class="lag"> <img src="us-flag.png" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
                                 <a href="ariana.html" class="image-link">
                                     <div class="lol">
-                                        <img src="Breaking Down Ariana Grande's Horniest Positions Lyrics.jpg" alt="Ariana Grande">
+                                        <img src="Breaking Down Ariana Grande's Horniest Positions Lyrics.jpg"
+                                            alt="Ariana Grande">
                                     </div>
-                                    <div class="tert">Ariana Grande <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
+                                    <div class="tert">Ariana Grande <div class="lag"> <img src="us-flag.png" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
                                 <a href="ayra.html" class="image-link">
                                     <div class="lol">
                                         <img src="imgs/ay.jpeg" alt="Ayra Starr">
                                     </div>
-                                    <div class="tert">Ayra Starr <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
+                                    <div class="tert">Ayra Starr <div class="lag"> <img src="Flag_of_Nigeria.svg" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
                             </div>
-                            
-
                         </div>
-
                     </div>
-                    <div class="item section-artists" id="open">
+
+                    <!-- Section B -->
+                    <div class="item section-artists" id="section-B">
                         <h2 class="section__title">B</h2>
-                    
                         <div class="h" style="margin-top: -30px;">
                             <div class="image-del">
                                 <a href="billie.html" class="image-link">
                                     <div class="lol">
-                                        <img src="Happier Than Ever by Billie Eilish album cover expanded.jpg" alt="Billie Eilish">
+                                        <img src="Happier Than Ever by Billie Eilish album cover expanded.jpg"
+                                            alt="Billie Eilish">
                                     </div>
-                                    <div class="tert">Billie Eilish <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
+                                    <div class="tert">Billie Eilish <div class="lag"> <img src="us-flag.png" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
                                 <a href="beyonce.html" class="image-link">
                                     <div class="lol">
-                                        <img src="imgs/beyon" alt="Beyoncé">
+                                        <img src="beyonce.jpeg" alt="Beyoncé">
                                     </div>
-                                    <div class="tert">Beyoncé  <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
+                                    <div class="tert">Beyoncé <div class="lag"> <img src="us-flag.png" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
                                 <a href="boyspice.html" class="image-link">
                                     <div class="lol">
-                                        <img src="imgs/beyon" alt="Boy Spice">
+                                        <img src="boyspice.jpeg" alt="Boy Spice">
                                     </div>
-                                    <div class="tert">Boy Spice  <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
+                                    <div class="tert">Boy Spice <div class="lag"> <img src="Flag_of_Nigeria.svg" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
                                 <a href="bella.html" class="image-link">
                                     <div class="lol">
                                         <img src="bella.jpg" alt="Bella Shmurda">
                                     </div>
-                                    <div class="tert">Bella Shmurda <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
+                                    <div class="tert">Bella Shmurda <div class="lag"> <img src="Flag_of_Nigeria.svg"
+                                                alt="" class="flag"></div>
+                                    </div>
                                 </a>
                                 <a href="burna.html" class="image-link">
                                     <div class="lol">
-                                        <img src="imgs/Stunning Photos Of Burna Boy And His Mom At Grammy Awards Surfaces Online.jpeg" alt="Burna Boy">
+                                        <img src="imgs/Stunning Photos Of Burna Boy And His Mom At Grammy Awards Surfaces Online.jpeg"
+                                            alt="Burna Boy">
                                     </div>
-                                    <div class="tert">Burna Boy <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
-                                </a>
-                                <a href="britney.html" class="image-link">
-                                    <div class="lol">
-                                        <img src="imgs/¿Cómo reaccionó Britney Spears al fin de su tutela legal_.jpeg" alt="Britney Spears">
+                                    <div class="tert">Burna Boy <div class="lag"> <img src="Flag_of_Nigeria.svg" alt=""
+                                                class="flag"></div>
                                     </div>
-                                    <div class="tert">Britney Spears <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
                                 </a>
                                 <a href="bruno.html" class="image-link">
                                     <div class="lol">
                                         <img src="bruno.jpg" alt="Bruno Mars">
                                     </div>
-                                    <div class="tert">Bruno Mars <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
+                                    <div class="tert">Bruno Mars <div class="lag"> <img src="us-flag.png" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
-
                                 <a href="banky.html" class="image-link">
                                     <div class="lol">
                                         <img src="imgs/banky w_ Nigerian singer.jpeg" alt="Banky W">
                                     </div>
-                                    <div class="tert">Banky W <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
+                                    <div class="tert">Banky W <div class="lag"> <img src="Flag_of_Nigeria.svg" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
                                 <a href="bnxnx.html" class="image-link">
                                     <div class="lol">
-                                        <img src="imgs/Buju ♡.jpeg" alt="Banky W">
+                                        <img src="imgs/Buju ♡.jpeg" alt="BNXN">
                                     </div>
-                                    <div class="tert">BNXN <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
+                                    <div class="tert">BNXN <div class="lag"> <img src="Flag_of_Nigeria.svg" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
                             </div>
                         </div>
-                        
                     </div>
-                    
-                    <div class="item section-artists">
+
+                    <!-- Section C -->
+                    <div class="item section-artists" id="section-C">
                         <h2 class="section__title">C</h2>
                         <div class="h" style="margin-top: -30px;">
                             <div class="image-del">
-                                <a href="cheque.html" class="image-link">
-                                    <div class="lol">
-                                        <img src="cheque.jpg" alt="Cheque">
-                                    </div>
-                                    <div class="tert">Cheque <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
-                                </a>
-                                <a href="central.html" class="image-link">
-                                    <div class="lol">
-                                        <img src="Central cee.jpg" alt="Central Cee">
-                                    </div>
-                                    <div class="tert">Central Cee <div class="lag"> <img src="Flag_of_the_United_Kingdom.svg.webp" alt="" class="flag"></div></div>
-                                </a>
                                 <a href="cardi.html" class="image-link">
                                     <div class="lol">
                                         <img src="Cardi B Says She Doesn't _Make Music For Kids_ After Getting Shamed For Being Sexual.jpg" alt="Cardi B">
                                     </div>
-                                    <div class="tert">Cardi B  <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
-                                </a>
-                                <a href="chris.html" class="image-link">
-                                    <div class="lol">
-                                        <img src="Facebook.jpg" alt="Chris Brown">
+                                    <div class="tert">Cardi B <div class="lag"> <img src="us-flag.png" alt=""
+                                                class="flag"></div>
                                     </div>
-                                    <div class="tert">Chris Brown <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
-                                </a>
-                                <a href="chance.html" class="image-link">
-                                    <div class="lol">
-                                        <img src="The Quick Read_ Chance The Rapper Issues An Apology Following Shoutout From Trump  _ Essence (1).jpg" alt="Chance The Rapper">
-                                    </div>
-                                    <div class="tert">Chance The Rapper <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
                                 </a>
                                 <a href="ciara.html" class="image-link">
                                     <div class="lol">
                                         <img src="Ciara Rocking Ice-Blue Hair Is Our Latest Obsession _ Essence.jpg" alt="Ciara">
                                     </div>
-                                    <div class="tert">Ciara <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
-                                </a>
-                                <a href="chike.html" class="image-link">
-                                    <div class="lol">
-                                        <img src="imgs/images.jpg" alt="Chike">
+                                    <div class="tert">Ciara <div class="lag"> <img src="us-flag.png" alt=""
+                                                class="flag"></div>
                                     </div>
-                                    <div class="tert">Chike <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
                                 </a>
-
-                                <a href="ckay.html" class="image-link">
+                                <a href="chris.html" class="image-link">
                                     <div class="lol">
-                                        <img src="ckay.jpg" alt="Ckay">
+                                        <img src="chris.jpeg" alt="Chris Brown">
                                     </div>
-                                    <div class="tert">Ckay <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
+                                    <div class="tert">Chris Brown <div class="lag"> <img src="us-flag.png" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
                             </div>
                         </div>
-
                     </div>
-                    <div class="item section-artists">
+
+                    <!-- Section D -->
+                    <div class="item section-artists" id="section-D">
                         <h2 class="section__title">D</h2>
                         <div class="h" style="margin-top: -30px;">
                             <div class="image-del">
                                 <a href="davido.html" class="image-link">
                                     <div class="lol">
-                                        <img src="imgs/Davido.jpeg" alt="Davido">
+                                        <img src="Davido birthday 🎂.jpeg" alt="Davido">
                                     </div>
-                                    <div class="tert">Davido <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
+                                    <div class="tert">Davido <div class="lag"> <img src="Flag_of_Nigeria.svg" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
-                                <a href="neptune.html" class="image-link">
+                                <a href="drake.html" class="image-link">
                                     <div class="lol">
-                                        <img src="DJ Neptune features Patoranking on his 'Gaza' record.jpg" alt="DJ Neptune">
+                                        <img src="drake.jpeg" alt="Drake">
                                     </div>
-                                    <div class="tert">DJ Neptune <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
+                                    <div class="tert">Drake <div class="lag"> <img src="us-flag.png" alt=""
+                                                class="flag"></div>
+                                    </div>
                                 </a>
-                                <a href="spinall.html" class="image-link">
+                                <a href="doja.html" class="image-link">
                                     <div class="lol">
-                                        <img src="Photo_ DJ Spinall attends the annual BET Awards in Los Angeles - LAP20170625084 - UPI_com.jpg" alt="DJ Spinall">
+                                        <img src="Doja Cat.jpeg" alt="Doja Cat">
                                     </div>
-                                    <div class="tert">DJ Spinall  <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
-                                </a>
-                                <a href="chris.html" class="image-link">
-                                    <div class="lol">
-                                        <img src="Facebook.jpg" alt="Dremo">
+                                    <div class="tert">Doja Cat <div class="lag"> <img src="us-flag.png" alt=""
+                                                class="flag"></div>
                                     </div>
-                                    <div class="tert">Dremo <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
-                                </a>
-                                <a href="chance.html" class="image-link">
-                                    <div class="lol">
-                                        <img src="The Quick Read_ Chance The Rapper Issues An Apology Following Shoutout From Trump  _ Essence (1).jpg" alt="Dice Ailes">
-                                    </div>
-                                    <div class="tert">Dice Ailes <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
-                                </a>
-                                <a href="ciara.html" class="image-link">
-                                    <div class="lol">
-                                        <img src="Ciara Rocking Ice-Blue Hair Is Our Latest Obsession _ Essence.jpg" alt="Drake">
-                                    </div>
-                                    <div class="tert">Drake <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
-                                </a>
-                                <a href="chike.html" class="image-link">
-                                    <div class="lol">
-                                        <img src="imgs/images.jpg" alt="Doja Cat">
-                                    </div>
-                                    <div class="tert">Doja Cat <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
-                                </a>
-
-                                <a href="ckay.html" class="image-link">
-                                    <div class="lol">
-                                        <img src="ckay.jpg" alt="Ckay">
-                                    </div>
-                                    <div class="tert">Ckay <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
-                                </a>
-                                <a href="ciara.html" class="image-link">
-                                    <div class="lol">
-                                        <img src="Ciara Rocking Ice-Blue Hair Is Our Latest Obsession _ Essence.jpg" alt="Dave">
-                                    </div>
-                                    <div class="tert">Dave <div class="lag"> <img src="us-flag.png" alt="" class="flag"></div></div>
-                                </a>
-                                <a href="chike.html" class="image-link">
-                                    <div class="lol">
-                                        <img src="imgs/images.jpg" alt="Dua Lipa">
-                                    </div>
-                                    <div class="tert">Dua Lipa <div class="lag"> <img src="Flag_of_Nigeria.svg" alt="" class="flag"></div></div>
                                 </a>
                             </div>
                         </div>
-
                     </div>
-                    <div class="item section-artists" id="open">
+
+                    <!-- Section E -->
+                    <div class="item section-artists" id="section-E">
                         <h2 class="section__title">E</h2>
-                    
-                        
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <a href="ed.html" class="image-link">
+                                    <div class="lol">
+                                        <img src="ed.jpeg" alt="Ed Sheeran">
+                                    </div>
+                                    <div class="tert">Ed Sheeran <div class="lag"> <img src="Flag_of_the_United_Kingdom.svg.webp" alt=""
+                                                class="flag"></div>
+                                    </div>
+                                </a>
+                                <a href="eminem.html" class="image-link">
+                                    <div class="lol">
+                                        <img src="Young Eminem Wallpapers Iphone.jpeg" alt="Eminem">
+                                    </div>
+                                    <div class="tert">Eminem <div class="lag"> <img src="us-flag.png" alt=""
+                                                class="flag"></div>
+                                    </div>
+                                </a>
+                                <a href="ellie.html" class="image-link">
+                                    <div class="lol">
+                                        <img src="ellie.jpeg" alt="Ellie Goulding">
+                                    </div>
+                                    <div class="tert">Ellie Goulding <div class="lag"> <img src="Flag_of_the_United_Kingdom.svg.webp" alt=""
+                                                class="flag"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists">
+                    <!-- Section F -->
+                    <div class="item section-artists" id="section-F">
                         <h2 class="section__title">F</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section F -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists">
+
+                    <!-- Section G -->
+                    <div class="item section-artists" id="section-G">
                         <h2 class="section__title">G</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section G -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists" id="open">
+
+                    <!-- Section H -->
+                    <div class="item section-artists" id="section-H">
                         <h2 class="section__title">H</h2>
-                    
-                        
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section H -->
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="item section-artists">
+
+                    <!-- Section I -->
+                    <div class="item section-artists" id="section-I">
                         <h2 class="section__title">I</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section I -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists">
+
+                    <!-- Section J -->
+                    <div class="item section-artists" id="section-J">
                         <h2 class="section__title">J</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section J -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists" id="open">
+
+                    <!-- Section K -->
+                    <div class="item section-artists" id="section-K">
                         <h2 class="section__title">K</h2>
-                    
-                        
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section K -->
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="item section-artists">
+
+                    <!-- Section L -->
+                    <div class="item section-artists" id="section-L">
                         <h2 class="section__title">L</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section L -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists">
+
+                    <!-- Section M -->
+                    <div class="item section-artists" id="section-M">
                         <h2 class="section__title">M</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section M -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists" id="open">
+
+                    <!-- Section N -->
+                    <div class="item section-artists" id="section-N">
                         <h2 class="section__title">N</h2>
-                    
-                        
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section N -->
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="item section-artists">
+
+                    <!-- Section O -->
+                    <div class="item section-artists" id="section-O">
                         <h2 class="section__title">O</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section O -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists">
+
+                    <!-- Section P -->
+                    <div class="item section-artists" id="section-P">
                         <h2 class="section__title">P</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section P -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists" id="open">
+
+                    <!-- Section Q -->
+                    <div class="item section-artists" id="section-Q">
                         <h2 class="section__title">Q</h2>
-                    
-                        
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section Q -->
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="item section-artists">
+
+                    <!-- Section R -->
+                    <div class="item section-artists" id="section-R">
                         <h2 class="section__title">R</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section R -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists">
+
+                    <!-- Section S -->
+                    <div class="item section-artists" id="section-S">
                         <h2 class="section__title">S</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section S -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists" id="open">
+
+                    <!-- Section T -->
+                    <div class="item section-artists" id="section-T">
                         <h2 class="section__title">T</h2>
-                    
-                        
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section T -->
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="item section-artists">
+
+                    <!-- Section U -->
+                    <div class="item section-artists" id="section-U">
                         <h2 class="section__title">U</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section U -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists">
+
+                    <!-- Section V -->
+                    <div class="item section-artists" id="section-V">
                         <h2 class="section__title">V</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section V -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists" id="open">
+
+                    <!-- Section W -->
+                    <div class="item section-artists" id="section-W">
                         <h2 class="section__title">W</h2>
-                    
-                        
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section W -->
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="item section-artists">
+
+                    <!-- Section X -->
+                    <div class="item section-artists" id="section-X">
                         <h2 class="section__title">X</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section X -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists">
+
+                    <!-- Section Y -->
+                    <div class="item section-artists" id="section-Y">
                         <h2 class="section__title">Y</h2>
-
-
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section Y -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="item section-artists" id="open">
+
+                    <!-- Section Z -->
+                    <div class="item section-artists" id="section-Z">
                         <h2 class="section__title">Z</h2>
-                    
-                        
+                        <div class="h" style="margin-top: -30px;">
+                            <div class="image-del">
+                                <!-- Content for Section Z -->
+                            </div>
+                        </div>
                     </div>
-                    
+
                 </div>
             </div>
-
         </section>
+    </main>
 
-        <div class="popup-overlay" id="popupOverlay">
-            <i class='bx bx-x close-icon' id="closePopup"></i>
-            <div class="popup-card">
-                <div class="fool">
-                    <div class="loop">
-                        <img src="2w-overlay.jpg" alt="Image">
+    <div class="popup-overlay" id="popupOverlay">
+        <i class='bx bx-x close-icon' id="closePopup"></i>
+        <div class="popup-card">
+            <div class="fool">
+                <div class="loop">
+                    <img src="2w-overlay.jpg" alt="Image">
+                </div>
+                <div class="popup-text">
+                    <div class="logologo">
+                        <p class="p">OrionTunes</p>
                     </div>
-                    <div class="popup-text">
-                        <div class="logologo"><p class="p">OrionTunes</p></div>
-                        <p class="clode">Would you prefer to explore the extensive features of OrionTunes, or proceed to the download section? Click <a href="#">here</a>
-                             to explore further or access the <a href="#">download section</a> for immediate downloads.</p>
-                    </div>
+                    <p class="clode">Would you prefer to explore the extensive features of OrionTunes, or proceed to the
+                        download section? Click <a href="#">here</a>
+                        to explore further or access the <a href="#">download section</a> for immediate downloads.</p>
                 </div>
             </div>
         </div>
-        
+    </div>
+
 
 
 
@@ -588,7 +1021,7 @@ html {
     <footer class="footer-section">
         <div class="container">
             <div class="footer-cta ">
-                <div class="gig" >
+                <div class="gig">
                     <div class="genz">
                         <div class="single-cta">
                             <div class="footer--heading">
@@ -600,96 +1033,108 @@ html {
                     <div class="genz">
                         <div class="single-cta">
                             <div class="single-cta">
-                                    <div class="footer--heading">
+                                <div class="footer--heading">
                                     <h3 style="margin-bottom: 20px;">Call us</h3>
-                                <a href="tel:+2349130993464" class="link" style="color: #7f7f7f;">+234 913 099 3464</a>
+                                    <a href="tel:+2349130993464" class="link" style="color: #7f7f7f;">+234 913 099
+                                        3464</a>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                     <div class="genz">
                         <div class="single-cta">
                             <div class="footer--heading">
                                 <h3 style="margin-bottom: 20px;">Mail us</h3>
-                                <a href="mailto:jodicksonjoshua@gmail.com" class="link" style="color: #7f7f7f;">jodicksonjoshua@gmail.com</a>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-content ">
-                <div class="gen">
-                    <div class="">
-                        <div class="footer-widget">
-                            <div class="footer-logo">
-                                <a href="index.html" style="text-align: center; align-items: center; display: flex; width: 100%;">
-                                    <img src="orion-logo.png" class="img-fluid" width="120" height="auto" alt="logo">
-
-                                </a>
-                                <p style="margin-top: 15px; max-width: 320px; white-space-collapse: collapse; color: #8c8c8c;">OrionTunes - Your ultimate destination for discovering, streaming, and sharing music.</p>
-                            </div>
-                            <div class="footer-text">
-                                <!-- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, doloribus esse rem necessitatibus eius exercitationem! -->
-                            </div>
-                            <div class="footer-social-icon " style="margin-top: 10px;">
-                                <div class="footer-widget-heading" style="margin-bottom: -10px;">
-                                    <h3>Follow us</h3>
-                                </div>
-                                <a href="https://x.com/Dickson53194258" class="oj"><i class='bx bxl-twitter'  style="color: white;"></i></a>
-                                <a href="https://www.instagram.com/bi_tech2.0/" class="oj"><i class='bx bxl-instagram'  style="color: white;"></i></a>
-                                <a href="https://github.com/bi-Tech2" class="oj"><i class='bx bxl-snapchat'  style="color: white;"></i></a>
-                                <a href="https://web.snapchat.com/389ca514-e490-5b04-857a-35fc5c40f155" class="oj"><i class='bx bxl-github'  style="color: white;"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="spirit">
-                        <div class="footer-widget">
-                            <div class="footer-widget-heading">
-                                <h3>Useful Links</h3>
-                            </div>
-                            <ul >
-                                <li><a href="download.html" class="link">Download Music</a></li>
-                                <li><a href="about.html" class="link">About OrionTunes</a></li>
-                                <li><a href="news.html" class="link">OrionTunes Blog</a></li>
-                                <li><a href="music.html" class="link">OrionTunes Music</a></li>
-                                
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="ghost" >
-                        <div class="footer-widget">
-                            <div class="footer-widget-heading">
-                                <h3>Subscribe</h3>
-                            </div>
-                            <div class="footer-text mb-25">
-                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
-                            </div>
-                            <div class="subscribe-form">
-                                <form action="https://formspree.io/f/xvgppbqr" method="POST">
-                                    <label>
-                                        <input type="email" name="email" placeholder="Email Address" required>
-                                    </label>
-                                    <button type="submit" style="margin-top: 22px; max-height: 45px;"><i class='bx bxl-telegram'></i></button>
-                                </form>
+                                <a href="mailto:jodicksonjoshua@gmail.com" class="link"
+                                    style="color: #7f7f7f;">jodicksonjoshua@gmail.com</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="copyright-area">
-                    <div class="col-xl-6 col-lg-6 text-center text-lg-left">
-                        <div class="copyright-text">
-                            <p>OrionTunes &copy; 2024, By <a href="https://www.instagram.com/bi_tech2.0/" class="link">BiTech</a></p>
+        <div class="footer-content ">
+            <div class="gen">
+                <div class="">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <a href="index.html"
+                                style="text-align: center; align-items: center; display: flex; width: 100%;">
+                                <img src="orion-logo.png" class="img-fluid" width="120" height="auto" alt="logo">
+
+                            </a>
+                            <p
+                                style="margin-top: 15px; max-width: 320px; white-space-collapse: collapse; color: #8c8c8c;">
+                                OrionTunes - Your ultimate destination for discovering, streaming, and sharing music.
+                            </p>
+                        </div>
+                        <div class="footer-text">
+                            <!-- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, doloribus esse rem necessitatibus eius exercitationem! -->
+                        </div>
+                        <div class="footer-social-icon " style="margin-top: 10px;">
+                            <div class="footer-widget-heading" style="margin-bottom: -10px;">
+                                <h3>Follow us</h3>
+                            </div>
+                            <a href="https://x.com/Dickson53194258" class="oj"><i class='bx bxl-twitter'
+                                    style="color: white;"></i></a>
+                            <a href="https://www.instagram.com/bi_tech2.0/" class="oj"><i class='bx bxl-instagram'
+                                    style="color: white;"></i></a>
+                            <a href="https://github.com/bi-Tech2" class="oj"><i class='bx bxl-snapchat'
+                                    style="color: white;"></i></a>
+                            <a href="https://web.snapchat.com/389ca514-e490-5b04-857a-35fc5c40f155" class="oj"><i
+                                    class='bx bxl-github' style="color: white;"></i></a>
                         </div>
                     </div>
+                </div>
+                <div class="spirit">
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Useful Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="download.html" class="link">Download Music</a></li>
+                            <li><a href="about.html" class="link">About OrionTunes</a></li>
+                            <li><a href="news.html" class="link">OrionTunes Blog</a></li>
+                            <li><a href="music.html" class="link">OrionTunes Music</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="ghost">
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Subscribe</h3>
+                        </div>
+                        <div class="footer-text mb-25">
+                            <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                        </div>
+                        <div class="subscribe-form">
+                            <form action="https://formspree.io/f/xvgppbqr" method="POST">
+                                <label>
+                                    <input type="email" name="email" placeholder="Email Address" required>
+                                </label>
+                                <button type="submit" style="margin-top: 22px; max-height: 45px;"><i
+                                        class='bx bxl-telegram'></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="copyright-area">
+            <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                <div class="copyright-text">
+                    <p>OrionTunes &copy; 2024, By <a href="https://www.instagram.com/bi_tech2.0/"
+                            class="link">BiTech</a></p>
+                </div>
+            </div>
         </div>
     </footer>
 
     <!--=============== MAIN JS ===============-->
-    <script src="assets/js/src.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- <script src="assets/js/src.js"></script>
+    <script src="assets/js/main.js"></script> -->
 </body>
 
 </html>
