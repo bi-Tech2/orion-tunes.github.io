@@ -17,9 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    tabsBox.addEventListener('mousedown', () => isDragging = true);
+    tabsBox.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        e.preventDefault();  // Prevent default behavior to ensure smooth dragging
+    });
+
     tabsBox.addEventListener('mousemove', (e) => {
-        if(!isDragging) return;
+        if (!isDragging) return;
         tabsBox.classList.add('dragging');
         tabsBox.scrollLeft -= e.movementX;
         handleIcons(tabsBox.scrollLeft);
@@ -73,35 +77,49 @@ const autocompleteList = document.getElementById('autocomplete-list');
 
 // List of autocomplete options with corresponding types and URLs
 const autocompleteOptions = [
-    { name: "Davido", type: "artist", url: "davido.html" },
-    { name: "Rema", type: "artist", url: "rema.html" },
-    { name: "Asake", type: "artist", url: "asake.html" },
+    { name: "Burna Boy (NG)", type: "artist", url: "burna-boy.html" },
+    { name: "Wizkid (NG)", type: "artist", url: "wizkid.html" },
+    { name: "Davido (NG)", type: "artist", url: "davido.html" },
+    { name: "XXX Tentacion (US)", type: "artist", url: "xxxtentacion.html" },
+    { name: "Lil Durk (US)", type: "artist", url: "lildurk.html" },
+    { name: "Work Of Art (Asake)", type: "album", url: "workofart.html" },
+    { name: "Shakespoppi (Shallipoppi)", type: "artist", url: "shakespop.html" },
+    { name: "Juice Wrld (US)", type: "artist", url: "juicewrld.html" },
+    { name: "Pain Paints Paintings (Dax)", type: "album", url: "painpaints.html" },
+    { name: "YWN Melly (US)", type: "artist", url: "ywnmelly.html" },
+    { name: "Download (Recommended)", type: "recommended", url: "download.html" },
+    { name: "Fighting Demons (Juice Wrld)", type: "album", url: "fighting.html" },
+    { name: "Made in Lagos (Wizkid)", type: "album", url: "wizkid.html" },
+    { name: "Hip-Hop (Recommended)", type: "recommended", url: "hiphop.html" },
+    { name: "Backdoor (Lil Durk)", type: "album", url: "lildurk.html" },
+    { name: "Bandana - ft Asake (Fireboy)", type: "album", url: "fireboy.html" },
+    { name: "Artists page (Recommended)", type: "recommended", url: "artists.html" },
+    { name: "African Giant (Burna Boy)", type: "album", url: "burna-boy.html" },
+    { name: "Blog (Recommended)", type: "blog", url: "news.html" },
+    { name: "Strings & Blings (Nasty C)", type: "album", url: "strings.html" },
+    { name: "Ye (Burna Boy)", type: "album", url: "burna-boy.html" },
+    { name: "Adekunle Gold (NG)", type: "artist", url: "adekunle.html" },
     { name: "Jack Harlow", type: "artist", url: "jack.html" },
-    { name: "Pop Smoke", type: "artist", url: "popsmoke.html" },
-    { name: "Wizkid", type: "artist", url: "wizkid.html" },
-
-
-
-    { name: "For You - Davido ft Teni", type: "music", url: "for-you.html" },
-    { name: "Option 4", type: "music", url: "option4.html" },
-
-
-
-    { name: "Work Of Art", type: "album", url: "workofart.html" },
-    { name: "Option 5", type: "album", url: "option5.html" },
-
-
-
-    { name: "Insight", type: "blog", url: "news.html" },
-    { name: "How Music Changed The World", type: "blog", url: "news.html" },
-
-
-
-    { name: "Party Starter", type: "recommended", url: "listen2.html" },
-    { name: "How to download", type: "recommended", url: "download.html" },
-    { name: "Music Player", type: "recommended", url: "player.html" },
-    { name: "Afrobeat", type: "recommended", url: "afro.html" }
+    { name: "Hello (Pop Smoke)", type: "music", url: "popsmoke.html" },
+    { name: "On the Low (Burna Boy)", type: "album", url: "burna-boy.html" },
+    { name: "Charm (Rema)", type: "album", url: "rema.html" },
+    { name: "Doe (Davido)", type: "album", url: "davido.html" },
+    { name: "What's Popping (Jack Harlow)", type: "album", url: "jack.html" },
+    { name: "Common Person (Burna Boy)", type: "album", url: "burna-boy.html" },
+    { name: "Pop Music", type: "recommended", url: "pop.html" },
+    { name: "Rap Music", type: "recommended", url: "rap.html" },
+    { name: "Afrobeats", type: "recommended", url: "afro.html" },
+    { name: "Music Insight", type: "recommended", url: "insight.html" },
+    { name: "OrionTunes Blog", type: "blog", url: "news.html" },
+    { name: "Asake", type: "artist", url: "asake.html" },
+    { name: "Holly + Drill", type: "album", url: "drill.html" },
+    { name: "Player", type: "album", url: "layer.html" },
+    { name: "About OrionTunes", type: "recommended", url: "about.html" },
+    { name: "23 (Album)", type: "album", url: "23.html" },
+    { name: "Fireboy DML", type: "artist", url: "fireboy.html" },
+    { name: "Kid Cudi", type: "artist", url: "kidcudi.html" }
 ];
+
 
 // Function to filter autocomplete options based on input value
 function filterOptions(inputValue) {
